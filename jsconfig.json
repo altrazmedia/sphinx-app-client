@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": "src",
+    "jsx": "react"
+  },
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
