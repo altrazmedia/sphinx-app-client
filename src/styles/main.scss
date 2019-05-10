@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+::selection {
+  background-color: $secondary;
+  color: $textInverted;
+}
+
+
+body, html {
+  font-family: $font;
+  font-size: 15px;
+  color: $text;
+  background-color: $bg;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4 {
+  color: $textDark;
+}

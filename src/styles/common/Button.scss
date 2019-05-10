@@ -1,0 +1,169 @@
+.button {
+  padding: $buttonPaddingY $buttonPaddingX;
+  text-transform: uppercase;
+  border-radius: $borderRadius;;
+  cursor: pointer;
+  font-size: .9rem;
+  letter-spacing: 0.5px;
+  line-height: $buttonLineHeight;
+  font-weight: 600;
+  outline-width: 0;
+  position: relative;
+  font-family: $font;
+  
+  @include transition(all);
+
+  &:disabled {
+    opacity: .4;
+    cursor: initial;
+  }
+
+  &.type-default {
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+    color: $textInverted;
+
+    @mixin defaultButton($color) {
+      background-color: $color;
+      
+
+      &:hover:not(:disabled) {
+        background-color: darken($color, 5%);
+        box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+      }
+
+    }
+
+    &.color-primary,  &.color-default {
+      @include defaultButton($primary);
+    }
+  
+    &.color-secondary {
+      @include defaultButton($secondary);
+    }
+
+    &.color-error {
+      @include defaultButton($error);
+    }
+
+    &.color-success {
+      @include defaultButton($success);
+    }
+
+  
+  }
+
+  &.type-text {
+    color: $textDark;
+
+    @mixin textButton($color) {
+
+      &:hover:not(:disabled), &:focus:not(:disabled) {
+        color: $color;
+      }
+    }
+
+
+
+    &.color-primary {
+      @include textButton($primary);
+    }
+
+    &.color-default {
+      @include textButton($textDark);
+    }
+  
+    &.color-secondary {
+      @include textButton($secondary);
+    }
+
+    &.color-error {
+      @include textButton($error);
+    }
+
+    &.color-success {
+      @include textButton($success);
+    }
+
+  }
+
+  &.type-icon {
+
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      margin: 0;
+      opacity: .7;
+      @include transition(opacity);
+    }
+
+    @mixin iconButton($color) {
+
+      .icon {
+        color: $color;
+      }
+
+      &:hover:not(:disabled) {
+        .icon {
+          opacity: 1;
+        }
+      }
+
+    }
+
+    &.color-primary {
+      @include iconButton($primary);
+    }
+
+    &.color-default {
+      @include iconButton($textDark);
+    }
+  
+    &.color-secondary {
+      @include iconButton($secondary);
+    }
+
+    &.color-error {
+      @include iconButton($error);
+    }
+
+    &.color-success {
+      @include iconButton($success);
+    }
+
+  }
+
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: $spacing * 2 0;
+  width: 100%;
+
+  &.align-left {
+    justify-content: flex-start;
+  }
+
+  &.align-center {
+    justify-content: center;
+  }
+
+  &.align-right {
+    justify-content: flex-end;
+  }
+
+  .button {
+    margin-right: $spacing;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  
+}

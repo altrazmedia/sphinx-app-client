@@ -1,0 +1,31 @@
+$font: "Muli", sans-serif;
+
+$spacing: 8px;
+$borderRadius: 4px;
+
+$buttonLineHeight: 22px;
+$buttonPaddingY: 9px;
+$buttonPaddingX: 19px;
+
+// PALETTE
+
+$text: #6e6e6e;
+$textDark: #464647;
+$textLight: #6b6b6d;
+$textInverted: #f8f8f8;
+
+$primary:#f18024;
+$secondary: #3a5064;
+$success:#306d4b;
+$error: #aa2828;
+
+$bg: #f8f8f8;
+$bgCard: #ffffff;
+$bgDark: #222222;
+
+$border: #e0e0e0;
+
+
+@mixin transition($prop) {
+  transition: $prop 255ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
