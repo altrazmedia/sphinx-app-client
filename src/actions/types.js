@@ -1,0 +1,6 @@
+export const LOGIN  = "LOGIN";
+export const LOGOUT = "LOGOUT";
+
+export const CURRENT_USER_LOADING = "CURRENT_USER_LOADING";
+export const CURRENT_USER_SUCCESS = "CURRENT_USER_SUCCESS";
+export const CURRENT_USER_ERROR   = "CURRENT_USER_ERROR";
