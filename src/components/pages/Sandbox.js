@@ -37,20 +37,20 @@ class Sandbox extends PureComponent {
         </Button.Group>
 
         <Button.Group>
-          <Button type="text" color="default">Primary</Button>
-          <Button type="text" color="primary">Primary</Button>
-          <Button type="text" color="secondary">Secondary</Button>
-          <Button type="text" color="success">Success</Button>
-          <Button type="text" color="error">Error</Button>
-          <Button type="text" disabled>Disabled</Button>
+          <Button variant="text" color="default">Primary</Button>
+          <Button variant="text" color="primary">Primary</Button>
+          <Button variant="text" color="secondary">Secondary</Button>
+          <Button variant="text" color="success">Success</Button>
+          <Button variant="text" color="error">Error</Button>
+          <Button variant="text" disabled>Disabled</Button>
         </Button.Group>
 
         <Button.Group>
-          <Button type="icon" icon="burn" color="default" />
-          <Button type="icon" icon="burn" color="primary" />
-          <Button type="icon" icon="burn" color="secondary" />
-          <Button type="icon" icon="burn" color="error" />
-          <Button type="icon" icon="burn" color="success" />
+          <Button variant="icon" icon="burn" color="default" />
+          <Button variant="icon" icon="burn" color="primary" />
+          <Button variant="icon" icon="burn" color="secondary" />
+          <Button variant="icon" icon="burn" color="error" />
+          <Button variant="icon" icon="burn" color="success" />
         </Button.Group>
 
         <div>
@@ -87,7 +87,7 @@ class Sandbox extends PureComponent {
             </p>
           </Modal.Content>
           <Modal.Buttons>
-            <Button type="text" onClick={this.closeModal("modal1")}>Close</Button>
+            <Button variant="text" onClick={this.closeModal("modal1")}>Close</Button>
             <Button onClick={this.closeModal("modal1")} >OK!</Button>
           </Modal.Buttons>
         </Modal>

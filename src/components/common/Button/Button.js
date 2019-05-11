@@ -7,17 +7,17 @@ import { Icon } from "components/common";
 
 const Button = props => {
 
-  const { color, type, content, children, icon, iconPosition, className, ...rest } = props;
+  const { color, variant, content, children, icon, iconPosition, className, ...rest } = props;
 
   const classNames = cx(
     "button",
     `color-${color}`,
-    `type-${type}`,
-    { [`icon-position-${iconPosition}`]: type !== "icon" },
+    `variant-${variant}`,
+    { [`icon-position-${iconPosition}`]: variant !== "icon" },
     className
   )
 
-  const _content = type === "icon" ? null : content || children;
+  const _content = variant === "icon" ? null : content || children;
   const _icon = icon ? <Icon name={icon} key="icon" /> : null;
   
   const toRender = iconPosition === "left" ? [ _icon, _content ] : [ _content, _icon ];
@@ -36,14 +36,14 @@ const Button = props => {
 
 Button.defaultProps = {
   color: "default",
-  type: "default",
+  variant: "default",
   iconPosition: "right",
   disabled: false
 }
 
 Button.propTypes = {
   color: PropTypes.oneOf([ "default", "primary", "secondary", "error", "success" ]),
-  type: PropTypes.oneOf([ "default", "text", "icon" ]),
+  variant: PropTypes.oneOf([ "default", "text", "icon" ]),
   icon: PropTypes.string, // Icon name
   iconPosition: PropTypes.oneOf([ "left", "right" ]),
   content: PropTypes.string,
