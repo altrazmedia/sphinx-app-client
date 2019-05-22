@@ -22,8 +22,8 @@ const Illustration = props => {
 
 
 Illustration.propTypes = {
-  header: PropTypes.string,
-  description: PropTypes.string,
+  header: PropTypes.node,
+  description: PropTypes.node,
   image: PropTypes.string // name of the svg file
 }
 

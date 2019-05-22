@@ -16,8 +16,8 @@ const PageHeader = (props) => {
 }
 
 PageHeader.propTypes = {
-  header: PropTypes.string,
-  description: PropTypes.string
+  header: PropTypes.node,
+  description: PropTypes.node
 }
 
 export default PageHeader;
