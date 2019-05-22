@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Home         from "components/pages/Home";
 import Sandbox      from "components/pages/Sandbox";
 import Login        from "components/pages/Login";
 import CoursesLead  from "components/pages/CoursesLead";
@@ -45,6 +46,7 @@ class AppContainer extends PureComponent {
               <Sidebar />
               <div className="app__container">
                 <Switch>
+                  <Route path="/" exact component={Home} />
                   <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
                   <Route component={NotFound} />
                 </Switch>
