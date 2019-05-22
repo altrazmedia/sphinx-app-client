@@ -6,6 +6,7 @@
   background: none;
   outline: none;
   text-decoration: none;
+  font-weight: 400;
   &:focus {
     outline: none;
   }
@@ -35,5 +36,39 @@ strong, b {
 
 h1, h2, h3, h4 {
   color: $textDark;
+  font-weight: 600;
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  td, th {
+    text-align: left;
+    padding: $spacing * 2 $spacing;
+  }
+
+  th {
+    font-weight: 600;
+    color: $textDark;
+    font-size: 1.1rem;
+    border-bottom: 1px solid $border;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $borderLight;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+}
+
+
+.segment {
+  width: 100%;
+  background-color: $bgCard;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+  padding: $spacing * 2;
+  border-radius: $borderRadius;
+}
