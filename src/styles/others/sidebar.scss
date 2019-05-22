@@ -1,0 +1,56 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #242424;
+  box-shadow: 4px 0px 8px 0px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+
+    
+  &__item {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    text-transform: uppercase;
+    height: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    &:hover:not(.sidebar__item--active) {
+      .sidebar__name, .sidebar__icon {
+        color: rgba($primary, .5);
+      }
+    }
+
+    &--logout:hover {
+      .sidebar__name, .sidebar__icon {
+        color: rgba($error, .8);
+      }
+    }
+
+  }
+
+  &__name, &__icon {
+    color: rgba($textInverted, .5);
+    @include transition(color);
+  }
+
+  &__item--active &__name, &__item--active &__icon {
+    color: $primary;
+  }
+
+
+  &__icon-wrapper {
+    width: 50px;
+    text-align: center;
+    margin-right: 5px;
+  }
+
+
+}

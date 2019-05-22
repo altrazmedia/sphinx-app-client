@@ -5,6 +5,7 @@
   border: 0;
   background: none;
   outline: none;
+  text-decoration: none;
   &:focus {
     outline: none;
   }
@@ -21,6 +22,11 @@ body, html {
   font-size: 15px;
   color: $text;
   background-color: $bg;
+}
+
+a {
+  color: $text;
+  outline: none;
 }
 
 strong, b {
