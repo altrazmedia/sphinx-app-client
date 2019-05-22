@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Sandbox      from "components/pages/Sandbox";
 import Login        from "components/pages/Login";
 import CoursesLead  from "components/pages/CoursesLead";
+import NotFound     from "components/others/404";
 import Sidebar      from "components/others/Sidebar";
 
 import ProtectedRoute from "components/common/ProtectedRoute";
@@ -32,7 +33,7 @@ class AppContainer extends PureComponent {
     const { isUserLoggedIn } = this.props;
   
     return (
-      <Switch>
+      <>
         {
           process.env.NODE_ENV === "development" ? 
             <Route path="/sandbox" component={Sandbox} />
@@ -43,12 +44,15 @@ class AppContainer extends PureComponent {
             <div className="app">
               <Sidebar />
               <div className="app__container">
-                <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
+                <Switch>
+                  <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
+                  <Route component={NotFound} />
+                </Switch>
               </div>
             </div>
           : <Login />
         }
-      </Switch>
+      </>
     )
 
   }

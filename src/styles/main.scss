@@ -72,3 +72,13 @@ h1, h2, h3, h4 {
   padding: $spacing * 2;
   border-radius: $borderRadius;
 }
+
+.text-link {
+  color: inherit;
+  border-bottom: 1px dashed;
+  @include transition(all);
+
+  &:hover {
+    color: $primary;
+  }
+}
