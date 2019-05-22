@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 
 import Sandbox      from "components/pages/Sandbox";
 import Login        from "components/pages/Login";
+import CoursesLead  from "components/pages/CoursesLead";
 import Sidebar      from "components/others/Sidebar";
 
+import ProtectedRoute from "components/common/ProtectedRoute";
 
 import { onUserLogin } from "actions/currentUserActions";
 
@@ -41,6 +43,7 @@ class AppContainer extends PureComponent {
             <div className="app">
               <Sidebar />
               <div className="app__container">
+                <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
               </div>
             </div>
           : <Login />
