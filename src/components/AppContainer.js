@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import Sandbox from "components/pages/Sandbox";
 import Login from "components/pages/Login";
+import Sidebar from "components/others/Sidebar";
 
 import { onUserLogin } from "actions/currentUserActions";
 
@@ -36,7 +37,9 @@ class AppContainer extends PureComponent {
         }
         {
           isUserLoggedIn ? 
-            null
+            <>
+              <Sidebar />
+            </>
           : <Login />
         }
       </Switch>
