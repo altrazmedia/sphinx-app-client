@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, CURRENT_USER_LOADING, CURRENT_USER_SUCCESS, CURRENT_USER_ERROR } from "actions/types"
+import * as types from "actions/types"
 
 const initialState = {
   isUserLoggedIn: false,
@@ -11,28 +11,29 @@ export default (state = initialState, action) => {
 
   switch(action.type) {
 
-    case LOGIN: {
+    case types.LOGIN: {
       return {
         ...state,
         isUserLoggedIn: true
       }
     }
 
-    case LOGOUT: {
+    case types.LOGOUT: {
       return {
         ...state,
-        isUserLoggedIn: false
+        isUserLoggedIn: false,
+        data: {}
       }
     }
 
-    case CURRENT_USER_LOADING: {
+    case types.CURRENT_USER_LOADING: {
       return {
         ...state,
         loading: action.payload
       }
     }
 
-    case CURRENT_USER_SUCCESS: {
+    case types.CURRENT_USER_SUCCESS: {
       return {
         ...state,
         data: action.payload,
@@ -41,7 +42,7 @@ export default (state = initialState, action) => {
       }
     }
 
-    case CURRENT_USER_ERROR: {
+    case types.CURRENT_USER_ERROR: {
       return {
         ...state,
         data: {},

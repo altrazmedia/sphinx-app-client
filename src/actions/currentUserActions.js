@@ -1,8 +1,8 @@
-import axios, { setSessionHeader } from "config/axios";
-import { LOGIN, CURRENT_USER_LOADING, CURRENT_USER_SUCCESS, CURRENT_USER_ERROR } from "./types";
+import axios, { setSessionHeader, removeSessionHeader } from "config/axios";
+import * as types  from "./types";
+
 
 /**
- * 
  * @param {Object} payload
  * @param {String} email
  * @param {String} password
@@ -26,24 +26,42 @@ export const login = ({ email, password, onError }) => dispatch => {
 export const onUserLogin = (session_id) => dispatch => {
   localStorage.setItem("session_id", session_id);
   setSessionHeader(session_id); // Setting the requests header
-  dispatch({ type: LOGIN });
+  dispatch({ type: types.LOGIN });
   dispatch(getCurrentUserInfo());
 }
 
+/**
+ * Logging out the user
+ */
+export const logout = () => dispatch => {
+  axios.delete("session")
+    .finally(() => {
+      // Removing info about user's session from localStorage and axios config regardless of result of removing session in database
+      localStorage.removeItem("session_id");
+      removeSessionHeader();
+      dispatch({ type: types.LOGOUT })
+    })
+}
 
+
+/**
+ * Fetching current user info
+ * @param {Object} payload 
+ * @param {Boolean} payload.loading Should state.currentUser.loading filed be modified
+ */
 export const getCurrentUserInfo = (payload = {}) => dispatch => {
   const { loading = true } = payload;
 
   if (loading) {
-    dispatch({ type: CURRENT_USER_LOADING, payload: true })
+    dispatch({ type: types.CURRENT_USER_LOADING, payload: true })
   }
 
   axios.get("me")
     .then(result => {
       const { data } = result;
-      dispatch({ type: CURRENT_USER_SUCCESS, payload: data })
+      dispatch({ type: types.CURRENT_USER_SUCCESS, payload: data })
     })
     .catch(err => {
-      dispatch({ type: CURRENT_USER_ERROR, payload: err.response })
+      dispatch({ type: types.CURRENT_USER_ERROR, payload: err.response })
     })
 }
