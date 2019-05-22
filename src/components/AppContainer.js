@@ -2,9 +2,10 @@ import React, { PureComponent } from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Sandbox from "components/pages/Sandbox";
-import Login from "components/pages/Login";
-import Sidebar from "components/others/Sidebar";
+import Sandbox      from "components/pages/Sandbox";
+import Login        from "components/pages/Login";
+import Sidebar      from "components/others/Sidebar";
+
 
 import { onUserLogin } from "actions/currentUserActions";
 
@@ -37,9 +38,11 @@ class AppContainer extends PureComponent {
         }
         {
           isUserLoggedIn ? 
-            <>
+            <div className="app">
               <Sidebar />
-            </>
+              <div className="app__container">
+              </div>
+            </div>
           : <Login />
         }
       </Switch>
