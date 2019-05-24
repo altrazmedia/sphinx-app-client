@@ -1,12 +1,14 @@
 import React, { PureComponent } from "react";
 
 
-import { Button, Icon, Modal, Input } from "components/common";
+import { Button, Icon, Modal, Input, Select } from "components/common";
 
 class Sandbox extends PureComponent {
 
   state = {
-    modal1: false
+    modal1: false,
+    select1: "",
+    select2: ""
   }
 
   openModal = (modal) => () => {
@@ -125,6 +127,29 @@ class Sandbox extends PureComponent {
           />
 
         </div>
+
+        <h1>Select</h1>
+        <Select 
+          placeholder="Select"
+          value={this.state.select1}
+          options={[
+            { value: "a", text: "Afganistan" },
+            { value: "b", text: "Belgia" },
+            { value: "c", text: "Cypr" },
+          ]}
+          onChange={value => this.setState({ select1: value })}
+        />
+        <Select 
+          fullWidth
+          placeholder="Fullwidth Select"
+          value={this.state.select2}
+          options={[
+            { value: "a", text: "Afganistan" },
+            { value: "b", text: "Belgia" },
+            { value: "c", text: "Cypr" },
+          ]}
+          onChange={value => this.setState({ select2: value })}
+        />
 
       </React.Fragment>
     )
