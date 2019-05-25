@@ -1,9 +1,7 @@
 import { combineReducers } from "redux";
 
-import currentUserReducer from "./currentUserReducer";
-import leadCoursesReducer from "./leadCoursesReducer";
+import subjectsReducer     from "./subjectsReducer";
 
 export default combineReducers({
-  currentUser: currentUserReducer,
-  leadCourses: leadCoursesReducer
+  subjects:     subjectsReducer,
 });
