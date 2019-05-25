@@ -9,3 +9,4 @@ export { default as Illustration  } from "./Illustration";
 export { default as Select        } from "./Select";
 export { default as Checkbox      } from "./Checkbox";
 export { default as ErrorMessage  } from "./ErrorMessage";
+export { default as ColumnView    } from "./ColumnView";
