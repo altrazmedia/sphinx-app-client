@@ -8,3 +8,4 @@ export { default as PageHeader    } from "./PageHeader";
 export { default as Illustration  } from "./Illustration";
 export { default as Select        } from "./Select";
 export { default as Checkbox      } from "./Checkbox";
+export { default as ErrorMessage  } from "./ErrorMessage";

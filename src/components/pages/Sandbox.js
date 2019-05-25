@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 
 
-import { Button, Icon, Modal, Input, Select, Checkbox } from "components/common";
+import { Button, Icon, Modal, Input, Select, Checkbox, ErrorMessage } from "components/common";
 
 class Sandbox extends PureComponent {
 
@@ -172,6 +172,14 @@ class Sandbox extends PureComponent {
           checked={this.state.checkbox3}
           onChange={e => this.setState({ checkbox3: e.target.checked })}
         />
+
+        <h1>Error Message</h1>
+        <ErrorMessage content="You can't do that!" fullWidth />
+        <ErrorMessage content="This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag." />
 
       </React.Fragment>
     )

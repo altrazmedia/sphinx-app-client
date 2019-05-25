@@ -1,0 +1,27 @@
+.error-message {
+  width: 100%;
+  max-width: 500px;
+  border-radius: $borderRadius;
+  background-color: $error;
+  color: $textInverted;
+  padding: $spacing * 2 $spacing;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+  margin-top: $spacing * 2;
+  margin-bottom: $spacing * 2;
+
+  &.fullWidth {
+    max-width: 100%;
+  }
+
+  &::selection {
+    color: $error;
+    background-color: $textInverted;
+  }
+
+  &__icon {
+    margin-right: $spacing * 2;
+  }
+}
