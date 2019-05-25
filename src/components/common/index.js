@@ -7,3 +7,4 @@ export { default as Loader        } from "./Loader";
 export { default as PageHeader    } from "./PageHeader";
 export { default as Illustration  } from "./Illustration";
 export { default as Select        } from "./Select";
+export { default as Checkbox      } from "./Checkbox";

@@ -1,14 +1,17 @@
 import React, { PureComponent } from "react";
 
 
-import { Button, Icon, Modal, Input, Select } from "components/common";
+import { Button, Icon, Modal, Input, Select, Checkbox } from "components/common";
 
 class Sandbox extends PureComponent {
 
   state = {
     modal1: false,
     select1: "",
-    select2: ""
+    select2: "",
+    checkbox: false,
+    checkbox2: false,
+    checkbox3: true,
   }
 
   openModal = (modal) => () => {
@@ -149,6 +152,25 @@ class Sandbox extends PureComponent {
             { value: "c", text: "Cypr" },
           ]}
           onChange={value => this.setState({ select2: value })}
+        />
+
+        <h1>Checkbox</h1>
+        <Checkbox 
+          checked={this.state.checkbox}
+          onChange={e => this.setState({ checkbox: e.target.checked })}
+        />
+        <br />
+        <Checkbox 
+          label="Label"
+          checked={this.state.checkbox2}
+          onChange={e => this.setState({ checkbox2: e.target.checked })}
+        />
+        <br />
+        <Checkbox 
+          label="Disabled"
+          disabled
+          checked={this.state.checkbox3}
+          onChange={e => this.setState({ checkbox3: e.target.checked })}
         />
 
       </React.Fragment>
