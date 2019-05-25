@@ -101,6 +101,11 @@
       @include transition(opacity);
     }
 
+    &.size-small {
+      width: 35px;
+      height: 35px;
+    }
+
     @mixin iconButton($color) {
 
       .icon {
