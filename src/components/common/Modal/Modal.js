@@ -42,7 +42,7 @@ Modal.propTypes = {
   // Is modal open
   close: PropTypes.func,
   // function to close the modal; if provided, the closing button is displayed
-  title: PropTypes.string,
+  title: PropTypes.node,
 }
 
 export default Modal;
