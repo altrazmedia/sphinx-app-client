@@ -1,0 +1,72 @@
+testsSchemas.header:
+  en: Tests schemas
+  pl: Schematy testów
+testsSchemas.create.header:
+  en: Create a new test schema
+  pl: Utwórz nowy schemat testu
+pickSubject:
+  en: Select a subject
+  pl: Wybierz przedmiot
+pickSubject.description:
+  en: Expand the list above and select on of the subjects
+  pl: Rozwiń listę powyżej i wybierz jeden z przedmiotów
+testsSchemas.emptyList:
+  en: This subject has no tests created yet.
+  pl: Nie ma jeszcze żadnych testów przypisanych do tego przedmiotu.
+testsSchema.createNew:
+  en: Create new
+  pl: Utwórz nowy
+testsSchemas.name:
+  en: Name
+  pl: Nazwa 
+testsSchemas.nameFull:
+  en: Test name
+  pl: Nazwa testu
+testsSchemas.author:
+  en: Author
+  pl: Autor
+testsSchemas.questionsNr:
+  en: Number of questions
+  pl: Liczba pytań
+testsSchemas.details:
+  en: Details
+  pl: Szczegóły
+testsSchemas.description:
+  en: Short description
+  pl: Krótki opis 
+testsSchemas.questions:
+  en: Questions
+  pl: Pytania
+testsSchemas.questionContent:
+  en: Question content
+  pl: Treść pytania
+testsSchemas.answers:
+  en: Answers
+  pl: Odpowiedzi
+testsSchemas.correctAnswer:
+  en: Correct answer
+  pl: Prawidłowa odpowiedź
+testsSchemas.addQuestion:
+  en: Add new question
+  pl: Dodaj pytanie
+testsSchemas.addAnswer:
+  en: Add answer
+  pl: Dodaj odpowiedź
+testsSchemas.noOptionsError:
+  en: You have to add at least two answers
+  pl: Musisz dodać co najmniej dwie możliwe odpowiedzi
+testsSchemas.noCorrectOptionsError:
+  en: You have to mark at least one answer as correct
+  pl: Conajmniej jednak z odpowiedzi musi być prawidłowa
+testsSchemas.noSubjectError:
+  en: You have to pick a subject
+  pl: Musisz wybrać jeden z przedmiotów
+testsSchemas.noQuestions:
+  en: You have to create at least one question
+  pl: Musisz utworzyć co najmniej jedno pytanie
+testSchema.notFound.header:
+  en: We couldn't find this test
+  pl: Nie udało się odnaleźć tego testu
+testSchema.notFound.description:
+  en: Make sure you typed the URL address correctly
+  pl: Upewnij się, że adres URL został wpisany poprawnie

@@ -1,0 +1,33 @@
+loadingData:
+  en: Loading data...
+  pl: Ładowanie danych...
+emptyBox:
+  en: The box is empty...
+  pl: Pudło jest puste...
+somethingWrong:
+  en: Something went wrong...
+  pl: Coś poszło nie tak...
+fetchError:
+  en: An unexpected error occurred while downloading the data from the server.
+  pl: W trakcie pobierania danych z serwera wystąpił niespodziewany bład.
+accessDenied:
+  en: Access denied
+  pl: Odmowa dostępu
+accessDenied.description:
+  en: It seems that you are not permitted to access this content.
+  pl: Wygląda na to, że nie jesteś upoważniony do przeglądania tej treści.
+cancel:
+  en: Cancel
+  pl: Anuluj
+remove:
+  en: Remove
+  pl: Usuń
+save:
+  en: Save
+  pl: Zapisz
+emptyField:
+  en: This field cannot be empty
+  pl: To pole nie może być poste
+operationError:
+  en: An unexpected error occurred while performing the operation
+  pl: W trakcie wykonywania operacji wystąpił niespodziewany błąd

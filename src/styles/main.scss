@@ -82,3 +82,7 @@ h1, h2, h3, h4 {
     color: $primary;
   }
 }
+
+hr {
+  border-top: 1px solid $border;
+}
