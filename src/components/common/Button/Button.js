@@ -8,7 +8,7 @@ import { Icon } from "components/common";
 
 const Button = props => {
 
-  const { color, variant, content, to, children, icon, iconPosition, size, className, ...rest } = props;
+  const { color, type, variant, content, to, children, icon, iconPosition, size, className, ...rest } = props;
 
   const classNames = cx(
     "button",
@@ -20,13 +20,14 @@ const Button = props => {
   )
 
   const _content = variant === "icon" ? null : content || children;
-  const _icon = icon ? <Icon name={icon} key="icon" size={size} /> : null;
+  const _icon = icon ? <Icon name={icon} key="icon" size="small" /> : null;
   
   const toRender = iconPosition === "left" ? [ _icon, _content ] : [ _content, _icon ];
 
   const _btn = (
     <button
       className={classNames}
+      type={type}
       {...rest}
     >
       {toRender}
@@ -43,7 +44,8 @@ Button.defaultProps = {
   variant: "default",
   iconPosition: "right",
   size: "default",
-  disabled: false
+  disabled: false,
+  type: "button"
 }
 
 Button.propTypes = {

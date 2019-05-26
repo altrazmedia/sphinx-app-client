@@ -19,7 +19,7 @@ Group.defaultProps = {
 }
 
 Group.propTypes = {
-  align: PropTypes.oneOf([ "left", "center", "right" ]),
+  align: PropTypes.oneOf([ "left", "center", "right", "space-between" ]),
 }
 
 export default Group;
