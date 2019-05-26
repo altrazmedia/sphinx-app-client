@@ -1,0 +1,42 @@
+course.header:
+  en: course details
+  pl: szczegóły zajęć
+course.notFound.header:
+  en: We couldn't find this course
+  pl: Nie udało się odnaleźć podanych zajęć
+course.notFound.description:
+  en: Make sure you typed the URL address correctly
+  pl: Upewnij się, że adres URL został wpisany poprawnie
+course.page.main:
+  en: Main information
+  pl: Główne informacje
+course.page.students:
+  en: Students list
+  pl: Lista studentów
+course.page.tests:
+  en: Tests
+  pl: Testy
+course.my_access.student:
+  en: You're taking part in this course
+  pl: Bierzesz udział w tych zajęciach
+course.my_access.teacher:
+  en: You're teaching in this course
+  pl: Prowadzisz te zajęcia
+course.teacher:
+  en: Teacher
+  pl: Prowadzący
+course.noStudents:
+  en: There are no students assigned to this course
+  pl: Nie znaleźliśmy żadnych studentów zapisanych na te zajęcia
+course.noTests:
+  en: There are no tests assigned to this course
+  pl: Nie znaleźliśmy żadnych testów przeprowadzanych w ramach tych zajęć
+coursesLead.header:
+  en: Courses you are teching
+  pl: Zajęcia prowadzone przez ciebie
+coursesLead.noCourses:
+  en: There are no courses you are currently teaching
+  pl: Nie znaleźliśmy żadnych prowadzonych przez Ciebie zajęć
+course.testAdded:
+  en: Test has been successfully added to this course
+  pl: Test został pomyślnie utworzony

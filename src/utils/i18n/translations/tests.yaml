@@ -1,0 +1,36 @@
+test.ongoing:
+  en: Ongoing test
+  pl: Test trwa obecnie
+test.finished:
+  en: Finished test
+  pl: Test zakończony
+test.pending:
+  en: Pending test
+  pl: Test jeszcze się nie rozpoczął
+test:
+  en: Test
+  pl: Test
+test.start:
+  en: Start date
+  pl: Data rozpoczęcia
+test.end:
+  en: End date
+  pl: Data zakończenia
+test.startNew:
+  en: Start new test
+  pl: Zacznij nowy test
+test.pickSchema:
+  en: Select test schema
+  pl: Wybierz schemat testu
+test.startNow:
+  en: Start test immediately
+  pl: Rozpocznij test od razu
+test.startDate:
+  en: Test start day
+  pl: Dzień rozpoczęcia
+test.startTime:
+  en: Test start time
+  pl: Godzina rozpoczęcia
+test.duration:
+  en: Test duration (in minutes)
+  pl: Czas trwania (w minutach)

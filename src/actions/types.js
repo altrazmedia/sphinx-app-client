@@ -20,3 +20,7 @@ export const TEST_SCHEMA_ERROR       = "TEST_SCHEMA_ERROR";
 export const SUBJECTS_LOADING   = "SUBJECTS_LOADING";
 export const SUBJECTS_SUCCESS   = "SUBJECTS_SUCCESS";
 export const SUBJECTS_ERROR     = "SUBJECTS_ERROR";
+
+export const COURSE_LOADING   = "COURSE_LOADING";
+export const COURSE_SUCCESS   = "COURSE_SUCCESS";
+export const COURSE_ERROR     = "COURSE_ERROR";

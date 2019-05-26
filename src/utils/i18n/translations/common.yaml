@@ -31,3 +31,21 @@ emptyField:
 operationError:
   en: An unexpected error occurred while performing the operation
   pl: W trakcie wykonywania operacji wystąpił niespodziewany błąd
+markings:
+  en: Makrings
+  pl: Oznaczenia
+status:
+  en: Status
+  pl: Status
+details:
+  en: Details
+  pl: Szczegóły
+code:
+  en: Code
+  pl: Oznaczenie
+select:
+  en: Select
+  pl: Wybierz
+close:
+  en: Close
+  pl: Zamknij

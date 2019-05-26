@@ -14,7 +14,7 @@ const Modal = props => {
   const _header = title || close ? (
     <header className="modal__header">
       { title && <h2 className="modal__title">{title}</h2> }
-      { close && <Button type="icon" icon="times" color="default" onClick={close} size="small" className="modal__close-btn" /> }
+      { close && <Button variant="icon" icon="times" color="default" onClick={close} size="small" className="modal__close-btn" /> }
     </header>
   ) : null;
 
