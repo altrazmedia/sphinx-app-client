@@ -37,6 +37,9 @@ strong, b {
 h1, h2, h3, h4 {
   color: $textDark;
   font-weight: 600;
+  span {
+    font-weight: 600;
+  }
 }
 
 .table {
@@ -85,4 +88,10 @@ h1, h2, h3, h4 {
 
 hr {
   border-top: 1px solid $border;
+  margin-top: $spacing;
+  margin-bottom: $spacing;
+}
+
+.text-light {
+  color: $textLight;
 }

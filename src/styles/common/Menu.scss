@@ -1,0 +1,38 @@
+.menu {
+  width: 100%;
+  // background-color: yellowgreen;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: $spacing * 2;
+  margin-top: $spacing * 2;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    border-bottom: 1px solid $border;
+    width: auto;
+  }
+
+  &__item {
+    display: inline;
+    list-style: none;
+    padding: $spacing * 2;
+    text-transform: uppercase;
+    transform: translateY(1px);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    @include transition(all);
+    text-align: center;
+
+    &.active {
+      color: $primary;
+      border-color: $primary;
+    }
+
+    &:hover:not(.active) {
+      color: rgba($primary, .6);
+    }
+  }
+
+}
