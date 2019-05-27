@@ -40,3 +40,6 @@ coursesLead.noCourses:
 course.testAdded:
   en: Test has been successfully added to this course
   pl: Test został pomyślnie utworzony
+course: 
+  en: Course
+  pl: Zajęcia

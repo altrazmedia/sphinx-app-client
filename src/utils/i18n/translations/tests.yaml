@@ -34,3 +34,30 @@ test.startTime:
 test.duration:
   en: Test duration (in minutes)
   pl: Czas trwania (w minutach)
+test.notFound.header:
+  en: We couldn't find this test
+  pl: Nie udało się odnaleźć podanego testu
+test.notFound.description:
+  en: Make sure you typed the URL address correctly
+  pl: Upewnij się, że adres URL został wpisany poprawnie
+test.my_access.teacher:
+  en: You are carrying out this test
+  pl: Ten test jest przeprowadzany przez ciebie
+test.my_access.student:
+  en: You are a part of the group assigned to this test
+  pl: Jesteś w grupie biorącej udział w tym teście
+test.header:
+  en: test details
+  pl: szczegóły testu
+test.page.main:
+  en: Main information
+  pl: Główne informacje
+test.page.results:
+  en: Results
+  pl: Wyniki
+test.questionAnswered:
+  en: Question answered
+  pl: Liczba odpowiedzi
+test.score:
+  en: Score
+  pl: Wynik
