@@ -17,7 +17,7 @@ class Subjects extends PureComponent {
   }
 
   componentDidUpdate = () => {
-    if (this.props.subjects.loading !== this.state.laoding) {
+    if (this.props.subjects.loading !== this.state.loading) {
       this.setState({ loading: this.props.subjects.loading })
     }
   }
