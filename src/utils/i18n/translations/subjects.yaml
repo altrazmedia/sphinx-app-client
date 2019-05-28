@@ -1,3 +1,21 @@
 subject:
   en: Subject
   pl: Przedmiot
+subjects.header:
+  en: Subjects list
+  pl: Lista przedmiotów
+subjects.noSubjects:
+  en: There are no subjects created yet
+  pl: W bazie nie ma jeszcze żadnego przedmiotu
+subjects.add:
+  en: Add new
+  pl: Dodaj nowy
+subjects.addLong:
+  en: Add new subject
+  pl: Dodaj nowy przedmiot
+subjects.code:
+  en: Subject code (unique)
+  pl: Oznaczenie przedmiotu (unikalna)
+subjects.codeDuplicate:
+  en: There already is another subject with that code
+  pl: Inny przedmiot posiada już takie oznaczenie

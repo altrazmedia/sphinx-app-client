@@ -9,6 +9,8 @@ import CoursesLead  from "components/pages/CoursesLead";
 import Course       from "components/pages/Course";
 import TestsSchemas from "components/pages/TestsSchemas";
 import Test         from "components/pages/Test";
+import Subjects     from "components/pages/Subjects";
+
 import NotFound     from "components/others/404";
 import Sidebar      from "components/others/Sidebar";
 
@@ -52,6 +54,7 @@ class AppContainer extends PureComponent {
                   <Route path="/" exact component={Home} />
                   <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
                   <ProtectedRoute roles={[ "teacher" ]} component={TestsSchemas} path="/tests-schemas" />
+                  <ProtectedRoute roles={[ "admin" ]} component={Subjects} path="/subjects" />
                   <Route path="/course/:code" exact component={Course} />
                   <Route path="/test/:id" exact component={Test} />
                   <Route component={NotFound} />

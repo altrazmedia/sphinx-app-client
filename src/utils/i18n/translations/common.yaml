@@ -49,3 +49,6 @@ select:
 close:
   en: Close
   pl: Zamknij
+name:
+  en: Name
+  pl: Nazwa
