@@ -15,7 +15,7 @@ class CoursesLead extends PureComponent {
   }
 
   componentDidUpdate = () => {
-    if (this.props.courses.loading !== this.state.laoding) {
+    if (this.props.courses.loading !== this.state.loading) {
       this.setState({ loading: this.props.courses.loading })
     }
   }
