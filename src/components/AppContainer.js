@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import Home         from "components/pages/Home";
 import Sandbox      from "components/pages/Sandbox";
 import Login        from "components/pages/Login";
-import CoursesLead  from "components/pages/CoursesLead";
 import Course       from "components/pages/Course";
+import CoursesList  from "components/pages/CoursesList";
 import TestsSchemas from "components/pages/TestsSchemas";
 import Test         from "components/pages/Test";
 import TestsLead    from "components/pages/TestsLead";
@@ -54,7 +54,8 @@ class AppContainer extends PureComponent {
               <div className="app__container">
                 <Switch>
                   <Route path="/" exact component={Home} />
-                  <ProtectedRoute roles={[ "teacher" ]} component={CoursesLead} path="/courses-lead" />
+                  <ProtectedRoute roles={[ "teacher" ]} component={CoursesList} path="/courses-lead" />
+                  <ProtectedRoute roles={[ "student" ]} component={CoursesList} path="/my-courses" />
                   <ProtectedRoute roles={[ "teacher" ]} component={TestsSchemas} path="/tests-schemas" />
                   <ProtectedRoute roles={[ "admin" ]} component={Subjects} path="/subjects" />
                   <ProtectedRoute roles={[ "teacher" ]} component={TestsLead} path="/tests-lead" />

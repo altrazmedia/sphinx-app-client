@@ -6,7 +6,7 @@ import { Trans } from "react-i18next";
 
 import View from "./View";
 
-import { fetchCourse } from "actions/courseActions";
+import { fetchCourse } from "actions/coursesActions";
 
 class SingleCourse extends PureComponent {
 
@@ -52,7 +52,7 @@ class SingleCourse extends PureComponent {
 }
 
 const READ = state => ({
-  course: state.course
+  course: state.courses.single
 })
 
 const EMIT = dispatch => ({

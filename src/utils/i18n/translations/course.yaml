@@ -34,9 +34,15 @@ course.noTests:
 coursesLead.header:
   en: Courses you are teching
   pl: Zajęcia prowadzone przez ciebie
+myCourses.header:
+  en: Your courses
+  pl: Twoje zajęcia
 coursesLead.noCourses:
   en: There are no courses you are currently teaching
   pl: Nie znaleźliśmy żadnych prowadzonych przez Ciebie zajęć
+myCourses.noCourses:
+  en: There are no courses you are currently taking part in
+  pl: Obecnie nie jesteś zapisany na żadne zajęcia
 course.testAdded:
   en: Test has been successfully added to this course
   pl: Test został pomyślnie utworzony

@@ -11,7 +11,7 @@ import Dates from "./Dates";
 import Confirmation from "./Confirmation";
 
 import { fetchTestsSchemasList } from "actions/testsSchemasActions";
-import { addTestToCourse } from "actions/courseActions";
+import { addTestToCourse } from "actions/coursesActions";
 
 class AddTest extends PureComponent {
   

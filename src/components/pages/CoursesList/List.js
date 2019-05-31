@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Trans } from "react-i18next";
 import { Button } from "components/common";
 
-const CoursesList = props => {
+const CoursesListTable = props => {
 
   const { courses } = props;
 
@@ -41,8 +41,8 @@ const CoursesList = props => {
 
 }
 
-CoursesList.propTypes = {
+CoursesListTable.propTypes = {
   courses: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
-export default CoursesList;
+export default CoursesListTable;
