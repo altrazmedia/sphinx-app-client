@@ -49,6 +49,38 @@ export default (state = initialState, action) => {
       }
     }
 
+    case types.TESTS_LIST_LOADING: {
+      return {
+        ...state,
+        list: {
+          ...state.list,
+          loading: action.payload
+        }
+      }
+    }
+
+    case types.TESTS_LIST_SUCCESS: {
+      return {
+        ...state,
+        list: {
+          loading: false,
+          error: null,
+          data: action.payload
+        }
+      }
+    }
+
+    case types.TESTS_LIST_ERROR: {
+      return {
+        ...state,
+        list: {
+          loading: false,
+          data: [],
+          error: action.payload
+        }
+      }
+    }
+
     default: {
       return state;
     }

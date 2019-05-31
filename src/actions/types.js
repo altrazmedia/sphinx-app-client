@@ -28,3 +28,7 @@ export const COURSE_ERROR     = "COURSE_ERROR";
 export const TEST_LOADING   = "TEST_LOADING";
 export const TEST_SUCCESS   = "TEST_SUCCESS";
 export const TEST_ERROR     = "TEST_ERROR";
+
+export const TESTS_LIST_LOADING   = "TESTS_LIST_LOADING";
+export const TESTS_LIST_SUCCESS   = "TESTS_LIST_SUCCESS";
+export const TESTS_LIST_ERROR     = "TESTS_LIST_ERROR";
