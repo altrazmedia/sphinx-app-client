@@ -22,6 +22,12 @@ export const fetchCourse = payload => async (dispatch) => {
       course.tests = tests.data;
     }
 
+    if (course.my_access === "student") {
+      // Logged user is taking part in this course as a student - downloading the list of 
+      const tests = await axios.get(`tests/my?course=${code}`);
+      course.tests = tests.data;
+    }
+
     dispatch({
       type: types.COURSE_SUCCESS,
       payload: response.data
