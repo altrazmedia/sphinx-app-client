@@ -1,0 +1,201 @@
+.new-question-form {
+
+  &__table {
+    th, td {
+      &:first-child {
+        width: 80%;
+      }
+      &:last-child {
+        width: 8%;
+      }
+    }
+    td {
+      text-align: center;
+    }
+  }
+
+  &__option-input {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__remove-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+}
+
+
+.test-schema-question {
+  width: 100%;
+  margin: $spacing * 2 0;
+  border-radius: $borderRadius;
+  border: 1px dashed $borderLight;
+  padding: $spacing;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__options {
+    margin-top: $spacing;
+  }
+
+  &__option {
+    list-style: none;
+    margin-bottom: $spacing;
+  }
+
+}
+
+.test-solve {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.9);
+
+
+
+  &__content {
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 550px;
+    background-color: $bgCard;
+    border-radius: $borderRadius;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing * 2;
+  }
+
+  &__close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  &__header {
+    h2 {
+      color: $textLight;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__nav-btn {
+    width: 25px;
+    height: 25px;
+    background-color: $textLight;
+    margin-right: $spacing;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    @include transition(background-color);
+
+    .icon {
+      margin: 0;
+      font-size: .65rem;
+    }
+
+    &.active {
+      background-color: $secondary;
+    }
+
+    &:hover:not(.active) {
+      background-color: rgba($secondary, .8);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+  .question {
+    width: 95%;
+    max-width: 550px;
+    height: 100%;
+    padding: $spacing * 4 0;
+
+
+    &__content {
+      color: $primary;
+      text-align: center;
+      margin-bottom: 4 * $spacing;
+    }
+
+    &__options {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    &__option {
+      width: 100%;
+      max-width: 300px;
+      border-radius: $borderRadius;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0,0,0, .07);
+      margin: $spacing auto;
+      @include transition(background-color);
+      cursor: pointer;
+
+      &:hover:not(.marked) {
+        background-color: rgba($secondary, .4);
+      }
+
+      &.marked {
+        background-color: $secondary;
+        color: $textInverted;
+      }
+
+    }
+
+
+  }
+}
+
+
+.result-question {
+
+  width: 100%;
+  margin: $spacing * 2 0;
+  border-radius: $borderRadius;
+  border: 1px dashed $borderLight;
+  padding: $spacing;
+
+  &__header {
+    margin-bottom: $spacing;
+    .icon {
+      margin-left: 0;
+    }
+  }
+
+
+}
