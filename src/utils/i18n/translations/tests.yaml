@@ -7,6 +7,15 @@ test.finished:
 test.pending:
   en: Pending test
   pl: Test jeszcze się nie rozpoczął
+tests.ongoing:
+  en: Ongoing
+  pl: Trwające
+tests.finished:
+  en: Finished
+  pl: Zakończone
+tests.pending:
+  en: Pending
+  pl: Nierozpoczęte
 test:
   en: Test
   pl: Test
@@ -55,9 +64,39 @@ test.page.main:
 test.page.results:
   en: Results
   pl: Wyniki
+test.page.my-result:
+  en: My results
+  pl: Twój wynik
 test.questionAnswered:
   en: Question answered
   pl: Liczba odpowiedzi
 test.score:
   en: Score
   pl: Wynik
+testsLead.header:
+  en: Tests created by you
+  pl: Testy, które prowadzisz
+tests.empty.ongoing:
+  en: There are no ongoin tests right now
+  pl: W tej chwili nie ma żadnych aktywnych testów
+tests.empty.pending:
+  en: There are no pending tests right now
+  pl: Nie ma żadnych zaplanowanych testów
+tests.empty.finished:
+  en: There are no finished tests right now
+  pl: Żaden test się jeszcze nie zakończył
+myTests.header:
+  en: My tests
+  pl: Moje testy
+test.solve:
+  en: Solve the test
+  pl: Przystąp do testu
+test.correctAnswers:
+  en: Correct answers
+  pl: Poprawne odpowiedzi
+test.yourAnswer:
+  en: Your answer
+  pl: Twoja odpowiedź
+test.correctAnswer:
+  en: Correct answer
+  pl: Poprawna odpowiedź

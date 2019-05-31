@@ -1,27 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
-import { ColumnView, Icon } from "components/common";
+import { ColumnView, Button } from "components/common";
 import { Trans } from "react-i18next";
 
 const TestMainInfo = props => {
 
-  const { test } = props;
+  const { test, openTestSolveWindow } = props;
 
   return (
     <>
-      {
-        test.my_access === "student" || test.my_access === "teacher" ? 
-          <>
-            <p className="text-light"> 
-              <Icon size="small" name={test.my_access === "student" ? "user-graduate" : "user-tie"} />
-              <Trans i18nKey={`test.my_access.${test.my_access}`} />
-            </p>
-            <hr />
-          </>
-        : null
-      }
       <ColumnView>
         <ColumnView.Item 
           name={<Trans i18nKey="status" /> }
@@ -37,7 +27,11 @@ const TestMainInfo = props => {
         />
         <ColumnView.Item 
           name={<Trans i18nKey="course" /> }
-          value={test.course.code.toUpperCase()}
+          value={
+            <Link to={`/course/${test.course.code}`} className="text-link">
+              {test.course.code.toUpperCase()}
+            </Link> 
+          }
         />
         <ColumnView.Item 
           name={<Trans i18nKey="subject" /> }
@@ -51,6 +45,15 @@ const TestMainInfo = props => {
           name={<Trans i18nKey="group" /> }
           value={test.course.group.code.toUpperCase()}
         />
+        {
+          test.my_access === "student" && test.status === "ongoing" ? 
+            <Button.Group align="center">
+              <Button onClick={openTestSolveWindow}>
+                <Trans i18nKey="test.solve" />
+              </Button>
+            </Button.Group>
+          : null
+        }
       </ColumnView>
     </>
   )
@@ -58,8 +61,9 @@ const TestMainInfo = props => {
 }
 
 TestMainInfo.propTypes = {
-  test: PropTypes.object.isRequired
+  test: PropTypes.object.isRequired,
   // test data
+  openTestSolveWindow: PropTypes.func
 }
 
 export default TestMainInfo;

@@ -9,7 +9,7 @@ const Results = props => {
   const getScore = score => {
     if (score === undefined) { return "-" }
     const className = score >= 50 ? "text-success" : "text-error";
-    return <span className={className}>{score}</span>
+    return <span className={className}>{score} %</span>
   }
 
   return (

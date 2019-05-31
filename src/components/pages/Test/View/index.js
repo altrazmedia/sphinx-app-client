@@ -6,11 +6,14 @@ import { Trans } from "react-i18next";
 
 import Main from "./Main";
 import Results from "./Results";
+import SolveTest from "../SolveTest";
+import MyResult from "./MyResult";
 
 class TestView extends PureComponent {
 
   state = {
     page: "main", // Displayed page; "main", "users" or "tests"
+    displayTestSolveWindow: false
   }
 
   handlePageChange = page => {
@@ -29,17 +32,27 @@ class TestView extends PureComponent {
       pages.push("results")
     }
 
-    // if (course.tests) {
-    //   pages.push("tests")
-    // }
+    if (test.my_access === "student" && test.status === "finished") {
+      pages.push("my-result")
+    }
+
 
     return pages;
 
   }
 
+  openTestSolveWindow = () => {
+    this.setState({ displayTestSolveWindow: true })
+  }
+
+  closeTestSolveWindow = () => {
+    this.setState({ displayTestSolveWindow: false })
+  }
+
+
   render = () => {
 
-    const { page } = this.state;
+    const { page, displayTestSolveWindow } = this.state;
     const { test } = this.props;
 
     const pages = this.getAvailablePages();
@@ -63,12 +76,23 @@ class TestView extends PureComponent {
         <div className="segment">
           {
             page === "main" ? 
-              <Main test={test} />
+              <Main test={test} openTestSolveWindow={this.openTestSolveWindow} />
             : page === "results" ? 
               <Results test={test} /> 
+            : page === "my-result" ? 
+              <MyResult questions={test.my_attempt.questions} score={test.my_attempt.score} correctAnswers={test.my_attempt.correctAnswers} />
             : null
           }
         </div>
+        {
+          displayTestSolveWindow && 
+            <SolveTest 
+              close={this.closeTestSolveWindow}
+              testId={test._id}
+              questions={test.my_attempt.questions}
+              name={test.testSchema.name}
+            />
+        }
       </>
     )
   }
