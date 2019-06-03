@@ -1,0 +1,60 @@
+users.header:
+  en: Users list
+  pl: Lista użytkowników
+users.label:
+  en: User label
+  pl: Nazwa użytkownika
+users.role:
+  en: User role
+  pl: Rola użytkownika
+users.email:
+  en: Email address
+  pl: Adres email
+users.password:
+  en: Password
+  pl: Hasło
+users.passwordConfirm:
+  en: Confirm password
+  pl: Potwierdź hasło
+users.students:
+  en: Students
+  pl: Studenci
+users.teachers:
+  en: Teachers
+  pl: Nauczyciele
+users.admins:
+  en: Admins
+  pl: Administratorzy
+users.student:
+  en: Student
+  pl: Student
+users.teacher:
+  en: Teacher
+  pl: Nauczyciel
+users.admin:
+  en: Admin
+  pl: Administrator
+users.add:
+  en: Add a new user
+  pl: Dodaj nowego użytkownika
+users.noUsers:
+  en: There are no users with that role
+  pl: Nie ma żadnych użytkowników z podaną rolą
+password.chars:
+  en: Password must be at least 5 characters long
+  pl: Hasło musi się składać z co najmniej 5 znaków
+password.dontMatch:
+  en: Passwords don't match
+  pl: Hasła nie są identyczne
+email.provide:
+  en: Provide a valid email address
+  pl: Podaj prawidłowy adres email
+email.duplicate:
+  en: There already is a user with that email address
+  pl: Ten adres jest już używany przez innego użytkownika
+label.chars:
+  en: Label must be at least 5 characters long
+  pl: Etykieta musi się składać z co najmniej 5 znaków
+users.add.error:
+  en: An error occurred while adding the user
+  pl: W trakcie dodawania użytkownika wystąpił błąd

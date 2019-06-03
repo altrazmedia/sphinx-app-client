@@ -12,6 +12,7 @@ import Test         from "components/pages/Test";
 import TestsLead    from "components/pages/TestsLead";
 import MyTests      from "components/pages/MyTests";
 import Subjects     from "components/pages/Subjects";
+import Users        from "components/pages/Users";
 
 import NotFound     from "components/others/404";
 import Sidebar      from "components/others/Sidebar";
@@ -62,6 +63,7 @@ class AppContainer extends PureComponent {
                   <ProtectedRoute roles={[ "student" ]} component={MyTests} path="/my-tests" />
                   <Route path="/course/:code" exact component={Course} />
                   <Route path="/test/:id" exact component={Test} />
+                  <Route path="/users" exact component={Users} />
                   <Route component={NotFound} />
                 </Switch>
               </div>
