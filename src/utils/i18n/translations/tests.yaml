@@ -100,3 +100,6 @@ test.yourAnswer:
 test.correctAnswer:
   en: Correct answer
   pl: Poprawna odpowiedź
+test.scoresAverage:
+  en: Scores average
+  pl: Średnia wyników

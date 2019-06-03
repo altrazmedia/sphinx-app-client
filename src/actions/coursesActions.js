@@ -94,13 +94,13 @@ export const fetchCourse = payload => async (dispatch) => {
 export const addTestToCourse = payload => (dispatch, getState) => {
   const { schema, start, end, onSuccess, onError } = payload;
 
-  const { course } = getState();
+  const { courses } = getState();
 
-  const testData = { schema, start, end, course: course.data.code };
+  const testData = { schema, start, end, course: courses.single.data.code };
 
   axios.post("tests", testData)
     .then(() => {
-      dispatch(fetchCourse({ code: course.data.code, loading: false }))
+      dispatch(fetchCourse({ code: courses.single.data.code, loading: false }))
       if (onSuccess) {
         onSuccess();
       }

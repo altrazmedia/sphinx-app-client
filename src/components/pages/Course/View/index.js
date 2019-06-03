@@ -7,6 +7,7 @@ import { Trans } from "react-i18next";
 import Main from "./Main";
 import Students from "./Students";
 import Tests from "./Tests";
+import Scores from "./Scores";
 
 class CourseView extends PureComponent {
 
@@ -32,6 +33,10 @@ class CourseView extends PureComponent {
 
     if (course.tests) {
       pages.push("tests")
+    }
+
+    if (course.finishedTests) {
+      pages.push("scores")
     }
 
     return pages;
@@ -69,6 +74,8 @@ class CourseView extends PureComponent {
               <Students students={course.group.students} />
             : page === "tests" ? 
               <Tests tests={course.tests} canCreateNew={course.my_access === "teacher"} />
+            : page === "scores" ? 
+              <Scores tests={course.finishedTests} students={course.group.students} />
             : null
           }
         </div>

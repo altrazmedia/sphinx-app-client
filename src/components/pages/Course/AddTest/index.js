@@ -129,7 +129,7 @@ AddTest.propTypes = {
 
 
 const READ = state => ({
-  course: state.course.data
+  course: state.courses.single.data
 })
 
 const EMIT = dispatch => ({

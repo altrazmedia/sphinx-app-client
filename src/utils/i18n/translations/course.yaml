@@ -13,6 +13,9 @@ course.page.main:
 course.page.students:
   en: Students list
   pl: Lista studentów
+course.page.scores:
+  en: Tests scores
+  pl: Wyniki testów
 course.page.tests:
   en: Tests
   pl: Testy
