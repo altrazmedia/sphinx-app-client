@@ -88,6 +88,76 @@ export const fetchCourse = payload => async (dispatch) => {
 }
 
 /**
+ * Fetching the list of all courses
+ */
+export const fetchCoursesList = () => dispatch => {
+
+  dispatch({
+    type: types.COURSES_LIST_LOADING,
+    payload: true
+  })
+
+  axios.get("courses")
+    .then(response => {
+      dispatch({
+        type: types.COURSES_LIST_SUCCESS,
+        payload: response.data
+      })
+    })
+    .catch(err => {
+      dispatch({ 
+        type: types.COURSES_LIST_ERROR, 
+        payload: err.response 
+      })
+    })
+  
+}
+
+/**
+ * Creating a new course and adding it to the current courses list (state.courses.list.data) without additional data fetching
+ * @param {Object} payload 
+ * @param {String} payload.code Course code
+ * @param {String} payload.subject Subject code
+ * @param {String} payload.teacher Teacher id
+ * @param {String} payload.group Group code
+ * @param {Function} payload.onSuccess callback 
+ * @param {Function} payload.onError callback 
+ */
+export const addCourse = payload => (dispatch, getState) => {
+
+  const { code, subject, teacher, group, onError, onSuccess } = payload;
+
+  const courseData = { code, subject, teacher, group };
+
+  axios.post("courses", courseData)
+    .then(response => {
+      const currentCourses = getState().courses.list.data; // current list of courses in reducer
+      const updatedCourses = [ // adding the created course
+        response.data,
+        ...currentCourses
+      ];
+
+      // Saving updated list of courses
+      dispatch({
+        type: types.COURSES_LIST_SUCCESS,
+        payload: updatedCourses
+      })
+
+      if (onSuccess) {
+        onSuccess();
+      }
+
+    })
+    .catch(err => {
+      if (onError) {
+        onError(err.response)
+      }
+    })
+
+}
+
+
+/**
  * Creates the course assigned to currently open course (state.course)
  * @param {Object} payload 
  */
