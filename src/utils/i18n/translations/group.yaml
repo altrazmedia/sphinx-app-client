@@ -1,3 +1,39 @@
 group:
   en: Group
   pl: Grupa
+groups.header:
+  en: Students groups
+  pl: Grupy studentów
+groups.noGroups:
+  en: There are no groups created yet
+  pl: Nie utworzono jeszcze żadnej grupy
+group.notFound:
+  en: We couldn't find this group
+  pl: Podana grupa nie została znaleziona
+group.groupInfo:
+  en: group info
+  pl: informacje o grupie
+group.members:
+  en: Group members
+  pl: Członkowie grupy
+group.coursesAssigned:
+  en: Courses assigned to this group
+  pl: Zajęcia przypisane do tej grupy
+groups.add:
+  en: Add a new group
+  pl: Dodaj nową grupę
+group.code:
+  en: Group code (unique)
+  pl: Oznaczenie grupy (unikalne)
+group.usersError:
+  en: An error occurred while loading the list of students. Try again later.
+  pl: W trakcie pobierania listy studentów wystąpił błąd. Spróbuj ponownie później.
+group.pickStudents:
+  en: You have to pick some students
+  pl: Musisz wybrać studentów do grupy
+group.add.error:
+  en: An error occurred while creating the group
+  pl: Podczas tworzenia grupy wystąpił błąd
+group.code.duplicate:
+  en: There already is a group using this code
+  pl: Inna grupa posiada już takie oznaczenie

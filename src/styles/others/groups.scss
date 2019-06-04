@@ -1,0 +1,15 @@
+.group-form {
+
+  &__students {
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: $spacing;
+  }
+
+  &__student {
+    width: 100%;
+  }
+
+}

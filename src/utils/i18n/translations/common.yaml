@@ -52,3 +52,6 @@ close:
 name:
   en: Name
   pl: Nazwa
+makeSureUrl:
+  en: Make sure you typed the URL address correctly
+  pl: Upewnij się, że adres URL został wpisany poprawnie
