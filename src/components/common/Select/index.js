@@ -55,7 +55,7 @@ class Select extends PureComponent {
         <div className="select__header">
           { 
             selectedValueText ? selectedValueText : 
-            placeholder ? <span className="select__placeholder">{placeholder}</span> : "" 
+            placeholder ? <span className="select__placeholder">{placeholder}</span> : <span />
           }
           <Icon name={open ? "caret-up" : "caret-down"} className="select__icon" />
         </div>
