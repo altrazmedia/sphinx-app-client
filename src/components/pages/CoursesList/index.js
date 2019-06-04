@@ -1,29 +1,33 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Loader, PageHeader, Illustration } from "components/common";
+import { Loader, PageHeader, Illustration, Button } from "components/common";
 
 import List from "./List";
+import Add from "./Add";
 
-import { fetchLeadCourses, fetchMyCourses } from "actions/coursesActions";
+import { fetchLeadCourses, fetchMyCourses, fetchCoursesList } from "actions/coursesActions";
 import { Trans } from "react-i18next";
 
 
 // Translation keys depending on user's role
 const headerByUserRole = {
   teacher: "coursesLead.header",
-  student: "myCourses.header"
+  student: "myCourses.header",
+  admin: "courses.header",
 }
 
 const emptyListMsgByUserRole = {
   techer: "coursesLead.noCourse",
-  student: "myCourses.noCourses"
+  student: "myCourses.noCourses",
+  admin: "courses.noCourses"
 }
 
 class CoursesList extends PureComponent {
 
   state = {
-    loading: true
+    loading: true,
+    displayNewCourseForm: false
   }
 
   componentDidUpdate = () => {
@@ -45,15 +49,26 @@ class CoursesList extends PureComponent {
     else if (userRole === "student") {
       this.props.fetchMyCourses();
     }
+    else if (userRole === "admin") {
+      this.props.fetchAllCourses()
+    }
+  }
+
+  openNewCourseForm = () => {
+    this.setState({ displayNewCourseForm: true })
+  }
+
+  closeNewCourseForm = () => {
+    this.setState({ displayNewCourseForm: false })
   }
 
   render = () => {
 
-    const { loading } = this.state;
+    const { loading, displayNewCourseForm } = this.state;
     const { courses, userRole } = this.props;
 
     return (
-      <div>
+      <>
         <PageHeader header={<Trans i18nKey={headerByUserRole[userRole]} /> } />
         {
           loading ? 
@@ -61,11 +76,38 @@ class CoursesList extends PureComponent {
           : courses.error ?  
             <Illustration variant="fetchError" />
           : courses.data.length === 0 ? 
-            <Illustration variant="empty" description={<Trans i18nKey={emptyListMsgByUserRole[userRole]} />} />
-          : <List courses={courses.data} />
-            
+            <>
+              <Illustration variant="empty" description={<Trans i18nKey={emptyListMsgByUserRole[userRole]} />} />
+              {
+                userRole === "admin" && 
+                  <Button.Group align="center">
+                    <Button variant="text" icon="plus" onClick={this.openNewCourseForm}>
+                      <Trans i18nKey="course.add" />
+                    </Button>
+                  </Button.Group>
+              }
+            </>
+          : <> 
+              <List 
+                courses={courses.data}
+                displayedData={
+                  userRole === "admin" ? [ "all" ] : 
+                  userRole === "teacher" ? [ "code", "subject", "group", "details" ] : 
+                  userRole === "student" ? [ "code", "subject", "teacher", "details" ] : []
+                }
+              />
+              {
+                userRole === "admin" && 
+                  <Button.Group align="right">
+                    <Button icon="plus" onClick={this.openNewCourseForm}>
+                      <Trans i18nKey="course.add" />
+                    </Button>
+                  </Button.Group>
+              }
+            </>
         }
-      </div>
+        { displayNewCourseForm && <Add close={this.closeNewCourseForm} /> }
+      </>
     )
 
   }
@@ -79,7 +121,8 @@ const READ = state => ({
 
 const EMIT = dispatch => ({
   fetchLeadCourses: () => dispatch(fetchLeadCourses()),
-  fetchMyCourses:   () => dispatch(fetchMyCourses())
+  fetchMyCourses:   () => dispatch(fetchMyCourses()),
+  fetchAllCourses:  () => dispatch(fetchCoursesList())
 })
 
 export default connect(READ, EMIT)(CoursesList);

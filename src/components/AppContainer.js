@@ -59,10 +59,11 @@ class AppContainer extends PureComponent {
                   <Route path="/" exact component={Home} />
                   <ProtectedRoute roles={[ "teacher" ]} component={CoursesList} path="/courses-lead" />
                   <ProtectedRoute roles={[ "student" ]} component={CoursesList} path="/my-courses" />
+                  <ProtectedRoute roles={[ "admin"   ]} component={CoursesList} path="/courses" />
                   <ProtectedRoute roles={[ "teacher" ]} component={TestsSchemas} path="/tests-schemas" />
-                  <ProtectedRoute roles={[ "admin" ]} component={Subjects} path="/subjects" />
-                  <ProtectedRoute roles={[ "admin" ]} component={GroupsList} path="/groups" />
-                  <ProtectedRoute roles={[ "admin" ]} component={Group} path="/group/:code" />
+                  <ProtectedRoute roles={[ "admin"   ]} component={Subjects} path="/subjects" />
+                  <ProtectedRoute roles={[ "admin"   ]} component={GroupsList} path="/groups" />
+                  <ProtectedRoute roles={[ "admin", "teacher" ]} component={Group} path="/group/:code" />
                   <ProtectedRoute roles={[ "teacher" ]} component={TestsLead} path="/tests-lead" />
                   <ProtectedRoute roles={[ "student" ]} component={MyTests} path="/my-tests" />
                   <Route path="/course/:code" exact component={Course} />

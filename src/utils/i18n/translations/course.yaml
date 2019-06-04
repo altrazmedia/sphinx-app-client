@@ -40,15 +40,39 @@ coursesLead.header:
 myCourses.header:
   en: Your courses
   pl: Twoje zajęcia
+courses.header:
+  en: List of courses
+  pl: Lista zajęć
 coursesLead.noCourses:
   en: There are no courses you are currently teaching
   pl: Nie znaleźliśmy żadnych prowadzonych przez Ciebie zajęć
 myCourses.noCourses:
   en: There are no courses you are currently taking part in
   pl: Obecnie nie jesteś zapisany na żadne zajęcia
+courses.noCourses:
+  en: There are no courses yet
+  pl: Nie utworzono jeszcze żadnych zajęć
 course.testAdded:
   en: Test has been successfully added to this course
   pl: Test został pomyślnie utworzony
 course: 
   en: Course
   pl: Zajęcia
+course.add:
+  en: Create a new course
+  pl: Utwórz nowe zajęcia
+course.add.fetchError:
+  en: An error occurred while downloading the data necessary to create a course. Try again later.
+  pl: W trakcie pobierania niezbędnych do stworzenia kursu danych wystąpił błąd. Spróbuj ponownie później.
+course.code:
+  en: Course code (unique)
+  pl: Oznaczenie zajęć (unikalne)
+course.fillFields:
+  en: Make sure that every field is filled
+  pl: Musisz wypełnić wszystkie pola
+course.codeDuplicate:
+  en: There already is another course with that code
+  pl: Inne zajęcia mają już przypisane takie oznaczenie
+course.add.error:
+  en: An error occurred while creating a course
+  pl: W trakcie tworzenia zajęć wystąpił błąd
