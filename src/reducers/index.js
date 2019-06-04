@@ -6,6 +6,7 @@ import testsSchemasReducer from "./testsSchemasReducer";
 import subjectsReducer     from "./subjectsReducer";
 import testsReducer        from "./testsReducer";
 import usersReducer        from "./usersReducer";
+import groupsReducer       from "./groupsReducer";
 
 export default combineReducers({
   currentUser:  currentUserReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
   testsSchemas: testsSchemasReducer,
   courses:      coursesReducer,
   tests:        testsReducer,
-  users:        usersReducer
+  users:        usersReducer,
+  groups:       groupsReducer
 });
