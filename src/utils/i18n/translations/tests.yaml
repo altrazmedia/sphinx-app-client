@@ -103,3 +103,9 @@ test.correctAnswer:
 test.scoresAverage:
   en: Scores average
   pl: Średnia wyników
+test.finished.header:
+  en: Time's up!
+  pl: Koniec czasu!
+test.finished.description:
+  en: Test is now finished. You cannot submit more answers.
+  pl: Test się zakończył. Nie możesz odpowiadać na kolejne pytania.

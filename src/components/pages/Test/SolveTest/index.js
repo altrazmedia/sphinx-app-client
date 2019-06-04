@@ -1,16 +1,65 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
+import axios from "config/axios";
+
 import { Portal, Button } from "components/common";
 
 import Navigation from "./Navigation";
 import Question from "./Question";
-import axios from "config/axios";
+import Clock from "./Clock";
+import { Trans } from "react-i18next";
 
 class SolveTest extends PureComponent {
 
   state = {
     questions: [ ...this.props.questions ],
-    activeQuestion: { ...this.props.questions[0] } // currently displayed question
+    activeQuestion: { ...this.props.questions[0] }, // currently displayed question
+    finished: false, // test is finished
+    clock: null, // seconds until test is finished
+  }
+
+  componentDidMount = () => {
+    this.setClock();
+  }
+
+  componentWillUnmount = () => {
+    if (this.clockRunTimeout) {
+      clearTimeout(this.clockRunTimeout)
+    }
+    if (this.clockRunInterval) {
+      clearInterval(this.clockRunInterval)
+    }
+  }
+
+  setClock = () => {
+    const { end } = this.props;
+    const diff = moment(end).diff(moment(), "second");
+    if (diff <= 0) {
+      this.setState({ finished: true })
+    }
+    else if (diff <= 600) {
+      // Test will be finished in 10 less than minutes
+      this.runClock()
+    }
+    else {
+      // Clock will start running 10 mins before the end
+      const secondsUntil10mins = diff - 600;
+      this.clockRunTimeout = setTimeout(this.runClock, secondsUntil10mins * 1000)
+    }
+  }
+
+  runClock = () => {
+    const { end } = this.props;
+    this.clockRunInterval = setInterval(() => {
+      const diff = moment(end).diff(moment(), "second");
+      if (diff <= 0) {
+        this.setState({ finished: true })
+      }
+      else {
+        this.setState({ clock: diff })
+      }
+    })
   }
 
   changeActiveQuestion = questionId => {
@@ -103,9 +152,14 @@ class SolveTest extends PureComponent {
           resolve();
         })
         .catch(err => {
-          console.log(err)
-          resolve();
-          // TODO: handling the error
+          if (err.response.status === 400 && err.response.reason === "test_not_ongoing") {
+            // Test is finished
+            this.setState({ finished: true })
+          }
+          else {
+            resolve();
+            // TODO: handling the error
+          }
         })
 
     })
@@ -119,7 +173,7 @@ class SolveTest extends PureComponent {
 
   render = () => {
 
-    const { questions, activeQuestion } = this.state;
+    const { questions, activeQuestion, finished, clock } = this.state;
     const { name } = this.props;
 
     return (
@@ -136,15 +190,30 @@ class SolveTest extends PureComponent {
             <header className="test-solve__header">
               <h2>{name}</h2>
             </header>
-            <Question 
-              question={activeQuestion}
-              handleOptionClick={this.toggleAnswer}
-            />
-            <Navigation
-              questions={questions}
-              active={activeQuestion._id}
-              handleClick={this.handleNavigationClick}
-            />
+            {
+              finished ? 
+                <div className="test-solve__finished-info">
+                  <h2><Trans i18nKey="test.finished.header" /></h2>
+                  <p><Trans i18nKey="test.finished.description" /></p>
+                  <Button variant="text" onClick={this.props.close}>
+                    <Trans i18nKey="close" />
+                  </Button>
+                </div>
+              : 
+                <div className="test-solve__main">
+                  <Clock seconds={clock} />
+                  <Question 
+                    question={activeQuestion}
+                    handleOptionClick={this.toggleAnswer}
+                  />
+                  <Navigation
+                    questions={questions}
+                    active={activeQuestion._id}
+                    handleClick={this.handleNavigationClick}
+                  />
+                </div>
+            }
+            
           </div>
         </div>
       </Portal>

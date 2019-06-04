@@ -91,6 +91,7 @@ class TestView extends PureComponent {
               testId={test._id}
               questions={test.my_attempt.questions}
               name={test.testSchema.name}
+              end={test.end}
             />
         }
       </>
