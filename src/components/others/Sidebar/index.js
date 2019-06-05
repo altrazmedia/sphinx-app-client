@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
 
 import { Icon, Button } from "components/common";
 import { logout } from "actions/currentUserActions";
@@ -23,29 +24,30 @@ class Sidebar extends PureComponent {
    * @returns {Array}
    */
   getNavigationItems = () => {
-    const { role } = this.props.currentUser.data;
+    const { t, currentUser } = this.props;
+    const { role } = currentUser.data;
     switch (role) {
       case "admin": {
         return [
-          { name: "Użytkownicy", path: "/users", icon: "users" },
-          { name: "Grupy studentów", path: "/groups", icon: "user-graduate" },
-          { name: "Zajęcia", path: "/courses", icon: "chalkboard-teacher" },
-          { name: "Przedmioty", path: "/subjects", icon: "atlas" }
+          { name: t("page.users"), path: "/users", icon: "users" },
+          { name: t("page.groups"), path: "/groups", icon: "user-graduate" },
+          { name: t("page.courses"), path: "/courses", icon: "chalkboard-teacher" },
+          { name: t("page.subjects"), path: "/subjects", icon: "atlas" }
         ];
       }
       case "student": {
         return [
-          { name: "Zajęcia", path: "/my-courses", icon: "chalkboard-teacher" },
-          { name: "Testy", path: "/my-tests", icon: "file-signature" },
-          { name: "Użytkownicy", path: "/users", icon: "users" }
+          { name: t("page.courses"), path: "/my-courses", icon: "chalkboard-teacher" },
+          { name: t("page.tests"), path: "/my-tests", icon: "file-signature" },
+          { name: t("page.users"), path: "/users", icon: "users" }
         ];
       }
       case "teacher": {
         return [
-          { name: "Zajęcia", path: "/courses-lead", icon: "chalkboard-teacher" },
-          { name: "Prowadzone testy", path: "/tests-lead", icon: "file-signature" },
-          { name: "Schematy testów", path: "/tests-schemas", icon: "file-alt" },
-          { name: "Użytkownicy", path: "/users", icon: "users" }
+          { name: t("page.courses"), path: "/courses-lead", icon: "chalkboard-teacher" },
+          { name: t("page.tests"), path: "/tests-lead", icon: "file-signature" },
+          { name: t("page.testsSchemas"), path: "/tests-schemas", icon: "file-alt" },
+          { name: t("page.users"), path: "/users", icon: "users" }
         ];
       }
       default: {
@@ -83,6 +85,7 @@ class Sidebar extends PureComponent {
     const navItems = this.getNavigationItems();
 
     const { open, lang } = this.state;
+    const { t } = this.props;
 
     return (
       <aside className={`sidebar ${!open ? "sidebar--closed" : ""}`}>
@@ -131,7 +134,7 @@ class Sidebar extends PureComponent {
           <div className="sidebar__icon-wrapper">
             <Icon name="power-off" className="sidebar__icon" />
           </div>
-          <span className="sidebar__name">Wyloguj</span>
+          <span className="sidebar__name">{t("logout")}</span>
         </div>
       </aside>
     )
@@ -147,4 +150,4 @@ const EMIT = dispatch => ({
   logout: () => dispatch(logout())
 })
 
-export default withRouter(connect(READ, EMIT)(Sidebar));
+export default withRouter(connect(READ, EMIT)(withTranslation()(Sidebar)));

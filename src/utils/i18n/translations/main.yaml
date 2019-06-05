@@ -1,0 +1,27 @@
+page.users:
+  en: Users
+  pl: Użytkownicy
+page.groups:
+  en: Students groups
+  pl: Grupy studentów
+page.courses:
+  en: Courses
+  pl: Zajęcia
+page.subjects:
+  en: Subjects
+  pl: Przedmioty
+page.tests:
+  en: Tests
+  pl: Testy
+page.testsSchemas:
+  en: Tests schemas
+  pl: Schematy testów
+logout:
+  en: Logout
+  pl: Wyloguj
+hello.header:
+  en: Hello, {{label}}!
+  pl: Witaj, {{label}}!
+hello.description:
+  en: Use the menu on the left side to start working with the app.
+  pl: Skorzystaj z nawigacji po lewej stronie, by rozpocząć pracę.
