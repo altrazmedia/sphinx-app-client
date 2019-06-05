@@ -70,3 +70,33 @@ testSchema.notFound.header:
 testSchema.notFound.description:
   en: Make sure you typed the URL address correctly
   pl: Upewnij się, że adres URL został wpisany poprawnie
+testSchema.page.main:
+  en: Main information
+  pl: Główne informacje
+testSchema.page.stats:
+  en: Statistics
+  pl: Statystyki
+testSchema.stats.noTests:
+  en: There are no tests using this schema
+  pl: Nie ukończono jeszcze żadnego testu korzystającego z tego schematu
+testSchema.stats.totalTests:
+  en: Number of finished tests using this schema
+  pl: Liczba przeprowadzonych testów z użyciem tego schematu
+testSchema.stats.totalAttempts:
+  en: Number of students' attempts
+  pl: Liczba wypełnionych testów przez studentów
+testSchema.stats.averageScore:
+  en: The average score
+  pl: Średnia uzyskanych wyników
+testSchema.stats.testsScores:
+  en: Average scores in each of the tests
+  pl: Uzyskane wyniki w poszczególnych testach
+testSchema.stats.questions:
+  en: Questions statistics
+  pl: Statystyki pojedynczych pytań
+testSchema.stats.asked:
+  en: Number of times the question was used
+  pl: Liczba testów, w których użyto pytanie
+testSchema.stats.correct:
+  en: Number of correct answers
+  pl: Liczba poprawnych odpowiedz

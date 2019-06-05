@@ -43,7 +43,7 @@ class SingleTestSchema extends PureComponent {
                 description={<Trans i18nKey="testSchema.notFound.description"/> }
               />
             : <Illustration variant={testSchema.error.status === 403 ? "notPermitted" : "fetchError" } />
-          : <View test={testSchema.data} />
+          : <View testSchema={testSchema.data} />
         }
       </>
     )

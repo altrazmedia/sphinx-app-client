@@ -64,7 +64,7 @@ class TestsSchemasList extends PureComponent {
               <Table tests={testsSchemas.data} />
             </div>
             <Button.Group align="right">
-              <Button to="/tests-schemas/add" variant="text" icon="plus">
+              <Button to="/tests-schemas/add" icon="plus">
                 <Trans i18nKey={"testsSchema.createNew"}/>
               </Button>
             </Button.Group>
