@@ -72,14 +72,13 @@ class Sidebar extends PureComponent {
   }
 
   /**
-   * Checks if navigation item is active (page it leads to is open)
-   * @param {Object} item
-   * @returns {Boolean}
+   * Logging out the user
    */
-  isItemActive = item => {
-    const currentPath = this.props.history.location.pathname;
-    return currentPath.indexOf(item.path) > -1
+  logout = () => {
+    this.props.history.push("/"); // redirecting to the main page
+    this.props.logout();
   }
+
 
   render = () => {
 
@@ -131,7 +130,7 @@ class Sidebar extends PureComponent {
           </ul>
 
         </nav>
-        <div role="button" className="sidebar__item sidebar__item--logout" onClick={this.props.logout}>
+        <div role="button" className="sidebar__item sidebar__item--logout" onClick={this.logout}>
           <div className="sidebar__icon-wrapper">
             <Icon name="power-off" className="sidebar__icon" />
           </div>
