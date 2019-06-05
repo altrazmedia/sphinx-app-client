@@ -67,7 +67,8 @@ class Sidebar extends PureComponent {
 
   handleLanguageChange = lang => {
     i18n.changeLanguage(lang);
-    this.setState({ lang })
+    this.setState({ lang });
+    localStorage.setItem("lang", lang);
   }
 
   /**
