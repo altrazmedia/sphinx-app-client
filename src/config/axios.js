@@ -1,4 +1,6 @@
 import axios from "axios";
+import store from "store";
+import { onLogout } from "actions/currentUserActions";
 
 const baseURL = "http://localhost:3001/api/"
 
@@ -13,7 +15,13 @@ axiosInstance.interceptors.response.use(
     if (!error.response) { 
       error.response = { status: 500 };
     }
-    return Promise.reject(error)
+    if (error.response.status === 401) {
+      // Session is no longer valid
+      store.dispatch(onLogout())
+    }
+    else {
+      return Promise.reject(error)
+    }
   }
 )
 

@@ -36,11 +36,15 @@ export const onUserLogin = (session_id) => dispatch => {
 export const logout = () => dispatch => {
   axios.delete("session")
     .finally(() => {
-      // Removing info about user's session from localStorage and axios config regardless of result of removing session in database
-      localStorage.removeItem("session_id");
-      removeSessionHeader();
-      dispatch({ type: types.LOGOUT })
+      dispatch(onLogout())
     })
+}
+
+export const onLogout = () => dispatch => {
+  // Removing info about user's session from localStorage and axios config regardless of result of removing session in database
+  localStorage.removeItem("session_id");
+  removeSessionHeader();
+  dispatch({ type: types.LOGOUT })
 }
 
 
