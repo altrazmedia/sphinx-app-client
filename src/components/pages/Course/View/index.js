@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import { Menu, PageHeader } from "components/common";
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 
 import Main from "./Main";
 import Students from "./Students";
@@ -96,4 +96,4 @@ CourseView.propTypes = {
   course: PropTypes.object.isRequired
 }
 
-export default CourseView;
+export default withTranslation()(CourseView);

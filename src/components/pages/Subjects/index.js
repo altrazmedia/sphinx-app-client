@@ -6,7 +6,7 @@ import { Loader, PageHeader, Illustration, Button, FAB } from "components/common
 import List from "./List";
 import Add from "./Add";
 
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { fetchSubjects } from "actions/subjectsActions";
 
 class Subjects extends PureComponent {
@@ -82,4 +82,4 @@ const EMIT = dispatch => ({
   fetchSubjects: () => dispatch(fetchSubjects())
 })
 
-export default connect(READ, EMIT)(Subjects);
+export default connect(READ, EMIT)(withTranslation()(Subjects));

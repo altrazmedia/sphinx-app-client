@@ -6,7 +6,7 @@ import { Loader, PageHeader, Illustration, Button, FAB } from "components/common
 import List from "./List";
 import Add  from "./Add";
 
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { fetchGroupsList } from "actions/groupsActions";
 
 class Groups extends PureComponent {
@@ -84,4 +84,4 @@ const EMIT = dispatch => ({
   fetchGroups: () => dispatch(fetchGroupsList())
 })
 
-export default connect(READ, EMIT)(Groups);
+export default connect(READ, EMIT)(withTranslation()(Groups));

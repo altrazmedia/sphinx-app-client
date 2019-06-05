@@ -6,7 +6,7 @@ import { Loader, PageHeader, Illustration, Button, Menu, FAB } from "components/
 import List from "./List";
 import Add  from "./Add";
 
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { fetchUsersList } from "actions/usersActions";
 
 class Users extends PureComponent {
@@ -95,4 +95,4 @@ const EMIT = dispatch => ({
   fetchUsers: () => dispatch(fetchUsersList())
 })
 
-export default connect(READ, EMIT)(Users);
+export default connect(READ, EMIT)(withTranslation()(Users));

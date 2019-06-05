@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { Select, Illustration, Loader, PageHeader, Button, FAB } from "components/common";
 
 import Table from "./Table";
@@ -82,4 +82,4 @@ const EMIT = dispatch => ({
   fetchTestsSchemasList: payload => dispatch(fetchTestsSchemasList(payload))
 })
 
-export default connect(READ, EMIT)(TestsSchemasList);
+export default connect(READ, EMIT)(withTranslation()(TestsSchemasList));

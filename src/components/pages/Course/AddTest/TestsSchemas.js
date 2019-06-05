@@ -30,7 +30,7 @@ const TestsSchemas = props => {
               <tbody>
                 {
                   testsSchemas.data.map(schema => (
-                    <tr>
+                    <tr key={schema._id}>
                       <td>{schema.name}</td>
                       <td>
                         <Checkbox

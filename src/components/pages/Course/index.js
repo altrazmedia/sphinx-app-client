@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import { Loader, Illustration } from "components/common";
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 
 import View from "./View";
 
@@ -59,4 +59,4 @@ const EMIT = dispatch => ({
   fetchCourse: payload => dispatch(fetchCourse(payload))
 })
 
-export default connect(READ, EMIT)(SingleCourse);
+export default connect(READ, EMIT)(withTranslation()(SingleCourse));

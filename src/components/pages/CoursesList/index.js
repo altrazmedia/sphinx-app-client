@@ -7,7 +7,7 @@ import List from "./List";
 import Add from "./Add";
 
 import { fetchLeadCourses, fetchMyCourses, fetchCoursesList } from "actions/coursesActions";
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 
 
 // Translation keys depending on user's role
@@ -118,4 +118,4 @@ const EMIT = dispatch => ({
   fetchAllCourses:  () => dispatch(fetchCoursesList())
 })
 
-export default connect(READ, EMIT)(CoursesList);
+export default connect(READ, EMIT)(withTranslation()(CoursesList));

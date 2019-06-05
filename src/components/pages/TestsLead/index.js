@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Loader, PageHeader, Illustration } from "components/common";
 import List from "components/common/TestsList";
 
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 import { fetchLeadTests } from "actions/testsActions";
 
 /**
@@ -56,4 +56,4 @@ const EMIT = dispatch => ({
   fetchTests: () => dispatch(fetchLeadTests())
 })
 
-export default connect(READ, EMIT)(TestsLead);
+export default connect(READ, EMIT)(withTranslation()(TestsLead));
