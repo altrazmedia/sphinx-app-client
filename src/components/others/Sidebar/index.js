@@ -2,10 +2,21 @@ import React, { PureComponent } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { Icon } from "components/common";
+import { Icon, Button } from "components/common";
 import { logout } from "actions/currentUserActions";
 
+import i18n from "utils/i18n";
+
+import logo from "images/logo-inv.png";
+import poland from "images/poland.png"
+import uk from "images/uk.png"
+
 class Sidebar extends PureComponent {
+
+  state = {
+    open: false,
+    lang: i18n.language
+  }
   
   /**
    * Creates navigation items based on current user's role
@@ -44,6 +55,20 @@ class Sidebar extends PureComponent {
   }
 
   /**
+   * Opens/closes the sidebar
+   */
+  toggleOpen = () => {
+    this.setState(state => ({
+      open: !state.open
+    }))
+  }
+
+  handleLanguageChange = lang => {
+    i18n.changeLanguage(lang);
+    this.setState({ lang })
+  }
+
+  /**
    * Checks if navigation item is active (page it leads to is open)
    * @param {Object} item
    * @returns {Boolean}
@@ -57,20 +82,42 @@ class Sidebar extends PureComponent {
 
     const navItems = this.getNavigationItems();
 
+    const { open, lang } = this.state;
+
     return (
-      <aside className="sidebar">
+      <aside className={`sidebar ${!open ? "sidebar--closed" : ""}`}>
+        <div className="sidebar__upper">
+          <div className="sidebar__header">
+            <Link to="/">
+              <img alt="Sphinx App" src={logo} className="sidebar__logo" /> 
+            </Link>
+            <Button className="sidebar__btn" variant="icon" size="small" icon="bars" onClick={this.toggleOpen} />
+          </div>
+          <div className="sidebar__langs">
+            <img 
+              alt="pl" 
+              src={poland} 
+              className={`sidebar__lang ${lang === "pl" ? "sidebar__lang--active" : ""}`}
+              onClick={() => this.handleLanguageChange("pl")} 
+            />
+            <img 
+              alt="en" 
+              src={uk} 
+              className={`sidebar__lang ${lang === "en" ? "sidebar__lang--active" : ""}`}
+              onClick={() => this.handleLanguageChange("en")} 
+            />
+          </div>
+        </div>
 
         <nav className="sidebar__nav">
           <ul>
             {
               navItems.map(item => {
 
-                const activeClass = this.isItemActive(item) ? "sidebar__item--active" : "";
-
                 return (
-                  <Link to={item.path} key={item.path} className={`sidebar__item ${activeClass}`}>
+                  <Link to={item.path} key={item.path} className={`sidebar__item`}>
                     <div className="sidebar__icon-wrapper">
-                      <Icon name={item.icon} className="sidebar__icon" />
+                      <Icon  name={item.icon} className="sidebar__icon" />
                     </div>
                     <span className="sidebar__name">{item.name}</span>
                   </Link>

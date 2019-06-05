@@ -8,6 +8,65 @@
   justify-content: space-between;
   padding: 30px;
   flex-shrink: 0;
+  @include transition(width);
+
+  &--closed {
+    width: 70px;
+    padding-left: 0;
+    padding-right: 0;
+    .sidebar__nav, .sidebar__item, .sidebar__logo, .sidebar__langs {
+      display: none !important;
+    }
+
+    .sidebar__header {
+      justify-content: center;
+    }
+
+  }
+
+  &__logo {
+    max-width: 70%;
+    opacity: 1;
+  }
+
+  &__btn {
+    i.icon {
+      color: $textInverted !important;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__langs {
+    width: 100%;
+    text-align: center;
+    margin-top: $spacing * 2;
+  }
+
+  &__lang {
+    width: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    filter: grayscale(100%);
+    @include transition(all);
+
+    &:hover {
+      filter: none
+    }
+
+    &--active {
+      filter: none;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
     
   &__item {
@@ -15,14 +74,14 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     height: 40px;
     margin-bottom: 20px;
     cursor: pointer;
 
-    &:hover:not(.sidebar__item--active) {
+    &:hover {
       .sidebar__name, .sidebar__icon {
-        color: rgba($primary, .5);
+        color: $textInverted;
       }
     }
 
