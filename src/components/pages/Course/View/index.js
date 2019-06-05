@@ -8,6 +8,7 @@ import Main from "./Main";
 import Students from "./Students";
 import Tests from "./Tests";
 import Scores from "./Scores";
+import MyResults from "./MyResults";
 
 class CourseView extends PureComponent {
 
@@ -37,6 +38,10 @@ class CourseView extends PureComponent {
 
     if (course.finishedTests) {
       pages.push("scores")
+    }
+
+    if (course.my_results) {
+      pages.push("my-results")
     }
 
     return pages;
@@ -76,6 +81,8 @@ class CourseView extends PureComponent {
               <Tests tests={course.tests} canCreateNew={course.my_access === "teacher"} />
             : page === "scores" ? 
               <Scores tests={course.finishedTests} students={course.group.students} />
+            : page === "my-results" ? 
+              <MyResults tests={course.my_results} />
             : null
           }
         </div>

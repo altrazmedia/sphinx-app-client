@@ -14,7 +14,10 @@ course.page.students:
   en: Students list
   pl: Lista studentów
 course.page.scores:
-  en: Tests scores
+  en: Tests results
+  pl: Wyniki testów
+course.page.my-results:
+  en: Tests results
   pl: Wyniki testów
 course.page.tests:
   en: Tests
@@ -76,3 +79,9 @@ course.codeDuplicate:
 course.add.error:
   en: An error occurred while creating a course
   pl: W trakcie tworzenia zajęć wystąpił błąd
+course.myResults.empty:
+  en: You haven't finished any test yet
+  pl: Nie ukończyłeś jeszcze żadnego testu w ramach tych zajęć
+course.myResults.average:
+  en: The average score
+  pl: Średnia ocena z testów
