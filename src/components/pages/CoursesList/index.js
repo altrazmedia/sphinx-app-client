@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Loader, PageHeader, Illustration, Button } from "components/common";
+import { Loader, PageHeader, Illustration, Button, FAB } from "components/common";
 
 import List from "./List";
 import Add from "./Add";
@@ -81,7 +81,7 @@ class CoursesList extends PureComponent {
               {
                 userRole === "admin" && 
                   <Button.Group align="center">
-                    <Button variant="text" icon="plus" onClick={this.openNewCourseForm}>
+                    <Button variant="text" onClick={this.openNewCourseForm}>
                       <Trans i18nKey="course.add" />
                     </Button>
                   </Button.Group>
@@ -96,14 +96,7 @@ class CoursesList extends PureComponent {
                   userRole === "student" ? [ "code", "subject", "teacher", "details" ] : []
                 }
               />
-              {
-                userRole === "admin" && 
-                  <Button.Group align="right">
-                    <Button icon="plus" onClick={this.openNewCourseForm}>
-                      <Trans i18nKey="course.add" />
-                    </Button>
-                  </Button.Group>
-              }
+              { userRole === "admin" && <FAB icon="plus" onClick={this.openNewCourseForm} /> }
             </>
         }
         { displayNewCourseForm && <Add close={this.closeNewCourseForm} /> }

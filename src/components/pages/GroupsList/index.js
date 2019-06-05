@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Loader, PageHeader, Illustration, Button } from "components/common";
+import { Loader, PageHeader, Illustration, Button, FAB } from "components/common";
 
 import List from "./List";
 import Add  from "./Add";
@@ -54,14 +54,15 @@ class Groups extends PureComponent {
           : groups.data.length === 0 ? 
             <>
               <Illustration variant="empty" description={<Trans i18nKey="groups.noGroups" />} />
-            </>
-          : <>
-              <List groups={groups.data} />
-              <Button.Group align="right">
-                <Button icon="plus" onClick={this.openNewGroupForm}>
+              <Button.Group align="center">
+                <Button variant="text" onClick={this.openNewGroupForm}>
                   <Trans i18nKey="groups.add" />
                 </Button>
               </Button.Group>
+            </>
+          : <>
+              <List groups={groups.data} />
+              <FAB icon="plus" onClick={this.openNewGroupForm} />
             </>
         }
         { 

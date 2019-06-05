@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 
-import { Button, Illustration, Icon } from "components/common"; 
+import { Button, Illustration, Icon, FAB } from "components/common"; 
 import AddTest from "../AddTest";
 
 import { withTranslation } from "react-i18next";
@@ -36,7 +36,18 @@ class CourseTests extends PureComponent {
       <>
         {
           tests.length === 0 ? 
-            <Illustration variant="empty" description={t("course.noTests")} />
+            <>
+              <Illustration variant="empty" description={t("course.noTests")} />
+              {
+                canCreateNew ? 
+                  <Button.Group align="center">
+                    <Button variant="text" onClick={this.openNewTestForm}>
+                      {t("test.startNew")} 
+                    </Button>
+                  </Button.Group>
+                : null
+              }
+            </>
           : (
             <>
               <p><b>{t("markings")}:</b></p>
@@ -76,15 +87,7 @@ class CourseTests extends PureComponent {
                   }
                 </tbody>
               </table>
-              {
-                canCreateNew ? 
-                  <Button.Group align="right">
-                    <Button onClick={this.openNewTestForm} icon="plus">
-                      {t("test.startNew")}
-                    </Button>
-                  </Button.Group>
-                : null
-              }
+              { canCreateNew && <FAB title={t("test.startNew")} onClick={this.openNewTestForm} icon="plus" /> }
             </>
           )
         }

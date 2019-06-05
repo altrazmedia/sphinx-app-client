@@ -11,3 +11,4 @@ export { default as Checkbox      } from "./Checkbox";
 export { default as ErrorMessage  } from "./ErrorMessage";
 export { default as ColumnView    } from "./ColumnView";
 export { default as Menu          } from "./Menu";
+export { default as FAB           } from "./FAB";

@@ -28,7 +28,9 @@ body, html {
 a {
   color: $text;
   outline: none;
+  font-family: $font;
 }
+
 
 strong, b {
   font-weight: 600;

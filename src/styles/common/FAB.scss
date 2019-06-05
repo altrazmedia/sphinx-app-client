@@ -1,0 +1,19 @@
+.fab {
+  width: 50px;
+  height: 50px;
+
+  overflow: hidden;
+  border-radius: 25px;
+  background-color: rgba($secondary, .8);
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  @include transition(all);
+
+
+  &:hover {
+    background-color: rgba($secondary, 1);
+  }
+}

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Loader, PageHeader, Illustration, Button } from "components/common";
+import { Loader, PageHeader, Illustration, Button, FAB } from "components/common";
 
 import List from "./List";
 import Add from "./Add";
@@ -54,20 +54,15 @@ class Subjects extends PureComponent {
             <>
               <Illustration variant="empty" description={<Trans i18nKey="subjects.noSubjects" />} />
               <Button.Group align="center">
-                <Button icon="plus" onClick={this.openNewSubjectForm}>
+                <Button variant="text" onClick={this.openNewSubjectForm}>
                   <Trans i18nKey="subjects.add" />
                 </Button>
               </Button.Group>
             </>
           : <>
               <List subjects={subjects.data} />
-              <Button.Group align="right">
-                <Button icon="plus" onClick={this.openNewSubjectForm}>
-                  <Trans i18nKey="subjects.add" />
-                </Button>
-              </Button.Group>
+              <FAB icon="plus" onClick={this.openNewSubjectForm} />
             </>
-            
         }
         {
           displayNewSubjectForm &&  <Add close={this.closeNewSubjectForm} />

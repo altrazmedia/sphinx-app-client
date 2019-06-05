@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import { Loader, PageHeader, Illustration, Button, Menu } from "components/common";
+import { Loader, PageHeader, Illustration, Button, Menu, FAB } from "components/common";
 
 import List from "./List";
 import Add  from "./Add";
@@ -69,13 +69,7 @@ class Users extends PureComponent {
               <List users={users.data.filter(user => user.role === roleDisplayed)} />
               {
                 // Adding new users available only for admins
-                currentUserRole === "admin" ? 
-                  <Button.Group align="right">
-                    <Button icon="plus" onClick={this.openNewUserForm}>
-                      <Trans i18nKey="users.add" />
-                    </Button>
-                  </Button.Group>
-                 : null 
+                currentUserRole === "admin" && <FAB icon="plus" onClick={this.openNewUserForm} />
               }
             </>
         }

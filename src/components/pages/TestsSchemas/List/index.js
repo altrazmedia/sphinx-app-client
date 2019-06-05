@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import { Trans } from "react-i18next";
-import { Select, Illustration, Loader, PageHeader, Button } from "components/common";
+import { Select, Illustration, Loader, PageHeader, Button, FAB } from "components/common";
 
 import Table from "./Table";
 
@@ -63,12 +63,7 @@ class TestsSchemasList extends PureComponent {
             <div className="segment">
               <Table tests={testsSchemas.data} />
             </div>
-            <Button.Group align="right">
-              <Button to="/tests-schemas/add" icon="plus">
-                <Trans i18nKey={"testsSchema.createNew"}/>
-              </Button>
-            </Button.Group>
-            
+            <FAB to="/tests-schemas/add" icon="plus" />
           </>
         }
       </>
