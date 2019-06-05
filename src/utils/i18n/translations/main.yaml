@@ -19,6 +19,15 @@ page.testsSchemas:
 logout:
   en: Logout
   pl: Wyloguj
+login:
+  en: Login
+  pl: Zaloguj
+login.wrongCredentials:
+  en: Email address or password is not valid
+  pl: Niepoprawne dane logowania
+login.error:
+  en: An error occurred while connecting to the server. Try again later.
+  pl: W trakcie łączenia z serwerem wystąpił błąd. Spróbuj ponownie później.
 hello.header:
   en: Hello, {{label}}!
   pl: Witaj, {{label}}!

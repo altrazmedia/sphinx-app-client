@@ -1,0 +1,11 @@
+.login-modal {
+  background: linear-gradient(135deg, $secondary 0%, darken($secondary, 20%) 100%);
+
+  &__logo {
+    // width: 50%;
+    height: 50px;
+    display: block;
+    margin: $spacing * 2 auto;
+  }
+
+}

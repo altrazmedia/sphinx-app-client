@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import Home         from "components/pages/Home";
 import Sandbox      from "components/pages/Sandbox";
-import Login        from "components/pages/Login";
 import Course       from "components/pages/Course";
 import CoursesList  from "components/pages/CoursesList";
 import TestsSchemas from "components/pages/TestsSchemas";
@@ -16,6 +15,7 @@ import Users        from "components/pages/Users";
 import GroupsList   from "components/pages/GroupsList";
 import Group        from "components/pages/Group";
 
+import Login        from "components/others/Login";
 import NotFound     from "components/others/404";
 import Sidebar      from "components/others/Sidebar";
 
