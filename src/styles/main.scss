@@ -81,6 +81,7 @@ h2 {
   padding: $spacing * 2;
   border-radius: $borderRadius;
   margin: $spacing * 2 0;
+  overflow-x: auto;
 }
 
 .text-link {
