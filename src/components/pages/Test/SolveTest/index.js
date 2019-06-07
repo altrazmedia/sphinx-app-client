@@ -2,13 +2,14 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import axios from "config/axios";
+import { Trans } from "react-i18next";
 
 import { Portal, Button } from "components/common";
 
+import Confirmation from "./Confirmation";
 import Navigation from "./Navigation";
 import Question from "./Question";
 import Clock from "./Clock";
-import { Trans } from "react-i18next";
 
 class SolveTest extends PureComponent {
 
@@ -16,6 +17,7 @@ class SolveTest extends PureComponent {
     questions: [ ...this.props.questions ],
     activeQuestion: { ...this.props.questions[0] }, // currently displayed question
     finished: false, // test is finished
+    confirmationPageDisplayed: false, // displays confirmation page with info about answered questions
     clock: null, // seconds until test is finished
   }
 
@@ -64,7 +66,10 @@ class SolveTest extends PureComponent {
 
   changeActiveQuestion = questionId => {
     const questionIndex = this.state.questions.findIndex(question => question._id === questionId);
-    this.setState({ activeQuestion: { ...this.state.questions[questionIndex] } })
+    this.setState({ 
+      activeQuestion: { ...this.state.questions[questionIndex] },
+      confirmationPageDisplayed: false 
+    })
   }
 
   /**
@@ -105,6 +110,12 @@ class SolveTest extends PureComponent {
   handleNavigationClick = async questionId => {
     await this.sendAnswer(); // Sending the answer to the currently open question before displaying another one
     this.changeActiveQuestion(questionId);
+  }
+
+
+  redirectToConfirmationPage = async () => {
+    await this.sendAnswer(); // Sending the answer to the currently open question before displaying confirmation page
+    this.setState({ confirmationPageDisplayed: true })
   }
 
 
@@ -163,17 +174,13 @@ class SolveTest extends PureComponent {
         })
 
     })
-
-    
-
     
   }
 
 
-
   render = () => {
 
-    const { questions, activeQuestion, finished, clock } = this.state;
+    const { questions, activeQuestion, finished, clock, confirmationPageDisplayed } = this.state;
     const { name } = this.props;
 
     return (
@@ -192,8 +199,8 @@ class SolveTest extends PureComponent {
             </header>
             {
               finished ? 
-                <div className="test-solve__finished-info">
-                  <h2><Trans i18nKey="test.finished.header" /></h2>
+                <div className="test-solve__info">
+                  <h2 className="text-error"><Trans i18nKey="test.finished.header" /></h2>
                   <p><Trans i18nKey="test.finished.description" /></p>
                   <Button variant="text" onClick={this.props.close}>
                     <Trans i18nKey="close" />
@@ -202,14 +209,25 @@ class SolveTest extends PureComponent {
               : 
                 <div className="test-solve__main">
                   <Clock seconds={clock} />
-                  <Question 
-                    question={activeQuestion}
-                    handleOptionClick={this.toggleAnswer}
-                  />
+                  {
+                    confirmationPageDisplayed ? 
+                      <Confirmation
+                        totalQuestions={questions.length}
+                        answeredQuestions={questions.filter(question => question.answer.length > 0).length}
+                        close={this.props.close}
+                      />  
+                    :
+                    <Question 
+                      question={activeQuestion}
+                      handleOptionClick={this.toggleAnswer}
+                    />
+                  }
                   <Navigation
                     questions={questions}
                     active={activeQuestion._id}
                     handleClick={this.handleNavigationClick}
+                    confirmationPageDisplayed={confirmationPageDisplayed}
+                    redirectToConfirmationPage={this.redirectToConfirmationPage}
                   />
                 </div>
             }

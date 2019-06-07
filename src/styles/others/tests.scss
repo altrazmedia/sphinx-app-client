@@ -99,7 +99,7 @@
     }
   }
 
-  &__finished-info {
+  &__info {
     text-align: center;
     height: 100%;
     display: flex;
@@ -108,7 +108,6 @@
     justify-content: center;
 
     h2 {
-      color: $error;
       margin-bottom: $spacing;
     }
 

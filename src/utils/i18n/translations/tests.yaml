@@ -115,3 +115,21 @@ test.finished.header:
 test.finished.description:
   en: Test is now finished. You cannot submit more answers.
   pl: Test się zakończył. Nie możesz odpowiadać na kolejne pytania.
+testSolve.allAnswers.header:
+  en: You've provided answers to all the questions, congratulations!
+  pl: Odpowiedziałeś na wszystkie pytania, gratulacje!
+testSolve.allAnswers.description:
+  en: You can come back here and change the answers as long as the test is not finished.
+  pl: Możesz tu powracać i dowolnie zmieniać swoje odpowiedzi, dopóki test się nie zakończy. 
+testSolve.zeroAnswers.header:
+  en: You haven't answered any question! 
+  pl: Nie odpowiedziałeś na żadne pytanie!
+testSolve.zeroAnswers.description:
+  en: Better go back and try your best to pass the test. You can also close this window for now and come back when you are ready. Just remember to do it before test is finished!
+  pl: Powróć do pytań i postaraj się bardziej. Możesz też zamknąć okno i powrócić, kiedy będziesz gotowy. Pamiętaj jednak, żeby zdążyć przed końcem testu!
+testSolve.someAnswers.header:
+  en: You provided answers to {{answered}} from {{total}} questions.
+  pl: Odpowiedziałś na {{answered}} z {{total}} pytań.
+testSolve.someAnswers.description:
+  en: Navigate back to those empty questions and try your best! You can also close this window for now and come back when you are ready. Just remember to do it before test is finished!
+  pl: Powróć do nieodpowiedzianych pytań i postaraj się bardziej! Możesz też zamknąć okno i powrócić, kiedy będziesz gotowy. Pamiętaj jednak, żeby zdążyć przed końcem testu!
