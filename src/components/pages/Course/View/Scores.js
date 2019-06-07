@@ -35,7 +35,7 @@ const Scores = props => {
       }
     })
 
-    const average = numberOfTests === 0 ? 0 : totalPercentage / numberOfTests;
+    const average = numberOfTests === 0 ? 0 : Math.floor(100 * totalPercentage / numberOfTests) / 100;
 
     return { scores, average }
 
