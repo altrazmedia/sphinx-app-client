@@ -50,7 +50,10 @@ class Users extends PureComponent {
 
     return (
       <div>
-        <PageHeader header={<Trans i18nKey="users.header" /> } />
+        <PageHeader 
+          header={<Trans i18nKey="users.header" /> }
+          description={<Trans i18nKey="users.description" /> }
+        />
         {
           loading ? 
             <Loader />

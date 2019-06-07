@@ -185,7 +185,7 @@ class AddTestSchema extends PureComponent {
               name="description"
               fullWidth
               icon="info-circle"
-              placeholder={t("testsSchemas.description")}
+              placeholder={t("testsSchemas.shortDescription")}
             />
             <h2>{t("testsSchemas.questions")}</h2>
               

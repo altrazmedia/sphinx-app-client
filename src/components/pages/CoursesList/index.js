@@ -11,10 +11,10 @@ import { Trans, withTranslation } from "react-i18next";
 
 
 // Translation keys depending on user's role
-const headerByUserRole = {
-  teacher: "coursesLead.header",
-  student: "myCourses.header",
-  admin: "courses.header",
+const descriptionByUserRole = {
+  teacher: "coursesLead.description",
+  student: "myCourses.description",
+  admin: "courses.description",
 }
 
 const emptyListMsgByUserRole = {
@@ -69,7 +69,10 @@ class CoursesList extends PureComponent {
 
     return (
       <>
-        <PageHeader header={<Trans i18nKey={headerByUserRole[userRole]} /> } />
+        <PageHeader 
+          header={<Trans i18nKey="courses.header" /> } 
+          description={<Trans i18nKey={descriptionByUserRole[userRole]} /> } 
+        />
         {
           loading ? 
             <Loader />

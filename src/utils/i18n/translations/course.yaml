@@ -1,6 +1,6 @@
 course.header:
-  en: course details
-  pl: szczegóły zajęć
+  en: Course information
+  pl: Informacje o zajęciach
 course.notFound.header:
   en: We couldn't find this course
   pl: Nie udało się odnaleźć podanych zajęć
@@ -34,15 +34,18 @@ course.noStudents:
 course.noTests:
   en: There are no tests assigned to this course
   pl: Brak testów przeprowadzanych w ramach tych zajęć
-coursesLead.header:
-  en: Courses you are teching
-  pl: Zajęcia prowadzone przez ciebie
-myCourses.header:
-  en: Your courses
-  pl: Twoje zajęcia
+coursesLead.description:
+  en: List of courses you are teching
+  pl: Lista prowadzonych przez ciebie zajęć
+myCourses.description:
+  en: List of courses you are taking part in
+  pl: Lista zajęć, na które jesteś zapisany
 courses.header:
-  en: List of courses
-  pl: Lista zajęć
+  en: Courses
+  pl: Zajęcia
+courses.description:
+  en: List of all courses
+  pl: Lista wszystkich prowadzonych zajęć
 coursesLead.noCourses:
   en: There are no courses you are currently teaching
   pl: Nie znaleźliśmy żadnych prowadzonych przez Ciebie zajęć
@@ -80,8 +83,8 @@ course.myResults.empty:
   en: You haven't finished any test yet
   pl: Nie ukończyłeś jeszcze żadnego testu w ramach tych zajęć
 course.myResults.average:
-  en: The average score
-  pl: Średnia ocena z testów
+  en: Your average score
+  pl: Średnia ocena z twoich testów
 course.students: 
   en: Students
   pl: Studenci zapisani na zajęcia

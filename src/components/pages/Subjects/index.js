@@ -44,7 +44,10 @@ class Subjects extends PureComponent {
 
     return (
       <div>
-        <PageHeader header={<Trans i18nKey="subjects.header" /> } />
+        <PageHeader 
+          header={<Trans i18nKey="subjects.header" /> } 
+          description={<Trans i18nKey="subjects.description" /> } 
+        />
         {
           loading ? 
             <Loader />

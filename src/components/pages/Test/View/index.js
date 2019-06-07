@@ -60,13 +60,8 @@ class TestView extends PureComponent {
     return (
       <>
         <PageHeader
-          header={(
-            <span>
-              {test.testSchema.name}
-              {" - "}
-              <Trans i18nKey="test.header" />
-            </span>
-          )}
+          header={<span>{test.testSchema.name} ({test.course.subject.name})</span>}
+          description={<Trans i18nKey="test.description" />}
         />
         <Menu
           value={page}

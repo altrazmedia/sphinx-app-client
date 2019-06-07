@@ -1,6 +1,15 @@
 testsSchemas.header:
   en: Tests schemas
   pl: Schematy testów
+testsSchemas.description:
+  en: List of all predefined tests schemas
+  pl: Lista schematów używanych do przeprowadzenia testów
+testsSchemas.info.a:
+  en: To start a test on one of courses, you have to use a test schema. It's a set of questions about a specific field. Each schema can be used multiple times. Go to single schema details page to see more information about how many times the schema was used and which questions was the most difficult. 
+  pl: Aby przeprowadzić test na prowadzonych przez ciebie zajęciach, musisz skorzystać ze schematu testu, czyli zbioru pytań dotyczących określonej dziedziny. Z każdego schematu możesz korzystać wielokrotnie, w ramach wielu zajęć z danego przedmiotu. Wchodząc w szczegóły schematu możesz przejrzeć jego statystyki mówiące między innymi o tym, ile razy dany schemat został użyty i które pytania okazały się najtrudniejsze.
+testsSchemas.info.b:
+  en: Every schema is assigned to one of the subjects. Pick a subject to see a list of linked schemas.
+  pl: Każdy schemat jest przydzielony do jednego przedmiotu. Wybierz przedmiot z listy poniżej, aby wyświetlić listę przypisanych do niego schematów.
 testsSchemas.create.header:
   en: Create a new test schema
   pl: Utwórz nowy schemat testu
@@ -11,8 +20,8 @@ pickSubject.description:
   en: Expand the list above and select on of the subjects
   pl: Rozwiń listę powyżej i wybierz jeden z przedmiotów
 testsSchemas.emptyList:
-  en: This subject has no tests created yet.
-  pl: Nie ma jeszcze żadnych testów przypisanych do tego przedmiotu.
+  en: This subject has no schemas created yet.
+  pl: Nie ma jeszcze żadnych schematów przypisanych do tego przedmiotu.
 testsSchema.createNew:
   en: Create new
   pl: Utwórz nowy
@@ -31,7 +40,7 @@ testsSchemas.questionsNr:
 testsSchemas.details:
   en: Details
   pl: Szczegóły
-testsSchemas.description:
+testsSchemas.shortDescription:
   en: Short description
   pl: Krótki opis 
 testsSchemas.questions:

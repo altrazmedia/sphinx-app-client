@@ -4,6 +4,9 @@ group:
 groups.header:
   en: Students groups
   pl: Grupy studentów
+groups.description:
+  en: List of all students groups
+  pl: Lista wszystkich grup zajęciowych
 groups.noGroups:
   en: There are no groups created yet
   pl: Nie utworzono jeszcze żadnej grupy
@@ -11,8 +14,8 @@ group.notFound:
   en: We couldn't find this group
   pl: Podana grupa nie została znaleziona
 group.groupInfo:
-  en: group info
-  pl: informacje o grupie
+  en: Students group details
+  pl: Informacje o grupie zajęciowej
 group.members:
   en: Group members
   pl: Członkowie grupy

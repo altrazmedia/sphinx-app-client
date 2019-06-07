@@ -22,7 +22,16 @@ class TestsSchemasList extends PureComponent {
 
     return (
       <>
-        <PageHeader header={<Trans i18nKey="testsSchemas.header" />} />
+        <PageHeader 
+          header={<Trans i18nKey="testsSchemas.header" />} 
+          description={<Trans i18nKey="testsSchemas.description" />} 
+        />
+        <p>
+          <Trans i18nKey="testsSchemas.info.a" />
+        </p>
+        <p>
+          <Trans i18nKey="testsSchemas.info.b" />
+        </p>
         <Select 
           value={subjectSelected}
           fullWidth

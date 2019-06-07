@@ -1,6 +1,9 @@
 users.header:
-  en: Users list
-  pl: Lista użytkowników
+  en: Users
+  pl: Użytkownicy
+users.description:
+  en: List of students, teachers and administrators
+  pl: Lista studentów, nauczycieli i administratorów
 users.label:
   en: User label
   pl: Nazwa użytkownika

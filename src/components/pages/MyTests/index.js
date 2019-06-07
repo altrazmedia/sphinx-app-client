@@ -33,7 +33,10 @@ class TestsLead extends PureComponent {
 
     return (
       <div>
-        <PageHeader header={<Trans i18nKey="myTests.header" /> } />
+        <PageHeader 
+          header={<Trans i18nKey="myTests.header" /> } 
+          description={<Trans i18nKey="myTests.description" /> } 
+        />
         {
           loading ? 
             <Loader />

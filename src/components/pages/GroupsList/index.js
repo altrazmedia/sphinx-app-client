@@ -45,7 +45,10 @@ class Groups extends PureComponent {
 
     return (
       <div>
-        <PageHeader header={<Trans i18nKey="groups.header" /> } />
+        <PageHeader 
+          header={<Trans i18nKey="groups.header" /> } 
+          description={<Trans i18nKey="groups.description" /> } 
+        />
         {
           loading ? 
             <Loader />

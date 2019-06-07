@@ -55,9 +55,9 @@ test.my_access.teacher:
 test.my_access.student:
   en: You are a part of the group assigned to this test
   pl: Jesteś w grupie biorącej udział w tym teście
-test.header:
-  en: test details
-  pl: szczegóły testu
+test.description:
+  en: Test details
+  pl: Szczegóły testu
 test.page.main:
   en: Main information
   pl: Główne informacje
@@ -74,8 +74,11 @@ test.score:
   en: Score
   pl: Wynik
 testsLead.header:
-  en: Tests created by you
-  pl: Testy, które prowadzisz
+  en: Tests
+  pl: Testy
+testsLead.description:
+  en: List of all tests you have created
+  pl: Lista wszystkich prowadzonych przez ciebie testów
 tests.empty.ongoing:
   en: There are no ongoin tests right now
   pl: W tej chwili nie ma żadnych aktywnych testów
@@ -86,8 +89,11 @@ tests.empty.finished:
   en: There are no finished tests right now
   pl: Żaden test się jeszcze nie zakończył
 myTests.header:
-  en: My tests
-  pl: Moje testy
+  en: Tests
+  pl: Testy
+myTests.description:
+  en: List of all tests you are taking part in
+  pl: Lista wszystkich twoich testów
 test.solve:
   en: Solve the test
   pl: Przystąp do testu

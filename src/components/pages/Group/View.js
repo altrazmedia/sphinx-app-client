@@ -13,10 +13,10 @@ const GroupView = props => {
       <PageHeader 
         header={(
           <span>
-            {group.name} - <Trans i18nKey="group.groupInfo" />
+            {group.name} ({group.code.toUpperCase()})
           </span>
         )}
-        description={group.code.toUpperCase()}
+        description={<Trans i18nKey="group.groupInfo" />}
       />
       
       <h2><Trans i18nKey="group.members" /></h2>

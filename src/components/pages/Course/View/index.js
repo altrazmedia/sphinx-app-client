@@ -53,13 +53,8 @@ class CourseView extends PureComponent {
     return (
       <>
         <PageHeader
-          header={(
-            <span>
-              {course.code.toUpperCase()}
-              {" - "}
-              <Trans i18nKey="course.header" />
-            </span>
-          )}
+          header={<span>{course.subject.name} ({course.code.toUpperCase()})</span>}
+          description={<Trans i18nKey="course.header" />}
         />
         <Menu
           value={page}

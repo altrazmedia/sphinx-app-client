@@ -2,8 +2,11 @@ subject:
   en: Subject
   pl: Przedmiot
 subjects.header:
-  en: Subjects list
-  pl: Lista przedmiotów
+  en: Subjects
+  pl: Przedmioty
+subjects.description:
+  en: List of all subjects 
+  pl: Lista przedmiotów, w ramach których prowadzone są zajęcia
 subjects.noSubjects:
   en: There are no subjects created yet
   pl: W bazie nie ma jeszcze żadnego przedmiotu
