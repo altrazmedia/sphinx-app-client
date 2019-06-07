@@ -10,6 +10,12 @@ import { fetchTestsSchemasList } from "actions/testsSchemasActions";
 
 class TestsSchemasList extends PureComponent {
 
+  componentDidMount = () => {
+    if (this.props.subjectSelected) {
+      this.props.fetchTestsSchemasList({ subject: this.props.subjectSelected })
+    }
+  }
+
   componentDidUpdate = prevProps => {
     if (this.props.subjectSelected !== prevProps.subjectSelected) {
       this.props.fetchTestsSchemasList({ subject: this.props.subjectSelected })
