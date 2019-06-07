@@ -33,7 +33,7 @@ class CourseTests extends PureComponent {
     const { displayNewTestForm } = this.state;
 
     return (
-      <>
+      <div className="segment">
         {
           tests.length === 0 ? 
             <>
@@ -96,7 +96,7 @@ class CourseTests extends PureComponent {
             <AddTest close={this.closeNewTestForm} />
           : null
         }
-      </>
+      </div>
     )
   }
 

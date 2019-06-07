@@ -5,7 +5,6 @@ import { Menu, PageHeader } from "components/common";
 import { Trans, withTranslation } from "react-i18next";
 
 import Main from "./Main";
-import Students from "./Students";
 import Tests from "./Tests";
 import Scores from "./Scores";
 import MyResults from "./MyResults";
@@ -27,10 +26,6 @@ class CourseView extends PureComponent {
   getAvailablePages = () => {
     const { course } = this.props;
     const pages = [ "main" ];
-
-    if (course.group && course.group.students) {
-      pages.push("students")
-    }
 
     if (course.tests) {
       pages.push("tests")
@@ -71,12 +66,9 @@ class CourseView extends PureComponent {
           onChange={this.handlePageChange}
           items={pages.map(page => ({ value: page, text: <Trans i18nKey={`course.page.${page}`} /> }))}
         />
-        <div className="segment">
           {
             page === "main" ? 
               <Main course={course} />
-            : page === "students" ? 
-              <Students students={course.group.students} />
             : page === "tests" ? 
               <Tests tests={course.tests} canCreateNew={course.my_access === "teacher"} />
             : page === "scores" ? 
@@ -85,7 +77,6 @@ class CourseView extends PureComponent {
               <MyResults tests={course.my_results} />
             : null
           }
-        </div>
       </>
     )
   }

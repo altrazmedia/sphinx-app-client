@@ -28,7 +28,7 @@ const MyResults = props => {
 
 
   return (
-    <>
+    <div className="segment">
       <h3>
         <Trans i18nKey="course.myResults.average" />: {getScoreAverage()}%
       </h3>
@@ -56,7 +56,7 @@ const MyResults = props => {
           }
         </tbody>
       </table>
-    </>
+    </div>
   )
 
 }

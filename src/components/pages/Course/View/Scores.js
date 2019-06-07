@@ -42,43 +42,45 @@ const Scores = props => {
   }
 
   return (
-    <table className="table scores-table">
-      <thead>
-        <tr>
-          <th><Trans i18nKey="student" /></th>
+    <div className="segment">
+      <table className="table scores-table">
+        <thead>
+          <tr>
+            <th><Trans i18nKey="student" /></th>
+            {
+              tests.map(test => (
+                <th key={test._id} title={test.testSchema.name} className="scores-table__test-name"> 
+                  <Link to={`/test/${test._id}`}>
+                    {trimText(test.testSchema.name)}
+                  </Link>
+                </th>
+              ))
+            }
+            <th><Trans i18nKey="test.scoresAverage" /></th>
+          </tr>
+        </thead>
+        <tbody>
           {
-            tests.map(test => (
-              <th key={test._id} title={test.testSchema.name} className="scores-table__test-name"> 
-                <Link to={`/test/${test._id}`}>
-                  {trimText(test.testSchema.name)}
-                </Link>
-              </th>
-            ))
+            students.map(student => {
+              const { scores, average } = getStudentScores(student._id);
+              return (
+                <tr key={student._id}>
+                  <td>{student.label}</td>
+                  {
+                    scores.map(score => (
+                      <td key={score.key} title={score.testName}>
+                        {score.score === null ? "-" : score.score + " %"}
+                      </td>
+                    ))
+                  }
+                  <td>{average} %</td>
+                </tr>
+              )
+            })
           }
-          <th><Trans i18nKey="test.scoresAverage" /></th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          students.map(student => {
-            const { scores, average } = getStudentScores(student._id);
-            return (
-              <tr key={student._id}>
-                <td>{student.label}</td>
-                {
-                  scores.map(score => (
-                    <td key={score.key} title={score.testName}>
-                      {score.score === null ? "-" : score.score + " %"}
-                    </td>
-                  ))
-                }
-                <td>{average} %</td>
-              </tr>
-            )
-          })
-        }
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   )
 }
 

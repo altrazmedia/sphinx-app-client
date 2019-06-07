@@ -10,9 +10,6 @@ course.notFound.description:
 course.page.main:
   en: Main information
   pl: Główne informacje
-course.page.students:
-  en: Students list
-  pl: Lista studentów
 course.page.scores:
   en: Tests results
   pl: Wyniki testów
@@ -33,10 +30,10 @@ course.teacher:
   pl: Prowadzący
 course.noStudents:
   en: There are no students assigned to this course
-  pl: Nie znaleźliśmy żadnych studentów zapisanych na te zajęcia
+  pl: Żaden student nie jest zapisany na te zajęcia
 course.noTests:
   en: There are no tests assigned to this course
-  pl: Nie znaleźliśmy żadnych testów przeprowadzanych w ramach tych zajęć
+  pl: Brak testów przeprowadzanych w ramach tych zajęć
 coursesLead.header:
   en: Courses you are teching
   pl: Zajęcia prowadzone przez ciebie
@@ -85,3 +82,6 @@ course.myResults.empty:
 course.myResults.average:
   en: The average score
   pl: Średnia ocena z testów
+course.students: 
+  en: Students
+  pl: Studenci zapisani na zajęcia
