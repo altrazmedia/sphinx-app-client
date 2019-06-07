@@ -25,6 +25,15 @@ const TestMainInfo = props => {
           name={<Trans i18nKey="test.end" /> }
           value={moment(test.end).local().format("DD.MM.YYYY HH:mm")}
         />
+        {
+          test.my_attempt && test.status === "ongoing" && 
+            <ColumnView.Item 
+              name={<Trans i18nKey="test.questionAnswered" /> }
+              value={<span>{test.my_attempt.answered} / {test.my_attempt.questions.length}</span>}
+            />
+        }
+        <br />
+        <br />
         <ColumnView.Item 
           name={<Trans i18nKey="course" /> }
           value={
@@ -45,6 +54,7 @@ const TestMainInfo = props => {
           name={<Trans i18nKey="group" /> }
           value={test.course.group.code.toUpperCase()}
         />
+
         {
           test.my_access === "student" && test.status === "ongoing" ? 
             <Button.Group align="center">
