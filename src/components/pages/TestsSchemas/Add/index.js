@@ -113,7 +113,7 @@ class AddTestSchema extends PureComponent {
 
     this.setState({ errors, errorMsg: errorMsg.join(". ") })
     
-    if (errorMsg.length > 0 && Object.keys(errors).length > 0) {
+    if (errorMsg.length > 0 || Object.keys(errors).length > 0) {
       // Some errors occurred
       return false
     }
@@ -124,11 +124,12 @@ class AddTestSchema extends PureComponent {
   
   handleSubmit = e => {
     e.preventDefault();
-    this.validate();
+    if (this.validate()) {
+      const { name, subject, questions, description } = this.state;
+      const testSchema = { name, subject, questions, description };
+      this.saveTestSchema(testSchema)
+    }
 
-    const { name, subject, questions, description } = this.state;
-    const testSchema = { name, subject, questions, description };
-    this.saveTestSchema(testSchema)
   }
 
   /**
@@ -142,7 +143,6 @@ class AddTestSchema extends PureComponent {
         this.props.history.push("/tests-schemas")
       })
       .catch(err => {
-        console.log(err.response)
         this.setState({ errorMsg: `${this.props.t("operationError")} (${err.response.status})` })
       })
   }
