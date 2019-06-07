@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Menu = props => {
 
-  const { items, value, onChange, className, ...rest } = props;
+  const { items, value, type, onChange, className, ...rest } = props;
 
   const handleItemClick = item => () => {
     if (onChange) {
@@ -12,7 +12,7 @@ const Menu = props => {
   }
 
   return (
-    <div className="menu" {...rest}>
+    <div className={`menu menu--${type}`} {...rest}>
       <ul className="menu__list">
         {
           items.map(item => {
@@ -30,7 +30,8 @@ const Menu = props => {
 }
 
 Menu.defaultProps = {
-  items: []
+  items: [],
+  type: "primary"
 }
 
 Menu.propTypes = {
@@ -39,7 +40,8 @@ Menu.propTypes = {
     value: PropTypes.string.isRequired
   })),
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
+  type: PropTypes.oneOf([ "primary", "secondary" ]), // size of menu items
 }
 
 export default Menu;
