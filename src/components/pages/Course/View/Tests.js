@@ -6,6 +6,7 @@ import { Button, Illustration, Icon, FAB } from "components/common";
 import AddTest from "../AddTest";
 
 import { withTranslation } from "react-i18next";
+import TestsList from "components/common/TestsList";
 
 // Icon color based on test status
 const statusColor = {
@@ -33,8 +34,9 @@ class CourseTests extends PureComponent {
     const { displayNewTestForm } = this.state;
 
     return (
-      <div className="segment">
-        {
+      <>
+        <TestsList menuType="secondary" tests={tests} />
+        {/* {
           tests.length === 0 ? 
             <>
               <Illustration variant="empty" description={t("course.noTests")} />
@@ -90,13 +92,14 @@ class CourseTests extends PureComponent {
               { canCreateNew && <FAB title={t("test.startNew")} onClick={this.openNewTestForm} icon="plus" /> }
             </>
           )
-        }
+        } */}
+        { canCreateNew && <FAB title={t("test.startNew")} onClick={this.openNewTestForm} icon="plus" /> }
         {
           displayNewTestForm ? 
             <AddTest close={this.closeNewTestForm} />
           : null
         }
-      </div>
+      </>
     )
   }
 
