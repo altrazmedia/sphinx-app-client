@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import { Menu, PageHeader } from "components/common";
-import { Trans } from "react-i18next";
+import { Trans, withTranslation } from "react-i18next";
 
 import Main from "./Main";
 import Results from "./Results";
@@ -99,4 +99,4 @@ TestView.propTypes = {
   test: PropTypes.object.isRequired
 }
 
-export default TestView;
+export default withTranslation()(TestView);
