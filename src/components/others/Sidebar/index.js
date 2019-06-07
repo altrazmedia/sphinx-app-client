@@ -65,6 +65,14 @@ class Sidebar extends PureComponent {
     }))
   }
 
+  /** One of link has been clicked */
+  handleLinkClick = () => {
+    if (window.innerWidth < 600) {
+      // Closing sidebar after clicking on small viewports
+      this.toggleOpen();
+    }
+  }
+
   handleLanguageChange = lang => {
     i18n.changeLanguage(lang);
     this.setState({ lang });
@@ -118,7 +126,7 @@ class Sidebar extends PureComponent {
               navItems.map(item => {
 
                 return (
-                  <Link to={item.path} key={item.path} className={`sidebar__item`}>
+                  <Link to={item.path} key={item.path} className={`sidebar__item`} onClick={this.handleLinkClick}>
                     <div className="sidebar__icon-wrapper">
                       <Icon  name={item.icon} className="sidebar__icon" />
                     </div>
