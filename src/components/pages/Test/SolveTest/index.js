@@ -34,7 +34,7 @@ class SolveTest extends PureComponent {
 
   setClock = () => {
     const { end } = this.props;
-    const diff = moment(end).diff(moment(), "second");
+    const diff = moment(end).local().diff(moment(), "second");
     if (diff <= 0) {
       this.setState({ finished: true })
     }
