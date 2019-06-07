@@ -25,13 +25,14 @@ class TestsList extends PureComponent {
   render = () => {
 
     const { page } = this.state;
-    const { tests, t } = this.props;
+    const { tests, t, menuType } = this.props;
 
     return (
       <>
         <Menu 
           value={page}
           onChange={this.handlePageChange}
+          type={menuType}
           items={[
             { value: "ongoing",  text: t("tests.ongoing") },
             { value: "finished", text: t("tests.finished") },
@@ -51,7 +52,8 @@ class TestsList extends PureComponent {
 }
 
 TestsList.propTypes = {
-  tests: PropTypes.arrayOf(PropTypes.object).isRequired
+  tests: PropTypes.arrayOf(PropTypes.object).isRequired,
+  menuType: PropTypes.oneOf([ "primary", "secondary" ])
 }
 
 export default withTranslation()(TestsList);
