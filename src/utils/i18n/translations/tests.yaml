@@ -68,7 +68,7 @@ test.page.my-result:
   en: My results
   pl: Twój wynik
 test.questionAnswered:
-  en: Question answered
+  en: Questions answered
   pl: Liczba odpowiedzi
 test.score:
   en: Score
