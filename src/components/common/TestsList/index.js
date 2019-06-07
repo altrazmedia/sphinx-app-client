@@ -39,12 +39,10 @@ class TestsList extends PureComponent {
             { value: "pending",  text: t("tests.pending") }
           ]}
         />
-        <div className="segment">
-          <List 
-            status={page}
-            tests={tests.filter(test => test.status === page)}
-          />
-        </div>
+        <List 
+          status={page}
+          tests={tests.filter(test => test.status === page)}
+        />
       </>
     )
 

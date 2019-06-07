@@ -80,7 +80,8 @@ h2 {
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
   padding: $spacing * 2;
   border-radius: $borderRadius;
-  margin: $spacing * 2 0;
+  margin-top: $spacing * 2;
+  margin-bottom: $spacing * 4;
   overflow-x: auto;
 }
 
