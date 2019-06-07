@@ -23,6 +23,7 @@ const List = props => {
           <th><Trans i18nKey="course" /></th>
           <th><Trans i18nKey="test.start" /></th>
           <th><Trans i18nKey="test.end" /></th>
+          { tests[0].hasOwnProperty("questionsAnswered") && <th><Trans i18nKey="test.questionAnswered" /></th> }
           <th><Trans i18nKey="details" /></th>
         </tr>
       </thead>
@@ -38,6 +39,7 @@ const List = props => {
               </td>
               <td>{moment.utc(test.start).local().format("DD.MM.YYYY HH:mm")}</td>
               <td>{moment.utc(test.end).local().format("DD.MM.YYYY HH:mm")}</td>
+              { test.hasOwnProperty("questionsAnswered") && <td>{test.questionsAnswered} / {test.questionsQuantity}</td> }
               <td>
                 <Button variant="icon" icon="arrow-right" size="small" color="primary" to={`/test/${test._id}`} />
               </td>
@@ -52,7 +54,7 @@ const List = props => {
 
 List.propTypes = {
   status: PropTypes.oneOf([ "ongoing", "pending", "finished" ]).isRequired,
-  tests: PropTypes.arrayOf(PropTypes.object).isRequired
+  tests: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default List;
