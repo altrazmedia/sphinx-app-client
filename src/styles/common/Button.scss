@@ -1,11 +1,11 @@
 .button {
-  padding: $buttonPaddingY $buttonPaddingX;
+  padding: $elementPaddingY $elementPaddingX;
   text-transform: uppercase;
   border-radius: $borderRadius;;
   cursor: pointer;
   font-size: .9rem;
   letter-spacing: 0.5px;
-  line-height: $buttonLineHeight;
+  line-height: $elementLineHeight;
   font-weight: 600;
   outline-width: 0;
   position: relative;
@@ -19,7 +19,7 @@
   }
 
   &.variant-default {
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+    box-shadow: $shadowA;
     color: $textInverted;
 
     @mixin defaultButton($color) {
@@ -30,7 +30,7 @@
 
       &:hover:not(:disabled) {
         background-color: darken($color, 5%);
-        box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+        box-shadow: $shadowB;
       }
 
     }

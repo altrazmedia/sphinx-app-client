@@ -1,13 +1,6 @@
 $font: "Muli", sans-serif;
 
-$spacing: 8px;
-$borderRadius: 4px;
-
-$buttonLineHeight: 22px;
-$buttonPaddingY: 9px;
-$buttonPaddingX: 19px;
-
-// PALETTE
+/* -- PALETTE -- */
 
 $text: #727272;
 $textDark: #535353;
@@ -25,6 +18,26 @@ $bgDark: #222222;
 
 $border: #e0e0e0;
 $borderLight: #f0f0f0;
+
+/* ------- */
+
+$spacing: 8px;
+$borderRadius: 4px;
+
+$elementLineHeight: 22px;
+$elementPaddingY: 9px;
+$elementPaddingX: 19px;
+
+$elementBackground: rgba(0,0,0, .07);
+$elementHoverBackground: rgba(0,0,0, .11);
+
+$elementDisabledBackground: rgba(0,0,0, .02);
+
+$elementErrorBackground: rgba($error, .2);
+$elementErrorHoverBackground: rgba($error, .22);
+
+$shadowA: 0px 2px 4px 0px rgba(0,0,0,0.3);
+$shadowB: 0px 3px 4px 0px rgba(0,0,0,0.3);
 
 @mixin transition($prop) {
   transition: $prop 255ms cubic-bezier(0.25, 0.8, 0.25, 1);

@@ -18,7 +18,7 @@
     background-color: $bgCard;
     margin: $topMargin auto 0 auto;
     border-radius: $borderRadius;
-    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+    box-shadow: $shadowB;
   }
 
   &__header {

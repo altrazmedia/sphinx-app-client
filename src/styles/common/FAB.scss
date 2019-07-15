@@ -5,7 +5,7 @@
   overflow: hidden;
   border-radius: 25px;
   background-color: rgba($secondary, .8);
-  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.3);
+  box-shadow: $shadowA;
   cursor: pointer;
   position: fixed;
   bottom: 50px;
@@ -15,5 +15,6 @@
 
   &:hover {
     background-color: rgba($secondary, 1);
+    box-shadow: $shadowB;
   }
 }
