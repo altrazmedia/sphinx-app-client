@@ -43,8 +43,8 @@ class Select extends PureComponent {
 
     const classNames = cx(
       "select",
-      { open },
-      { fullWidth },
+      { "select--open": open },
+      { "select--fullWidth": fullWidth },
       className
     );
 

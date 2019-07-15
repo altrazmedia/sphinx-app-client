@@ -22,9 +22,9 @@ class Input extends PureComponent {
 
     const classNames = cx(
       "input",
-      { fullWidth },
-      { error },
-      { active: isActive },
+      { "input--fullWidth": fullWidth },
+      { "input--error": error },
+      { "input--active": isActive },
       className
     );
   

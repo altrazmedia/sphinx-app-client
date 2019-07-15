@@ -9,8 +9,8 @@ const Icon = (props) => {
   const classNames = cx(
     "icon",
     `fas fa-${name}`,
-    `color-${color}`,
-    `size-${size}`,
+    `icon--color-${color}`,
+    `icon--size-${size}`,
     className
   );
 

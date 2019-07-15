@@ -1,4 +1,5 @@
 .button {
+  $self: &;
   padding: $elementPaddingY $elementPaddingX;
   text-transform: uppercase;
   border-radius: $borderRadius;;
@@ -18,7 +19,7 @@
     cursor: initial;
   }
 
-  &.variant-default {
+  &--variant-default {
     box-shadow: $shadowA;
     color: $textInverted;
 
@@ -35,26 +36,26 @@
 
     }
 
-    &.color-primary,  &.color-default {
+    &#{$self}--color-primary, &#{$self}--color-default {
       @include defaultButton($primary);
     }
   
-    &.color-secondary {
+    &#{$self}--color-secondary {
       @include defaultButton($secondary);
     }
 
-    &.color-error {
+    &#{$self}--color-error {
       @include defaultButton($error);
     }
 
-    &.color-success {
+    &#{$self}--color-success {
       @include defaultButton($success);
     }
 
   
   }
 
-  &.variant-text {
+  &--variant-text {
     color: $textDark;
 
     @mixin textButton($color) {
@@ -70,29 +71,29 @@
 
 
 
-    &.color-primary {
+    &#{$self}--color-primary {
       @include textButton($primary);
     }
 
-    &.color-default {
+    &#{$self}--color-default {
       @include textButton($textDark);
     }
   
-    &.color-secondary {
+    &#{$self}--color-secondary {
       @include textButton($secondary);
     }
 
-    &.color-error {
+    &#{$self}--color-error {
       @include textButton($error);
     }
 
-    &.color-success {
+    &#{$self}--color-success {
       @include textButton($success);
     }
 
   }
 
-  &.variant-icon {
+  &--variant-icon {
 
     border-radius: 50%;
     width: 45px;
@@ -107,7 +108,7 @@
       @include transition(opacity);
     }
 
-    &.size-small {
+    &#{$self}--size-small {
       width: 35px;
       height: 35px;
     }
@@ -126,23 +127,23 @@
 
     }
 
-    &.color-primary {
+     &#{$self}--color-primary {
       @include iconButton($primary);
     }
 
-    &.color-default {
+     &#{$self}--color-default {
       @include iconButton($textDark);
     }
   
-    &.color-secondary {
+     &#{$self}--color-secondary {
       @include iconButton($secondary);
     }
 
-    &.color-error {
+     &#{$self}--color-error {
       @include iconButton($error);
     }
 
-    &.color-success {
+     &#{$self}--color-success {
       @include iconButton($success);
     }
 
@@ -157,19 +158,19 @@
   margin: $spacing * 2 0;
   width: 100%;
 
-  &.align-left {
+  &--align-left {
     justify-content: flex-start;
   }
 
-  &.align-center {
+  &--align-center {
     justify-content: center;
   }
 
-  &.align-right {
+  &--align-right {
     justify-content: flex-end;
   }
 
-  &.align-space-between {
+  &--align-space-between {
     justify-content: space-between;
   }
 

@@ -18,7 +18,7 @@ const Menu = props => {
           items.map(item => {
             const isActive = item.value === value;
             return (
-              <li className={`menu__item ${isActive ? "active" : ""}`} onClick={handleItemClick(item)} key={item.value}>
+              <li className={`menu__item ${isActive ? "menu__item--active" : ""}`} onClick={handleItemClick(item)} key={item.value}>
                 {item.text}
               </li>
             )

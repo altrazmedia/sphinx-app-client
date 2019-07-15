@@ -59,7 +59,7 @@
     color: $secondary;
   }
 
-  &.error &__input {
+  &--error &__input {
     background-color: $elementErrorBackground;
 
     &:hover:not(:disabled), &:active:not(:disabled), &:focus:not(:disabled) {
@@ -67,7 +67,7 @@
     }
   }
 
-  &.error &__icon.icon {
+  &--error &__icon.icon {
     color: $error;
   }
 
@@ -78,7 +78,7 @@
     font-size: .85rem;
   }
 
-  &.fullWidth {
+  &--fullWidth {
     max-width: 100%;
   }
 

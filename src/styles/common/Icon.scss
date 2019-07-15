@@ -2,32 +2,32 @@
   color: $text;
   margin: 0 $spacing;
 
-  &.color-primary {
+  &--color-primary {
     color: $primary;
   }
-  &.color-secondary {
+  &--color-secondary {
     color: $secondary;
   }
-  &.color-error {
+  &--color-error {
     color: $error;
   }
-  &.color-success {
+  &--color-success {
     color: $success;
   }
-  &.color-inverted {
+  &--color-inverted {
     color: $textInverted;
   }
   
 
 
-  &.size-small {
+  &--size-small {
     font-size: 1rem;
   }
 
-  &.size-default {
+  &--size-default {
     font-size: 1.3rem;
   }
-  &.size-big {
+  &--size-big {
     font-size: 1.7rem;
   }
 

@@ -15,7 +15,7 @@ const ErrorMessage = props => {
 
   const classNames = cx(
     "error-message",
-    { fullWidth },
+    { "error-message--fullWidth": fullWidth },
     className
   );
 

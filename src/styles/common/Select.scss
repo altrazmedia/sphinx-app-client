@@ -1,4 +1,5 @@
 .select {
+  $self: &;
   display: block;
   width: 100%;
   max-width: 400px;
@@ -45,31 +46,31 @@
     line-height: $elementLineHeight;
     padding: $elementPaddingY $elementPaddingX;
     @include transition(all);
-    &:hover {
+    &:hover:not(&--selected) {
       color: $primary;
     }
 
-    &.selected {
+    &--selected {
       background-color: rgba($primary, .6);
       color: $textInverted;
     }
 
   }
 
-  &.open {
-    .select__header {
+  &--open {
+    #{$self}__header {
       background-color: $elementHoverBackground;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       box-shadow: $shadowA;
     }
 
-    .select__options {
+    #{$self}__options {
       display: block;
     }
   }
 
-  &.fullWidth {
+  &--fullWidth {
     max-width: 100%;
   }
 

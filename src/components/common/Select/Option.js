@@ -7,7 +7,7 @@ const Option = props => {
 
   const classNames = cx(
     "select__option",
-    { "selected": isSelected },
+    { "select__option--selected": isSelected },
     className
   );
 

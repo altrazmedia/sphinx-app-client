@@ -42,20 +42,20 @@
 
   }
 
-  &.checked &__label {
+  &--checked &__label {
     &:before {
       opacity: .8;
     }
   }
 
-  &.disabled &__label {
+  &--disabled &__label {
     cursor: default;
     &:before, &:after {
       opacity: .5;
     }
   }
 
-  &:not(.disabled) &__label {
+  &:not(&--disabled) &__label {
     &:hover:after {
       background-color: $elementHoverBackground;
     }

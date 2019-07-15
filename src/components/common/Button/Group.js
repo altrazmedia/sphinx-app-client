@@ -6,7 +6,7 @@ const Group = props => {
   const { children, className, align, ...rest } = props;
 
   return (
-    <div className={`buttons-group align-${align} ${className}`} {...rest}>
+    <div className={`buttons-group buttons-group--align-${align} ${className}`} {...rest}>
       {children}
     </div>
   )

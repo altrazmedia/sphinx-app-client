@@ -15,8 +15,8 @@ class Checkbox extends PureComponent {
   
     const classNames = cx(
       "checkbox",
-      { checked },
-      { disabled },
+      { "checkbox--checked": checked },
+      { "checkbox--disabled": disabled },
       className
     );
   

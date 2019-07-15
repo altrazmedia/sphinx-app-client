@@ -12,10 +12,10 @@ const Button = props => {
 
   const classNames = cx(
     "button",
-    `color-${color}`,
-    `variant-${variant}`,
-    `size-${size}`,
-    { [`icon-position-${iconPosition}`]: variant !== "icon" },
+    `button--color-${color}`,
+    `button--variant-${variant}`,
+    `button--size-${size}`,
+    { [`button--icon-position-${iconPosition}`]: variant !== "icon" },
     className
   )
 
