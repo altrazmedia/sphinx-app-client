@@ -74,5 +74,12 @@
     max-width: 100%;
   }
 
+  &--active {
+    #{$self}__header {
+      background-color: $elementHoverBackground;
+      box-shadow: $shadowA;
+    }
+  }
+
 
 }

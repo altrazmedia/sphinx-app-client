@@ -9,17 +9,18 @@ import { Icon } from "components/common";
 class Select extends PureComponent {
 
   state = {
-    open: false
+    isOpen: false,
+    isActive: false
   }
 
   toggleOpen = () => {
     this.setState(state => ({
-      open: !state.open
+      isOpen: !state.isOpen
     }))
   }
 
   close = () => {
-    this.setState({ open: false });
+    this.setState({ isOpen: false });
   }
 
   /**
@@ -33,11 +34,22 @@ class Select extends PureComponent {
     return ""; 
   }
 
-  handleOptionClick = option => () => {
+  handleOptionClick = option => {
     if (this.props.onChange) {
       this.props.onChange(option.value);
     }
     this.close();
+  }
+
+  /** onBLur event on main div */
+  handleBlur = () => { 
+    this.close();
+    this.setState({ isActive: false });
+  }
+
+  /** onFocus event on main div */
+  handleFocus = () => {
+    this.setState({ isActive: true });
   }
 
   handleKeyDown = e => {
@@ -52,30 +64,31 @@ class Select extends PureComponent {
 
   render = () => {
 
-    const { open } = this.state;
+    const { isOpen, isActive } = this.state;
     const { children, className, value, options, placeholder, fullWidth, onChange, ...rest } = this.props;
 
     const classNames = cx(
       "select",
-      { "select--open": open },
+      { "select--open": isOpen },
       { "select--fullWidth": fullWidth },
+      { "select--active": isActive },
       className
     );
 
     const selectedValueText = this.getValueDisplayName();
 
     return (
-      <div className={classNames} {...rest} tabIndex={0} onBlur={this.close} onKeyDown={this.handleKeyDown}>
+      <div className={classNames} {...rest} tabIndex={0} onBlur={this.handleBlur} onFocus={this.handleFocus} onKeyDown={this.handleKeyDown}>
         <div className="select__header" onClick={this.toggleOpen}>
           { 
             selectedValueText ? selectedValueText : 
             placeholder ? <span className="select__placeholder">{placeholder}</span> : <span />
           }
-          <Icon name={open ? "caret-up" : "caret-down"} className="select__icon" />
+          <Icon name={isOpen ? "caret-up" : "caret-down"} className="select__icon" />
         </div>
         <div className="select__options">
           {options.map(option => (
-            <Option key={option.value} {...option} isSelected={option.value === value} onClick={this.handleOptionClick(option)} />
+            <Option key={option.value} {...option} isSelected={option.value === value} onClick={() => this.handleOptionClick(option)} />
           ))}
         </div>
       </div>
@@ -83,7 +96,10 @@ class Select extends PureComponent {
 
   }
 
+}
 
+Select.defaultProps = {
+  options: []
 }
 
 Select.propTypes = {
