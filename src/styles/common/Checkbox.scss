@@ -4,6 +4,7 @@
   margin-right: $spacing;
   margin-top: $spacing;
   margin-bottom: $spacing;
+  
 
   &__label {
     position: relative;
@@ -58,6 +59,13 @@
   &:not(&--disabled) &__label {
     &:hover:after {
       background-color: $elementHoverBackground;
+    }
+  }
+
+  &--active &__label {
+    &:after {
+      background-color: $elementHoverBackground;
+      box-shadow: $shadowA;
     }
   }
 
