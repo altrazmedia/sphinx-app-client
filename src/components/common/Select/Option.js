@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 
 const Option = props => {
-  const { onClick, text, isSelected, className, ...rest } = props;
+  const { text, isSelected, className, ...rest } = props;
 
   const classNames = cx(
     "select__option",
@@ -12,7 +12,7 @@ const Option = props => {
   );
 
   return (
-    <div {...rest} className={classNames} onClick={onClick}>
+    <div {...rest} className={classNames}>
       { text }
     </div>
   )
