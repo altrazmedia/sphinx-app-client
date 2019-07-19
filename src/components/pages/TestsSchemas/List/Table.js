@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import { Trans } from "react-i18next";
+
 import { Button } from "components/common";
 
+import { formatDate } from "utils/functions";
 
 const TestsSchemasTable = props => {
 
@@ -16,6 +17,7 @@ const TestsSchemasTable = props => {
           <th><Trans i18nKey={"testsSchemas.name"} /></th>
           <th><Trans i18nKey={"testsSchemas.author"} /></th>
           <th><Trans i18nKey={"testsSchemas.questionsNr"} /></th>
+          <th><Trans i18nKey={"testsSchemas.created"} /></th>
           <th><Trans i18nKey={"testsSchemas.details"} /></th>
         </tr>
       </thead>
@@ -26,6 +28,7 @@ const TestsSchemasTable = props => {
               <td>{test.name}</td>  
               <td>{test.author.label}</td>  
               <td>{test.questions.length}</td>  
+              <td>{formatDate(test.created)}</td>  
               <td>
                 <Button 
                   variant="icon"

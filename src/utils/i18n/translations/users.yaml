@@ -13,6 +13,9 @@ users.role:
 users.email:
   en: Email address
   pl: Adres email
+users.created:
+  en: Created at
+  pl: Data utworzenia konta
 users.password:
   en: Password
   pl: Hasło

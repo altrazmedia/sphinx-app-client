@@ -34,6 +34,9 @@ testsSchemas.nameFull:
 testsSchemas.author:
   en: Author
   pl: Autor
+testsSchemas.created:
+  en: Created at
+  pl: Data utworzenia
 testsSchemas.questionsNr:
   en: Number of questions
   pl: Liczba pytań

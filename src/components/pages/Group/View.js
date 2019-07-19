@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { PageHeader, Button } from "components/common";
 import { Trans } from "react-i18next";
 
+import { formatDate } from "utils/functions";
+
 const GroupView = props => {
 
   const { group } = props;
@@ -26,6 +28,7 @@ const GroupView = props => {
             <tr>
               <th><Trans i18nKey="users.label" /></th>
               <th><Trans i18nKey="users.email" /></th>
+              <th><Trans i18nKey="users.created" /></th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +38,7 @@ const GroupView = props => {
                   <tr key={user._id}>
                     <td>{user.label}</td>
                     <td>{user.email}</td>
+                    <td>{formatDate(user.created)}</td>
                   </tr>
                 )
               })

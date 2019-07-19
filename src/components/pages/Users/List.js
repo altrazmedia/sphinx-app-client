@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { Trans } from "react-i18next";
 import { Illustration } from "components/common";
 
+import { formatDate } from "utils/functions";
+
 const UsersList = props => {
 
   const { users } = props;
@@ -19,6 +21,7 @@ const UsersList = props => {
           <tr>
             <th><Trans i18nKey="users.label" /></th>
             <th><Trans i18nKey="users.email" /></th>
+            <th><Trans i18nKey="users.created" /></th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +31,7 @@ const UsersList = props => {
                 <tr key={user._id}>
                   <td>{user.label}</td>
                   <td>{user.email}</td>
+                  <td>{formatDate(user.created)}</td>
                 </tr>
               )
             })
