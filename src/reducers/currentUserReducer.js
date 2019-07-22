@@ -2,6 +2,7 @@ import * as types from "actions/types"
 
 const initialState = {
   isUserLoggedIn: false,
+  sessionExpired: false,
   loading: false, 
   error: null,
   data: {}
@@ -14,7 +15,8 @@ export default (state = initialState, action) => {
     case types.LOGIN: {
       return {
         ...state,
-        isUserLoggedIn: true
+        isUserLoggedIn: true,
+        sessionExpired: false
       }
     }
 
@@ -22,6 +24,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isUserLoggedIn: false,
+        sessionExpired: Boolean(action.payload),
         data: {}
       }
     }

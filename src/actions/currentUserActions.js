@@ -2,7 +2,6 @@ import axios, { setSessionHeader, removeSessionHeader } from "config/axios";
 import * as types  from "./types";
 
 const LOCAL_STORAGE_SESSION_ID = "_session_id_";
-export const LOCAL_STORAGE_SESSION_EXPIRED = "_session_expired_";
 
 /**
  * Checking if there is an info about a session in localStorage and if its still valid.
@@ -11,7 +10,6 @@ export const LOCAL_STORAGE_SESSION_EXPIRED = "_session_expired_";
 export const checkForSession = () => dispatch => {
 
   const session_id = localStorage.getItem(LOCAL_STORAGE_SESSION_ID);
-  localStorage.removeItem(LOCAL_STORAGE_SESSION_EXPIRED);
 
   if (session_id) {
     dispatch({ type: types.CURRENT_USER_LOADING, payload: true });
@@ -58,7 +56,6 @@ export const login = ({ email, password, onError }) => dispatch => {
  */
 export const onUserLogin = (session_id) => dispatch => {
   localStorage.setItem(LOCAL_STORAGE_SESSION_ID, session_id);
-  localStorage.removeItem(LOCAL_STORAGE_SESSION_EXPIRED);
   setSessionHeader(session_id); // Setting the requests header in axios config
   dispatch({ type: types.LOGIN });
   dispatch(getCurrentUserInfo());
@@ -82,11 +79,7 @@ export const onLogout = (sessionExpired = false) => dispatch => {
   // Removing info about user's session from localStorage and axios config regardless of result of removing session in database
   localStorage.removeItem(LOCAL_STORAGE_SESSION_ID); // removing the session info from localStorage
   removeSessionHeader(); // removing the header from axios config
-  if (sessionExpired) {
-    // Saving the info about session expiration
-    localStorage.setItem(LOCAL_STORAGE_SESSION_EXPIRED, "true");
-  }
-  dispatch({ type: types.LOGOUT })
+  dispatch({ type: types.LOGOUT, payload: sessionExpired })
 }
 
 
