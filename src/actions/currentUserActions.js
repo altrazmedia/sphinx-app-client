@@ -1,6 +1,39 @@
 import axios, { setSessionHeader, removeSessionHeader } from "config/axios";
 import * as types  from "./types";
 
+const LOCAL_STORAGE_SESSION_ID = "_session_id_";
+export const LOCAL_STORAGE_SESSION_EXPIRED = "_session_expired_";
+
+/**
+ * Checking if there is an info about a session in localStorage and if its still valid.
+ * This action is dispatched as soon as the app is loaded
+ */
+export const checkForSession = () => dispatch => {
+
+  const session_id = localStorage.getItem(LOCAL_STORAGE_SESSION_ID);
+  localStorage.removeItem(LOCAL_STORAGE_SESSION_EXPIRED);
+
+  if (session_id) {
+    dispatch({ type: types.CURRENT_USER_LOADING, payload: true });
+
+    axios.get(`session/${session_id}`)
+      .then(() => {
+        // session id is still valid 
+        dispatch(onUserLogin(session_id));
+      })
+      .catch(err => {
+        if (err.response.status === 400) {
+          // The saved session has expired
+          localStorage.removeItem(LOCAL_STORAGE_SESSION_ID);
+          dispatch({ type: types.CURRENT_USER_LOADING, payload: false });
+        }
+        else {
+          // Server error
+          dispatch({ type: types.CURRENT_USER_ERROR, payload: err.response });
+        }
+      })
+  }
+}
 
 /**
  * @param {Object} payload
@@ -24,8 +57,9 @@ export const login = ({ email, password, onError }) => dispatch => {
  * @param {String} session_id 
  */
 export const onUserLogin = (session_id) => dispatch => {
-  localStorage.setItem("session_id", session_id);
-  setSessionHeader(session_id); // Setting the requests header
+  localStorage.setItem(LOCAL_STORAGE_SESSION_ID, session_id);
+  localStorage.removeItem(LOCAL_STORAGE_SESSION_EXPIRED);
+  setSessionHeader(session_id); // Setting the requests header in axios config
   dispatch({ type: types.LOGIN });
   dispatch(getCurrentUserInfo());
 }
@@ -40,10 +74,18 @@ export const logout = () => dispatch => {
     })
 }
 
-export const onLogout = () => dispatch => {
+/**
+ * Operations to perform after user has logged out
+ * @param {Boolean} sessionExpired is user logged out because his session has expired
+ */
+export const onLogout = (sessionExpired = false) => dispatch => {
   // Removing info about user's session from localStorage and axios config regardless of result of removing session in database
-  localStorage.removeItem("session_id");
-  removeSessionHeader();
+  localStorage.removeItem(LOCAL_STORAGE_SESSION_ID); // removing the session info from localStorage
+  removeSessionHeader(); // removing the header from axios config
+  if (sessionExpired) {
+    // Saving the info about session expiration
+    localStorage.setItem(LOCAL_STORAGE_SESSION_EXPIRED, "true");
+  }
   dispatch({ type: types.LOGOUT })
 }
 
@@ -53,13 +95,7 @@ export const onLogout = () => dispatch => {
  * @param {Object} payload 
  * @param {Boolean} payload.loading Should state.currentUser.loading filed be modified
  */
-export const getCurrentUserInfo = (payload = {}) => dispatch => {
-  const { loading = true } = payload;
-
-  if (loading) {
-    dispatch({ type: types.CURRENT_USER_LOADING, payload: true })
-  }
-
+export const getCurrentUserInfo = () => dispatch => {
   axios.get("me")
     .then(result => {
       const { data } = result;

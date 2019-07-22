@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "store";
 import { onLogout } from "actions/currentUserActions";
 
-const baseURL = "http://localhost:3001/api/"
+const baseURL = process.env.NODE_ENV === "development" ? process.env.REACT_APP_DEV_API_URL : process.env.REACT_APP_API_URL;
 
 const axiosInstance = axios.create({
   baseURL
@@ -17,7 +17,7 @@ axiosInstance.interceptors.response.use(
     }
     if (error.response.status === 401) {
       // Session is no longer valid
-      store.dispatch(onLogout())
+      store.dispatch(onLogout(true))
     }
     else {
       return Promise.reject(error)
