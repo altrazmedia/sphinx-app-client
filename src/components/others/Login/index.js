@@ -2,10 +2,12 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
 
-import { Modal, Input, Button, ErrorMessage } from "components/common";
+import { Input, Button, ErrorMessage, Icon } from "components/common";
+
 import { login } from "actions/currentUserActions";
 
-import logo from "images/logo.png";
+import logo  from "images/logo.png";
+import { ReactComponent as image }from "images/interface.svg";
 
 class Login extends PureComponent {
   state = {
@@ -38,52 +40,70 @@ class Login extends PureComponent {
   render = () => {
 
     const { email, password, error } = this.state;
-    const { t } = this.props;
+    const { t, sessionExpired } = this.props;
 
     return (
-      <Modal className="login-modal">
-        <Modal.Content>
-          <form onSubmit={this.handleSubmit}>
-            <img src={logo} className="login-modal__logo" />
-            <Input 
-              fullWidth
-              name="email"
-              type="email"
-              value={email}
-              icon="envelope"
-              onChange={this.handleChange}
-              placeholder={t("users.email")}
-            />  
-            <Input 
-              fullWidth
-              name="password"
-              type="password"
-              value={password}
-              icon="key"
-              onChange={this.handleChange}
-              placeholder={t("users.password")}
-            />  
-            <ErrorMessage fullWidth content={error} />
-            <Button.Group align="center">
-              <Button
-                disabled={!email || !password}
-                type="submit"
-              >
-                {t("login")}
-              </Button>
-            </Button.Group>
-          </form>
-        </Modal.Content>
-      </Modal>
+      <div className="login">
+        <div className="login__window">
+          <div className="login__image-wrapper">
+            {React.createElement(image, { className: "login__image" })}
+          </div>
+          <div className="login__form-wrapper">
+            <form onSubmit={this.handleSubmit} className="login__form">
+              <img src={logo} className="login__logo" />
+              {
+                sessionExpired &&
+                  <p className="login__session-expired">
+                    <Icon name="exclamation-circle" size="small" color="error" />
+                    {t("sessionExpired")}
+                  </p>
+              }
+              <Input 
+                fullWidth
+                name="email"
+                type="email"
+                value={email}
+                icon="envelope"
+                onChange={this.handleChange}
+                placeholder={t("users.email")}
+                required
+              />  
+              <Input 
+                fullWidth
+                name="password"
+                type="password"
+                value={password}
+                icon="key"
+                onChange={this.handleChange}
+                placeholder={t("users.password")}
+                required
+              />  
+              <ErrorMessage fullWidth content={error} />
+              <Button.Group align="center">
+                <Button
+                  type="submit"
+                >
+                  {t("login")}
+                </Button>
+              </Button.Group>
+            </form>
+          </div>
+        </div>
+      </div>
     )
 
   }
 
 }
 
+
+const READ = state => ({
+  sessionExpired: state.currentUser.sessionExpired
+})
+
 const EMIT = dispatch => ({
   login: payload => dispatch(login(payload))
 })
 
 
-export default connect(null, EMIT)(withTranslation()(Login));
+export default connect(READ, EMIT)(withTranslation()(Login));

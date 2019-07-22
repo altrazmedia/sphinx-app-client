@@ -1,11 +1,77 @@
-.login-modal {
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   background: linear-gradient(135deg, $secondary 0%, darken($secondary, 20%) 100%);
 
+  $breakingWidth: 700px;
+
+  &__window {
+    width: 95%;
+    max-width: 900px;
+    height: 90%;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: $shadowB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $bgCard;
+    z-index: 50;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image-wrapper {
+
+    @media (max-width: $breakingWidth) {
+      display: none;
+    }
+
+    width: 50%;
+    text-align: center;
+  }
+
+  &__image {
+    max-width: 70%;
+    height: 100%;
+  }
+
+
+  &__form-wrapper {
+
+    @media (max-width: $breakingWidth) {
+      width: 100%;
+    }
+
+    padding: 2 * $spacing;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form {
+
+    @media (max-width: $breakingWidth) {
+      max-width: 400px;
+    }
+
+    width: 90%;
+    text-align: center;
+  }
+
+  &__session-expired {
+    color: $error;
+  }
+
   &__logo {
-    // width: 50%;
-    height: 50px;
+    height: 45px;
     display: block;
-    margin: $spacing * 2 auto;
+    margin: 0 auto 60px auto;
   }
 
 }
