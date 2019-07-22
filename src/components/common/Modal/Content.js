@@ -1,6 +1,6 @@
 import React from "react";
 
-const Content = props => {
+const ModalContent = props => {
   const { children, className, ...rest } = props;
 
   return (
@@ -10,8 +10,8 @@ const Content = props => {
   )
 }
 
-Content.defaultProps = {
+ModalContent.defaultProps = {
   className: ""
 }
 
-export default Content;
+export default ModalContent;

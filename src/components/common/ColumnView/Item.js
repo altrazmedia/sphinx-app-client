@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Item = props => {
+const ColumnViewItem = props => {
 
   const { name, value, className, ...rest } = props;
 
@@ -18,9 +18,9 @@ const Item = props => {
 
 }
 
-Item.propTypes = {
+ColumnViewItem.propTypes = {
   name: PropTypes.node,
   value: PropTypes.node
 }
 
-export default Item;
+export default ColumnViewItem;

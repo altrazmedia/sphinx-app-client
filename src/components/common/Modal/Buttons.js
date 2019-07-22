@@ -1,6 +1,6 @@
 import React from "react";
 
-const Buttons = props => {
+const ModalButtons = props => {
 
   const { children, className, ...rest } = props;
 
@@ -12,9 +12,9 @@ const Buttons = props => {
 
 }
 
-Buttons.defaultProps = {
+ModalButtons.defaultProps = {
   className: ""
 }
 
 
-export default Buttons;
+export default ModalButtons;

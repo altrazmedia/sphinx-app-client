@@ -45,6 +45,8 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "yaml": "^1.6.0"
   }
 }

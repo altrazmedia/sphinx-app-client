@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import Ink from "react-ink";
 import cx from "classnames";
 
+import Group from "./Group";
 import { Icon } from "components/common";
 
 const Button = props => {
 
-  const { color, type, variant, content, to, children, icon, iconPosition, size, className, ...rest } = props;
+  const { color, variant, content, to, children, icon, iconPosition, size, className, ...rest } = props;
 
   const classNames = cx(
     "button",
@@ -27,7 +28,6 @@ const Button = props => {
   const _btn = (
     <button
       className={classNames}
-      type={type}
       {...rest}
     >
       {toRender}
@@ -58,5 +58,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   to: PropTypes.string // if provided, Button will be rendered as router Link and will pass 'to' prop
 }
+
+Button.Group = Group;
 
 export default Button;

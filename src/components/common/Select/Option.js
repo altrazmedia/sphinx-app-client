@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
-const Option = props => {
+const SelectOption = props => {
   const { text, isSelected, className, ...rest } = props;
 
   const classNames = cx(
@@ -19,10 +19,10 @@ const Option = props => {
 
 }
 
-Option.propTypes = {
+SelectOption.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.node.isRequired,
 }
 
-export default Option;
+export default SelectOption;

@@ -10,10 +10,12 @@ class Checkbox extends PureComponent {
     isActive: false
   }
 
+  /** onFocus event on main div */
   handleFocus = () => {
     this.setState({ isActive: true })
   }
 
+  /** onBlur event on main div */
   handleBlur = () => {
     this.setState({ isActive: false })
   }
@@ -22,10 +24,13 @@ class Checkbox extends PureComponent {
     if (e.keyCode === 32) {
       // space bar pressed 
       e.preventDefault();
-      if (!this.props.disabled) {
-        this.inputRef.click();
-      }
+      this.inputRef.click(); // Simulating the click event on input
     }
+  }
+
+  /** Creating ref to the input element */
+  handleInputRef = el => {
+    this.inputRef = el;
   }
 
   render = () => {
@@ -51,7 +56,7 @@ class Checkbox extends PureComponent {
           type="checkbox"
           onChange={onChange}
           className="checkbox__input"
-          ref={el => this.inputRef = el}
+          ref={this.handleInputRef}
         />
       </div>
     )

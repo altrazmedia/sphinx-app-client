@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Group = props => {
+const ButtonGroup = props => {
 
-  const { children, className, align, ...rest } = props;
+  const { className, align, ...rest } = props;
 
   return (
-    <div className={`buttons-group buttons-group--align-${align} ${className}`} {...rest}>
-      {children}
-    </div>
+    <div className={`buttons-group buttons-group--align-${align} ${className}`} {...rest} />
   )
 
 }
 
-Group.defaultProps = {
+ButtonGroup.defaultProps = {
   align: "left",
   className: ""
 }
 
-Group.propTypes = {
+ButtonGroup.propTypes = {
   align: PropTypes.oneOf([ "left", "center", "right", "space-between" ]),
 }
 
-export default Group;
+export default ButtonGroup;
