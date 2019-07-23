@@ -4,7 +4,6 @@ import { shallow } from "enzyme";
 import ColumnView from "./ColumnView";
 
 describe("ColumnView component", () => {
-
   let wrapper, props;
 
   const columnView = () => {
@@ -12,22 +11,24 @@ describe("ColumnView component", () => {
       wrapper = shallow(<ColumnView {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
-
   it("renders a div", () => {
-    expect(columnView().first().type()).toBe("div");
+    expect(
+      columnView()
+        .first()
+        .type()
+    ).toBe("div");
   });
 
   describe("the rendered div", () => {
-
     const div = () => columnView().first();
 
     it("has a suitable class name", () => {
@@ -50,9 +51,11 @@ describe("ColumnView component", () => {
 
     it("renders whats passed in `children` prop", () => {
       props.children = <p>abc</p>;
-      expect(div().children().equals(<p>abc</p>)).toBe(true);
+      expect(
+        div()
+          .children()
+          .equals(<p>abc</p>)
+      ).toBe(true);
     });
-
   });
-
 });

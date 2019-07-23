@@ -1,30 +1,28 @@
-import * as types from "actions/types"
+import * as types from "actions/types";
 
 const initialState = {
   single: {
     data: {},
     error: null,
-    loading: false
+    loading: false,
   },
   list: {
     data: [],
     error: null,
-    loading: false
-  }
+    loading: false,
+  },
 };
 
 export default (state = initialState, action) => {
-
-  switch(action.type) {
-
+  switch (action.type) {
     case types.GROUPS_LIST_LOADING: {
       return {
         ...state,
         list: {
           ...state.list,
-          loading: action.payload
-        }
-      }
+          loading: action.payload,
+        },
+      };
     }
 
     case types.GROUPS_LIST_SUCCESS: {
@@ -33,9 +31,9 @@ export default (state = initialState, action) => {
         list: {
           loading: false,
           error: null,
-          data: action.payload
-        }
-      }
+          data: action.payload,
+        },
+      };
     }
 
     case types.GROUPS_LIST_ERROR: {
@@ -44,9 +42,9 @@ export default (state = initialState, action) => {
         list: {
           loading: false,
           error: action.payload,
-          data: []
-        }
-      }
+          data: [],
+        },
+      };
     }
 
     case types.GROUP_LOADING: {
@@ -54,9 +52,9 @@ export default (state = initialState, action) => {
         ...state,
         single: {
           ...state.single,
-          loading: action.payload
-        }
-      }
+          loading: action.payload,
+        },
+      };
     }
 
     case types.GROUP_SUCCESS: {
@@ -65,9 +63,9 @@ export default (state = initialState, action) => {
         single: {
           loading: false,
           error: null,
-          data: action.payload
-        }
-      }
+          data: action.payload,
+        },
+      };
     }
 
     case types.GROUP_ERROR: {
@@ -76,15 +74,13 @@ export default (state = initialState, action) => {
         single: {
           loading: false,
           error: action.payload,
-          data: {}
-        }
-      }
+          data: {},
+        },
+      };
     }
 
     default: {
       return state;
     }
-    
   }
-
-}
+};

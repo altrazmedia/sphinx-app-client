@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import { Icon, Input } from "../"
+import { Icon, Input } from "../";
 
 describe("Input component", () => {
   let wrapper, props;
@@ -11,12 +11,12 @@ describe("Input component", () => {
       wrapper = shallow(<Input {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -25,7 +25,6 @@ describe("Input component", () => {
   });
 
   describe("the rendered div", () => {
-
     it("has a suitable class name", () => {
       expect(input().hasClass("input")).toBe(true);
     });
@@ -46,9 +45,7 @@ describe("Input component", () => {
       expect(input().hasClass("input--active")).toBe(true);
     });
 
-    
     describe("icon wrapper", () => {
-
       const iconWrapper = () => input().find(".input__icon-wrapper");
 
       it("is rendered as a div if the `icon` prop is passed", () => {
@@ -59,19 +56,25 @@ describe("Input component", () => {
       it("renders the Icon component with `icon` prop value passed as the `name` prop and a suitable class name", () => {
         props.icon = "testIcon";
         expect(iconWrapper().find(Icon).length).toBe(1);
-        expect(iconWrapper().find(Icon).prop("className")).toBe("input__icon");
-        expect(iconWrapper().find(Icon).prop("name")).toBe("testIcon");
+        expect(
+          iconWrapper()
+            .find(Icon)
+            .prop("className")
+        ).toBe("input__icon");
+        expect(
+          iconWrapper()
+            .find(Icon)
+            .prop("name")
+        ).toBe("testIcon");
       });
 
       it("is not rendered if the `icon` prop is not passed", () => {
         props.icon = undefined;
         expect(iconWrapper().length).toBe(0);
       });
-
     });
 
     describe("error message", () => {
-
       const errorMessage = () => input().find(".input__error");
 
       it("is rendered as a span if the `error` prop is a not empty string", () => {
@@ -92,11 +95,9 @@ describe("Input component", () => {
         props.error = "";
         expect(errorMessage().length).toBe(0);
       });
-
     });
 
     describe("input element", () => {
-
       const inputElement = () => input().find("input");
 
       it("is rendered with a suitable class name", () => {
@@ -119,10 +120,6 @@ describe("Input component", () => {
         inputElement().simulate("blur");
         expect(input().state("isActive")).toBe(false);
       });
-
     });
-
   });
-
-
 });

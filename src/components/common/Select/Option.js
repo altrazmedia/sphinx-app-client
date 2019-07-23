@@ -13,16 +13,15 @@ const SelectOption = props => {
 
   return (
     <div {...rest} className={classNames}>
-      { text }
+      {text}
     </div>
-  )
-
-}
+  );
+};
 
 SelectOption.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   text: PropTypes.node.isRequired,
-}
+};
 
 export default SelectOption;

@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import Illustration from "./Illustration"
+import Illustration from "./Illustration";
 import * as svgImages from "images/svgImages";
 import { Trans } from "react-i18next";
 
@@ -13,17 +13,15 @@ describe("Illustration component", () => {
       wrapper = shallow(<Illustration {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
-
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
-  
   it("renders a div", () => {
     expect(illustration().type()).toBe("div");
   });
@@ -41,15 +39,25 @@ describe("Illustration component", () => {
     });
 
     it("receives all the other props passed to the component", () => {
-      expect(illustration().first().prop("testProp")).toBeFalsy();
+      expect(
+        illustration()
+          .first()
+          .prop("testProp")
+      ).toBeFalsy();
       resetWrapper();
       props.testProp = "abc";
-      expect(illustration().first().prop("testProp")).toBe("abc");
+      expect(
+        illustration()
+          .first()
+          .prop("testProp")
+      ).toBe("abc");
     });
 
     describe("image element", () => {
-
-      const image = () => illustration().children().first();
+      const image = () =>
+        illustration()
+          .children()
+          .first();
 
       it("is rendered as svg if a valid `variant` prop is passed", () => {
         props.variant = "empty";
@@ -72,24 +80,34 @@ describe("Illustration component", () => {
         props.image = "invalidName";
         expect(image().type()).toBe("span");
       });
-
-
     });
 
     describe("header element", () => {
-
       const header = () => illustration().find("h2");
 
       it("renders a Trans component with a proper `i18nKey` prop if a valid `variant` prop is passed", () => {
         props.variant = "empty";
-        expect(header().children().find(Trans).length).toBe(1);
-        expect(header().children().find(Trans).prop("i18nKey")).toBe("emptyBox")
+        expect(
+          header()
+            .children()
+            .find(Trans).length
+        ).toBe(1);
+        expect(
+          header()
+            .children()
+            .find(Trans)
+            .prop("i18nKey")
+        ).toBe("emptyBox");
       });
 
       it("renders a content of the `header` prop if passed (even it the `variant` prop is passed as well)", () => {
         props.variant = "empty";
         props.header = "Test Header";
-        expect(header().children().find(Trans).length).toBe(0);
+        expect(
+          header()
+            .children()
+            .find(Trans).length
+        ).toBe(0);
         expect(header().text()).toBe("Test Header");
       });
 
@@ -102,23 +120,34 @@ describe("Illustration component", () => {
         props.variant = "invalidVariant";
         expect(header().length).toBe(0);
       });
-
     });
 
     describe("description element", () => {
-
       const description = () => illustration().find("p");
 
       it("renders a Trans component with a proper `i18nKey` prop if a valid `variant` prop is passed", () => {
         props.variant = "fetchError";
-        expect(description().children().find(Trans).length).toBe(1);
-        expect(description().children().find(Trans).prop("i18nKey")).toBe("fetchError")
+        expect(
+          description()
+            .children()
+            .find(Trans).length
+        ).toBe(1);
+        expect(
+          description()
+            .children()
+            .find(Trans)
+            .prop("i18nKey")
+        ).toBe("fetchError");
       });
 
       it("renders a content of the `description` prop if passed (even it the `variant` prop is passed as well)", () => {
         props.variant = "fetchError";
         props.description = "Test description";
-        expect(description().children().find(Trans).length).toBe(0);
+        expect(
+          description()
+            .children()
+            .find(Trans).length
+        ).toBe(0);
         expect(description().text()).toBe("Test description");
       });
 
@@ -131,10 +160,6 @@ describe("Illustration component", () => {
         props.variant = "invalidVariant";
         expect(description().length).toBe(0);
       });
-
     });
-
   });
-
- 
 });

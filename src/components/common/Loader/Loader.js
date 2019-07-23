@@ -1,7 +1,6 @@
 import React from "react";
 
 const Loader = props => {
-
   const { className, ...rest } = props;
 
   return (
@@ -19,8 +18,7 @@ const Loader = props => {
         <div />
       </div>
     </div>
-  )
-
-}
+  );
+};
 
 export default Loader;

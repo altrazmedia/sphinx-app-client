@@ -3,7 +3,6 @@ import { shallow } from "enzyme";
 import { Link } from "react-router-dom";
 import Ink from "react-ink";
 
-
 import { Button, Icon } from "../";
 
 describe("Button component", () => {
@@ -14,12 +13,12 @@ describe("Button component", () => {
       wrapper = shallow(<Button {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -28,7 +27,6 @@ describe("Button component", () => {
   });
 
   describe("the button element", () => {
-
     const button = () => buttonComponent().find("button");
 
     it("has a suitable class name", () => {
@@ -58,7 +56,7 @@ describe("Button component", () => {
     it("renders the Ink component if `disabled` prop is not set to true", () => {
       expect(button().find(Ink).length).toBe(1);
       resetWrapper();
-      
+
       props.disabled = true;
       expect(button().find(Ink).length).toBe(0);
     });
@@ -66,16 +64,28 @@ describe("Button component", () => {
     it("renders the content of `content` or `children` prop if the `variant` is other than `icon`", () => {
       props.content = "test content";
       props.children = "test children";
-      expect(button().render().text()).toBe("test content");
+      expect(
+        button()
+          .render()
+          .text()
+      ).toBe("test content");
       resetWrapper();
-      
+
       props.children = "test children";
-      expect(button().render().text()).toBe("test children");
+      expect(
+        button()
+          .render()
+          .text()
+      ).toBe("test children");
       resetWrapper();
 
       props.content = "test content";
       props.variant = "icon";
-      expect(button().render().text()).toBeFalsy();
+      expect(
+        button()
+          .render()
+          .text()
+      ).toBeFalsy();
     });
 
     it("renders the Icon component if the `icon` prop is passed", () => {
@@ -84,23 +94,51 @@ describe("Button component", () => {
 
       props.icon = "times";
       expect(button().find(Icon).length).toBe(1);
-      expect(button().find(Icon).prop("name")).toBe("times");
-      expect(button().find(Icon).prop("size")).toBe("small");
+      expect(
+        button()
+          .find(Icon)
+          .prop("name")
+      ).toBe("times");
+      expect(
+        button()
+          .find(Icon)
+          .prop("size")
+      ).toBe("small");
     });
 
     it("renders the content and Icon component in the order dependent on `iconPosition` prop", () => {
       props.icon = "iconName";
       props.content = "test content";
       props.iconPosition = "left";
-      expect(button().children().at(0).type()).toBe(Icon);
-      expect(button().children().at(1).text()).toBe("test content");
+      expect(
+        button()
+          .children()
+          .at(0)
+          .type()
+      ).toBe(Icon);
+      expect(
+        button()
+          .children()
+          .at(1)
+          .text()
+      ).toBe("test content");
       resetWrapper();
 
       props.icon = "iconName";
       props.content = "test content";
       props.iconPosition = "right";
-      expect(button().children().at(0).text()).toBe("test content");
-      expect(button().children().at(1).type()).toBe(Icon);
+      expect(
+        button()
+          .children()
+          .at(0)
+          .text()
+      ).toBe("test content");
+      expect(
+        button()
+          .children()
+          .at(1)
+          .type()
+      ).toBe(Icon);
     });
 
     it("is wrapped in the Link component if the `to` prop is passed", () => {
@@ -108,10 +146,16 @@ describe("Button component", () => {
       resetWrapper();
 
       props.to = "/home";
-      expect(button().parent().type()).toBe(Link);
-      expect(button().parent().prop("to")).toBe("/home");
+      expect(
+        button()
+          .parent()
+          .type()
+      ).toBe(Link);
+      expect(
+        button()
+          .parent()
+          .prop("to")
+      ).toBe("/home");
     });
-
   });
-
 });

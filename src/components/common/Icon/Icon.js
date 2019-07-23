@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 
-const Icon = (props) => {
-
+const Icon = props => {
   const { color, size, name, className, ...rest } = props;
 
   const classNames = cx(
@@ -14,21 +13,25 @@ const Icon = (props) => {
     className
   );
 
-  return (
-    <i className={classNames} {...rest} />
-  )
-
-}
+  return <i className={classNames} {...rest} />;
+};
 
 Icon.defaultProps = {
   color: "default",
-  size: "default"
-}
+  size: "default",
+};
 
 Icon.propTypes = {
-  color: PropTypes.oneOf([ "default", "primary", "secondary", "error", "success", "inverted" ]),
-  size: PropTypes.oneOf([ "default", "big", "small" ]),
+  color: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "error",
+    "success",
+    "inverted",
+  ]),
+  size: PropTypes.oneOf(["default", "big", "small"]),
   name: PropTypes.string.isRequired, // FontAwesome icon name
-}
+};
 
 export default Icon;

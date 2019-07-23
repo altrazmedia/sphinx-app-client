@@ -11,21 +11,24 @@ describe("PageHeader component", () => {
       wrapper = shallow(<PageHeader {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
   it("renders a header element", () => {
-    expect(pageHeader().first().type()).toBe("header");
+    expect(
+      pageHeader()
+        .first()
+        .type()
+    ).toBe("header");
   });
 
   describe("header element", () => {
-
     const header = () => pageHeader().first();
 
     it("has a suitable class name", () => {
@@ -43,8 +46,16 @@ describe("PageHeader component", () => {
 
       props.header = "Test header";
       expect(header().find("h1").length).toBe(1);
-      expect(header().find("h1").hasClass("page-header__header")).toBe(true);
-      expect(header().find("h1").text()).toBe("Test header");
+      expect(
+        header()
+          .find("h1")
+          .hasClass("page-header__header")
+      ).toBe(true);
+      expect(
+        header()
+          .find("h1")
+          .text()
+      ).toBe("Test header");
     });
 
     it("renders a p element with the content of the `description` prop inside if its passed", () => {
@@ -53,10 +64,16 @@ describe("PageHeader component", () => {
 
       props.description = "Test description";
       expect(header().find("p").length).toBe(1);
-      expect(header().find("p").hasClass("page-header__description")).toBe(true);
-      expect(header().find("p").text()).toBe("Test description");
+      expect(
+        header()
+          .find("p")
+          .hasClass("page-header__description")
+      ).toBe(true);
+      expect(
+        header()
+          .find("p")
+          .text()
+      ).toBe("Test description");
     });
-
   });
-
 });

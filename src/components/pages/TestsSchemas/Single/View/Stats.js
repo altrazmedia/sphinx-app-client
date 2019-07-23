@@ -6,12 +6,11 @@ import moment from "moment";
 
 import { ColumnView } from "components/common";
 
-const PRIMARY_RGB = [ 28, 139, 106  ];
-const SECONDARY_RGB = [ 40, 80, 100 ];
+const PRIMARY_RGB = [28, 139, 106];
+const SECONDARY_RGB = [40, 80, 100];
 
 // Finished tests stats
 const Stats = props => {
-
   const { testSchema, t } = props;
 
   if (testSchema.tests.length === 0) {
@@ -21,40 +20,46 @@ const Stats = props => {
           <Trans i18nKey="testSchema.stats.noTests" />
         </h2>
       </div>
-    )
+    );
   }
 
   const testsChartData = {
-    labels: testSchema.tests.map(test => `${test.course.code.toUpperCase()}, ${moment(test.end).local().format("DD.MM.YYYY")}`),
-    datasets: [{
-      data: testSchema.tests.map(test => test.averageScore),
-      backgroundColor: `rgba(${SECONDARY_RGB.join(", ")}, .65)`,
-      borderColor: `rgb(${SECONDARY_RGB.join(", ")})`,
-      borderWidth: 1,
-      label: t("testSchema.stats.averageScore")
-    }]
-  }
+    labels: testSchema.tests.map(
+      test =>
+        `${test.course.code.toUpperCase()}, ${moment(test.end)
+          .local()
+          .format("DD.MM.YYYY")}`
+    ),
+    datasets: [
+      {
+        data: testSchema.tests.map(test => test.averageScore),
+        backgroundColor: `rgba(${SECONDARY_RGB.join(", ")}, .65)`,
+        borderColor: `rgb(${SECONDARY_RGB.join(", ")})`,
+        borderWidth: 1,
+        label: t("testSchema.stats.averageScore"),
+      },
+    ],
+  };
 
   const questionsChartData = {
     labels: testSchema.questions.map(question => question.content),
-    datasets:[
+    datasets: [
       {
         data: testSchema.questions.map(question => question.asked),
         backgroundColor: `rgba(${SECONDARY_RGB.join(", ")}, .65)`,
         borderColor: `rgb(${SECONDARY_RGB.join(", ")})`,
         borderWidth: 1,
-        label: t("testSchema.stats.asked")
+        label: t("testSchema.stats.asked"),
       },
       {
         data: testSchema.questions.map(question => question.answeredCorrectly),
         backgroundColor: `rgba(${PRIMARY_RGB.join(", ")}, .65)`,
         borderColor: `rgb(${PRIMARY_RGB.join(", ")})`,
         borderWidth: 1,
-        label: t("testSchema.stats.correct")
-      }
-    ]
-  }
-
+        label: t("testSchema.stats.correct"),
+      },
+    ],
+  };
 
   return (
     <>
@@ -78,54 +83,53 @@ const Stats = props => {
         <h2>
           <Trans i18nKey="testSchema.stats.testsScores" />
         </h2>
-        <Bar 
+        <Bar
           data={testsChartData}
-          options={
-            {
-              scales: {
-                yAxes: [{
+          options={{
+            scales: {
+              yAxes: [
+                {
                   ticks: {
                     min: 0,
-                    max: 100
-                  }
-                }]
-              }
-            }
-          }
+                    max: 100,
+                  },
+                },
+              ],
+            },
+          }}
         />
       </div>
       <div className="segment">
         <h2>
           <Trans i18nKey="testSchema.stats.questions" />
         </h2>
-        <Bar 
+        <Bar
           data={questionsChartData}
-          options={
-            {
-              scales: {
-                yAxes: [{
+          options={{
+            scales: {
+              yAxes: [
+                {
                   ticks: {
                     min: 0,
-                    stepSize: 1
-                  }
-                }]
-              }
-            }
-          }
+                    stepSize: 1,
+                  },
+                },
+              ],
+            },
+          }}
         />
       </div>
     </>
-  )
-
-}
+  );
+};
 
 Stats.propTypes = {
   testSchema: PropTypes.shape({
     questions: PropTypes.arrayOf(PropTypes.object).isRequired,
     tests: PropTypes.arrayOf(PropTypes.object).isRequired,
     totalAttempts: PropTypes.number.isRequired,
-    averageScore: PropTypes.number.isRequired
-  })
-}
+    averageScore: PropTypes.number.isRequired,
+  }),
+};
 
 export default withTranslation()(Stats);

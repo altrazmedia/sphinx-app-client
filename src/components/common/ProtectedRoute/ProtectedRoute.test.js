@@ -12,19 +12,18 @@ describe("ProtectedRoute component", () => {
       wrapper = shallow(<ProtectedRoute {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
-
   it("doesn't render anything if there's no logged in user", () => {
-    props.currentUser = { 
-      isUserLoggedIn: false
+    props.currentUser = {
+      isUserLoggedIn: false,
     };
 
     expect(protectedRoute().type()).toBeFalsy();
@@ -33,7 +32,7 @@ describe("ProtectedRoute component", () => {
   it("doesn't render anything if the user's role is not inlcuded in `roles` prop array", () => {
     props.currentUser = {
       isUserLoggedIn: true,
-      data: { role: "student" }
+      data: { role: "student" },
     };
     props.roles = ["admin"];
 
@@ -43,15 +42,20 @@ describe("ProtectedRoute component", () => {
   it("if there is a logged in user with a proper role  - renders the Route component and passes all the other props to it", () => {
     props.currentUser = {
       isUserLoggedIn: true,
-      data: { role: "admin" }
+      data: { role: "admin" },
     };
-    props.roles = [ "teacher", "admin" ];
+    props.roles = ["teacher", "admin"];
     props.testProp = "test";
 
-    expect(protectedRoute().first().type()).toBe(Route);
-    expect(protectedRoute().first().prop("testProp")).toBe("test");
-
+    expect(
+      protectedRoute()
+        .first()
+        .type()
+    ).toBe(Route);
+    expect(
+      protectedRoute()
+        .first()
+        .prop("testProp")
+    ).toBe("test");
   });
-
-
 });

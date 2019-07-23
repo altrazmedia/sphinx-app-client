@@ -11,47 +11,42 @@ import List from "./List";
  *  Filtering them by status
  */
 class TestsList extends PureComponent {
-  
   state = {
-    page: "ongoing" // "ongoing", "finished" or "pending"; status of displayed tests
-  }
-
+    page: "ongoing", // "ongoing", "finished" or "pending"; status of displayed tests
+  };
 
   handlePageChange = page => {
-    this.setState({ page })
-  }
-
+    this.setState({ page });
+  };
 
   render = () => {
-
     const { page } = this.state;
     const { tests, t, menuType } = this.props;
 
     return (
       <>
-        <Menu 
+        <Menu
           value={page}
           onChange={this.handlePageChange}
           type={menuType}
           items={[
-            { value: "ongoing",  text: t("tests.ongoing") },
+            { value: "ongoing", text: t("tests.ongoing") },
             { value: "finished", text: t("tests.finished") },
-            { value: "pending",  text: t("tests.pending") }
+            { value: "pending", text: t("tests.pending") },
           ]}
         />
-        <List 
+        <List
           status={page}
           tests={tests.filter(test => test.status === page)}
         />
       </>
-    )
-
-  }
+    );
+  };
 }
 
 TestsList.propTypes = {
   tests: PropTypes.arrayOf(PropTypes.object).isRequired,
-  menuType: PropTypes.oneOf([ "primary", "secondary" ])
-}
+  menuType: PropTypes.oneOf(["primary", "secondary"]),
+};
 
 export default withTranslation()(TestsList);

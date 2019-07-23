@@ -1,42 +1,38 @@
-import * as types from "actions/types"
+import * as types from "actions/types";
 
 const initialState = {
   data: [],
   error: null,
-  loading: false
+  loading: false,
 };
 
 export default (state = initialState, action) => {
-
-  switch(action.type) {
-
+  switch (action.type) {
     case types.SUBJECTS_LOADING: {
       return {
         ...state,
-        loading: action.payload
-      }
+        loading: action.payload,
+      };
     }
 
     case types.SUBJECTS_SUCCESS: {
       return {
         loading: false,
         error: null,
-        data: action.payload
-      }
+        data: action.payload,
+      };
     }
 
     case types.SUBJECTS_ERROR: {
       return {
         loading: false,
         error: action.payload,
-        data: []
-      }
+        data: [],
+      };
     }
 
     default: {
       return state;
     }
-    
   }
-
-}
+};

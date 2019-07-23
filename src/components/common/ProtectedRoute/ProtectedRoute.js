@@ -7,22 +7,24 @@ import PropTypes from "prop-types";
 export const ProtectedRoute = props => {
   const { currentUser, roles, ...rest } = props;
 
-  if (currentUser.isUserLoggedIn && currentUser.data.role && roles.includes(currentUser.data.role)) {
-    return <Route {...rest} />
+  if (
+    currentUser.isUserLoggedIn &&
+    currentUser.data.role &&
+    roles.includes(currentUser.data.role)
+  ) {
+    return <Route {...rest} />;
   }
 
   return null;
-
-}
-
+};
 
 ProtectedRoute.propTypes = {
   currentUser: PropTypes.object.isRequired, // logged user's data
   roles: PropTypes.arrayOf(PropTypes.string), // list of rules required to enter the route
-}
+};
 
 const READ = state => ({
-  currentUser: state.currentUser
-})
+  currentUser: state.currentUser,
+});
 
 export default connect(READ)(ProtectedRoute);

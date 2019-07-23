@@ -10,14 +10,13 @@ import Scores from "./Scores";
 import MyResults from "./MyResults";
 
 class CourseView extends PureComponent {
-
   state = {
     page: "main", // Displayed page; "main", "users" or "tests"
-  }
+  };
 
   handlePageChange = page => {
-    this.setState({ page })
-  }
+    this.setState({ page });
+  };
 
   /**
    * Returns the list of available pages based on data returned from the server
@@ -25,26 +24,24 @@ class CourseView extends PureComponent {
    */
   getAvailablePages = () => {
     const { course } = this.props;
-    const pages = [ "main" ];
+    const pages = ["main"];
 
     if (course.tests) {
-      pages.push("tests")
+      pages.push("tests");
     }
 
     if (course.finishedTests) {
-      pages.push("scores")
+      pages.push("scores");
     }
 
     if (course.my_results) {
-      pages.push("my-results")
+      pages.push("my-results");
     }
 
     return pages;
-
-  }
+  };
 
   render = () => {
-
     const { page } = this.state;
     const { course } = this.props;
 
@@ -53,33 +50,43 @@ class CourseView extends PureComponent {
     return (
       <>
         <PageHeader
-          header={<span>{course.subject.name} ({course.code.toUpperCase()})</span>}
+          header={
+            <span>
+              {course.subject.name} ({course.code.toUpperCase()})
+            </span>
+          }
           description={<Trans i18nKey="course.header" />}
         />
         <Menu
           value={page}
           onChange={this.handlePageChange}
-          items={pages.map(page => ({ value: page, text: <Trans i18nKey={`course.page.${page}`} /> }))}
+          items={pages.map(page => ({
+            value: page,
+            text: <Trans i18nKey={`course.page.${page}`} />,
+          }))}
         />
-          {
-            page === "main" ? 
-              <Main course={course} />
-            : page === "tests" ? 
-              <Tests tests={course.tests} canCreateNew={course.my_access === "teacher"} />
-            : page === "scores" ? 
-              <Scores tests={course.finishedTests} students={course.group.students} />
-            : page === "my-results" ? 
-              <MyResults tests={course.my_results} />
-            : null
-          }
+        {page === "main" ? (
+          <Main course={course} />
+        ) : page === "tests" ? (
+          <Tests
+            tests={course.tests}
+            canCreateNew={course.my_access === "teacher"}
+          />
+        ) : page === "scores" ? (
+          <Scores
+            tests={course.finishedTests}
+            students={course.group.students}
+          />
+        ) : page === "my-results" ? (
+          <MyResults tests={course.my_results} />
+        ) : null}
       </>
-    )
-  }
-  
+    );
+  };
 }
 
 CourseView.propTypes = {
-  course: PropTypes.object.isRequired
-}
+  course: PropTypes.object.isRequired,
+};
 
 export default withTranslation()(CourseView);

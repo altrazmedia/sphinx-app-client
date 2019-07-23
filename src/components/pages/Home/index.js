@@ -6,17 +6,19 @@ import { Illustration } from "components/common";
 
 /** Simple homepage with `hello` message */
 const Home = props => {
-
   const { t, currentUser } = props;
 
-
   return (
-    <Illustration image="hello" header={t("hello.header", { label: currentUser.label })} description={t("hello.description")} />
-  )
-}
+    <Illustration
+      image="hello"
+      header={t("hello.header", { label: currentUser.label })}
+      description={t("hello.description")}
+    />
+  );
+};
 
 const READ = state => ({
-  currentUser: state.currentUser.data
-})
+  currentUser: state.currentUser.data,
+});
 
-export default connect(READ)(withTranslation()(Home))
+export default connect(READ)(withTranslation()(Home));

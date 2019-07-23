@@ -11,12 +11,12 @@ describe("Checkbox component", () => {
       wrapper = shallow(<Checkbox {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -25,7 +25,6 @@ describe("Checkbox component", () => {
   });
 
   describe("the rendered div", () => {
-
     const div = () => checkbox().first();
 
     it("has a suitable class name", () => {
@@ -43,7 +42,7 @@ describe("Checkbox component", () => {
       expect(div().hasClass("checkbox--checked")).toBe(false);
       expect(div().hasClass("checkbox--disabled")).toBe(false);
       resetWrapper();
-      
+
       props.checked = true;
       props.disabled = true;
       expect(div().hasClass("checkbox--checked")).toBe(true);
@@ -59,7 +58,7 @@ describe("Checkbox component", () => {
     it("has a `tabIndex` set to `0`", () => {
       expect(div().prop("tabIndex")).toBe(0);
     });
-    
+
     it("receives all the other props passed to the component", () => {
       props.testProp = "abc";
       expect(div().prop("testProp")).toBe("abc");
@@ -78,13 +77,12 @@ describe("Checkbox component", () => {
       const click = jest.fn();
 
       props.onChange = onChange;
-      checkbox().instance().inputRef = { click }
+      checkbox().instance().inputRef = { click };
 
       div().simulate("keydown", { preventDefault: prevent, keyCode: 32 });
 
       expect(click).toBeCalledTimes(1);
       expect(prevent).toBeCalledTimes(1);
-
     });
 
     it("renders a label element", () => {
@@ -92,7 +90,6 @@ describe("Checkbox component", () => {
     });
 
     describe("the label element", () => {
-
       const label = () => div().find("label");
 
       it("has a suitable class name", () => {
@@ -103,7 +100,6 @@ describe("Checkbox component", () => {
         props.label = "test label";
         expect(label().text()).toBe("test label");
       });
-
     });
 
     it("renders an input element", () => {
@@ -111,7 +107,6 @@ describe("Checkbox component", () => {
     });
 
     describe("the input element", () => {
-
       const input = () => div().find("input");
 
       it("has a suitable class name", () => {
@@ -124,13 +119,17 @@ describe("Checkbox component", () => {
         expect(input().prop("disabled")).toBe(false);
         expect(input().prop("onChange")).toBe(props.onChange);
         resetWrapper();
-        
+
         props.disabled = true;
         expect(input().prop("disabled")).toBe(true);
       });
 
       it("has the `id` equal to label's `htmlFor`", () => {
-        expect(input().prop("id")).toBe(div().find("label").prop("htmlFor"));
+        expect(input().prop("id")).toBe(
+          div()
+            .find("label")
+            .prop("htmlFor")
+        );
       });
 
       it("has the `type` set to `checkbox`", () => {
@@ -139,12 +138,11 @@ describe("Checkbox component", () => {
 
       it("saves the ref in `inputRef`", () => {
         const wrapper = mount(<Checkbox {...props} />);
-        expect(wrapper.instance().inputRef.id).toBe(wrapper.find("input").prop("id"))
+        expect(wrapper.instance().inputRef.id).toBe(
+          wrapper.find("input").prop("id")
+        );
         wrapper.unmount();
       });
-
     });
-
   });
-
 });

@@ -13,21 +13,24 @@ describe("Select component", () => {
       wrapper = shallow(<Select {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
   it("renders a div", () => {
-    expect(select().first().type()).toBe("div");
+    expect(
+      select()
+        .first()
+        .type()
+    ).toBe("div");
   });
 
   describe("the rendered div", () => {
-
     const div = () => select().first();
 
     it("has a suitable class name", () => {
@@ -37,7 +40,7 @@ describe("Select component", () => {
     it("has a class based on `fullWidth` prop", () => {
       expect(div().hasClass("select--fullWidth")).toBe(false);
       resetWrapper();
-      
+
       props.fullWidth = true;
       expect(div().hasClass("select--fullWidth")).toBe(true);
     });
@@ -73,7 +76,7 @@ describe("Select component", () => {
     it("sets the `isActive` state value to `true` after focus event", () => {
       div().simulate("focus");
       expect(select().state("isActive")).toBe(true);
-    })
+    });
 
     it("toggles the `isOpen` state value on space bar click and prevents the event's default behavior", () => {
       const mock = jest.fn();
@@ -88,50 +91,80 @@ describe("Select component", () => {
     });
 
     describe("the header div", () => {
-
       const header = () => div().find("div.select__header");
 
       it("renders the Icon component with a suitable class name and the `name` prop based on `isOpen` state value", () => {
         expect(header().find(Icon).length).toBe(1);
-        expect(header().find(Icon).prop("className")).toBe("select__icon");
-        expect(header().find(Icon).prop("name")).toBe("caret-down");
+        expect(
+          header()
+            .find(Icon)
+            .prop("className")
+        ).toBe("select__icon");
+        expect(
+          header()
+            .find(Icon)
+            .prop("name")
+        ).toBe("caret-down");
         select().setState({ isOpen: true });
-        expect(header().find(Icon).prop("name")).toBe("caret-up");
+        expect(
+          header()
+            .find(Icon)
+            .prop("name")
+        ).toBe("caret-up");
       });
 
       it("renders an empty span if the `value` and `placeholder` props are not provided", () => {
         expect(header().find("span").length).toBe(1);
-        expect(header().find("span").text()).toBeFalsy();
+        expect(
+          header()
+            .find("span")
+            .text()
+        ).toBeFalsy();
       });
 
       it("renders the `placeholder` into a span if there is no `value` provided or if value doesn't suit any option", () => {
         props.placeholder = "test placeholder";
         expect(header().find("span").length).toBe(1);
-        expect(header().find("span").text()).toBe("test placeholder");
-        expect(header().find("span").hasClass("select__placeholder")).toBe(true);
+        expect(
+          header()
+            .find("span")
+            .text()
+        ).toBe("test placeholder");
+        expect(
+          header()
+            .find("span")
+            .hasClass("select__placeholder")
+        ).toBe(true);
         resetWrapper();
 
         props.options = [
           { value: "1", text: "one" },
-          { value: "2", text: "two" }
+          { value: "2", text: "two" },
         ];
         props.value = "3";
         props.placeholder = "test placeholder";
         expect(header().find("span").length).toBe(1);
-        expect(header().find("span").text()).toBe("test placeholder");
+        expect(
+          header()
+            .find("span")
+            .text()
+        ).toBe("test placeholder");
       });
 
       it("renders the selected option's `text` prop", () => {
         props.placeholder = "test placeholder";
         props.options = [
           { value: "1", text: "one" },
-          { value: "2", text: "two" }
+          { value: "2", text: "two" },
         ];
         props.value = "2";
 
-        expect(header().render().text()).toBe("two");
+        expect(
+          header()
+            .render()
+            .text()
+        ).toBe("two");
       });
-
     });
 
     it("renders the options wrapper div", () => {
@@ -139,14 +172,13 @@ describe("Select component", () => {
     });
 
     describe("the options wrapper div", () => {
-
       const optionsWrapper = () => div().find("div.select__options");
       const options = [
         { value: "1", text: "one" },
-        { value: "2", text: "two" }
+        { value: "2", text: "two" },
       ];
 
-      beforeEach(() => props.options = options);
+      beforeEach(() => (props.options = options));
 
       it("renders the Option component for every element in `options` prop arary", () => {
         expect(optionsWrapper().find(Option).length).toBe(2);
@@ -154,44 +186,61 @@ describe("Select component", () => {
 
       it("sets `isSelected` prop to the option which value is equal to `value` prop", () => {
         props.value = "1";
-        expect(optionsWrapper().find(Option).at(0).prop("isSelected")).toBe(true);
-        expect(optionsWrapper().find(Option).at(1).prop("isSelected")).toBe(false);
+        expect(
+          optionsWrapper()
+            .find(Option)
+            .at(0)
+            .prop("isSelected")
+        ).toBe(true);
+        expect(
+          optionsWrapper()
+            .find(Option)
+            .at(1)
+            .prop("isSelected")
+        ).toBe(false);
       });
 
       it("passes the handleOptionClick function as a `onClick` prop with option object as a argument", () => {
         const mock = jest.fn();
         select().instance().handleOptionClick = mock;
-        optionsWrapper().find(Option).at(0).prop("onClick")();
+        optionsWrapper()
+          .find(Option)
+          .at(0)
+          .prop("onClick")();
         expect(mock).toBeCalledTimes(1);
         expect(mock).toBeCalledWith(options[0]);
       });
 
       it("spreads all the keys from `option` object as props", () => {
         Object.keys(options[0]).forEach(key => {
-          expect(optionsWrapper().find(Option).at(0).prop(key)).toBe(options[0][key])
+          expect(
+            optionsWrapper()
+              .find(Option)
+              .at(0)
+              .prop(key)
+          ).toBe(options[0][key]);
         });
       });
-
     });
-
   });
 
   describe("the handleOptionClick method", () => {
-
     it("calls the `onChange` function from props and passes the option value as a argument", () => {
       const onChange = jest.fn();
       props.onChange = onChange;
-      select().instance().handleOptionClick({ value: "1", text: "one" });
+      select()
+        .instance()
+        .handleOptionClick({ value: "1", text: "one" });
       expect(onChange).toBeCalledTimes(1);
       expect(onChange).toBeCalledWith("1");
     });
 
     it("sets the `isOpen` state value to `false`", () => {
       select().setState({ isOpen: true });
-      select().instance().handleOptionClick();
+      select()
+        .instance()
+        .handleOptionClick();
       expect(select().state("isOpen")).toBe(false);
     });
-
   });
-
 });

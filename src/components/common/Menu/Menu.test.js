@@ -11,12 +11,12 @@ describe("Input component", () => {
       wrapper = shallow(<Menu {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -25,7 +25,6 @@ describe("Input component", () => {
   });
 
   describe("the rendered div", () => {
-
     it("has a suitable class name", () => {
       expect(menu().hasClass("menu")).toBe(true);
     });
@@ -48,7 +47,6 @@ describe("Input component", () => {
     });
 
     describe("the ul element", () => {
-      
       const ul = () => menu().find("ul");
 
       it("has a suitable class name", () => {
@@ -58,20 +56,15 @@ describe("Input component", () => {
       it("renders one li for every element in `items` prop array", () => {
         expect(ul().find("li").length).toBe(0);
         resetWrapper();
-        props.items = [
-          { value: "1" },
-          { value: "2" },
-          { value: "3" }
-        ];
+        props.items = [{ value: "1" }, { value: "2" }, { value: "3" }];
         expect(ul().find("li").length).toBe(3);
       });
 
       describe("the li elements", () => {
-        
         const items = [
           { value: "1", text: "One" },
           { value: "2", text: "Two" },
-          { value: "3", text: "Three" }
+          { value: "3", text: "Three" },
         ];
 
         beforeEach(() => {
@@ -79,35 +72,57 @@ describe("Input component", () => {
         });
 
         it("have a suitable class name", () => {
-          expect(ul().find("li").first().hasClass("menu__item")).toBe(true);
+          expect(
+            ul()
+              .find("li")
+              .first()
+              .hasClass("menu__item")
+          ).toBe(true);
         });
 
         it("have a class name if item's `value` is equal to `value` prop", () => {
           props.value = items[0].value;
-          expect(ul().find("li").first().hasClass("menu__item--active")).toBe(true);
-          expect(ul().find("li").at(1).hasClass("menu__item--active")).toBe(false);
+          expect(
+            ul()
+              .find("li")
+              .first()
+              .hasClass("menu__item--active")
+          ).toBe(true);
+          expect(
+            ul()
+              .find("li")
+              .at(1)
+              .hasClass("menu__item--active")
+          ).toBe(false);
         });
 
         it("calls a function passed as the `onChange` prop with clicked item's value as a argument", () => {
-
           const mock = jest.fn();
           props.onChange = mock;
 
-          ul().find("li").first().simulate("click");
+          ul()
+            .find("li")
+            .first()
+            .simulate("click");
           expect(mock).toHaveBeenCalledTimes(1);
           expect(mock).toHaveBeenCalledWith(items[0].value);
-
         });
 
         it("renders the item's `text` inside", () => {
-          expect(ul().find("li").first().text()).toBe(items[0].text);
-          expect(ul().find("li").at(1).text()).toBe(items[1].text);
+          expect(
+            ul()
+              .find("li")
+              .first()
+              .text()
+          ).toBe(items[0].text);
+          expect(
+            ul()
+              .find("li")
+              .at(1)
+              .text()
+          ).toBe(items[1].text);
         });
-
       });
-
     });
-
   });
-
 });

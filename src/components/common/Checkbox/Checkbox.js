@@ -4,39 +4,45 @@ import cx from "classnames";
 import uniqueid from "lodash.uniqueid";
 
 class Checkbox extends PureComponent {
-
   _id = uniqueid("checkbox_");
   state = {
-    isActive: false
-  }
+    isActive: false,
+  };
 
   /** onFocus event on main div */
   handleFocus = () => {
-    this.setState({ isActive: true })
-  }
+    this.setState({ isActive: true });
+  };
 
   /** onBlur event on main div */
   handleBlur = () => {
-    this.setState({ isActive: false })
-  }
+    this.setState({ isActive: false });
+  };
 
   handleKeyDown = e => {
     if (e.keyCode === 32) {
-      // space bar pressed 
+      // space bar pressed
       e.preventDefault();
       this.inputRef.click(); // Simulating the click event on input
     }
-  }
+  };
 
   /** Creating ref to the input element */
   handleInputRef = el => {
     this.inputRef = el;
-  }
+  };
 
   render = () => {
-    const { checked, onChange, className, disabled, label, ...rest } = this.props;
+    const {
+      checked,
+      onChange,
+      className,
+      disabled,
+      label,
+      ...rest
+    } = this.props;
     const { isActive } = this.state;
-  
+
     const classNames = cx(
       "checkbox",
       { "checkbox--checked": checked },
@@ -44,13 +50,20 @@ class Checkbox extends PureComponent {
       { "checkbox--active": isActive },
       className
     );
-  
+
     return (
-      <div className={classNames} {...rest} tabIndex={0} onKeyDown={this.handleKeyDown} onFocus={this.handleFocus} onBlur={this.handleBlur}>
+      <div
+        className={classNames}
+        {...rest}
+        tabIndex={0}
+        onKeyDown={this.handleKeyDown}
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+      >
         <label className="checkbox__label" htmlFor={this._id}>
           {label}
         </label>
-        <input 
+        <input
           disabled={Boolean(disabled)}
           id={this._id}
           type="checkbox"
@@ -59,22 +72,19 @@ class Checkbox extends PureComponent {
           ref={this.handleInputRef}
         />
       </div>
-    )
-
-  }
-
-
+    );
+  };
 }
 
 Checkbox.defaultProps = {
-  label: ""
-}
+  label: "",
+};
 
 Checkbox.propTypes = {
   label: PropTypes.node,
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
-  onChange: PropTypes.func
-}
+  onChange: PropTypes.func,
+};
 
 export default Checkbox;

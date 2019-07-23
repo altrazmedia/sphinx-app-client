@@ -11,52 +11,51 @@ import { fetchMyTests } from "actions/testsActions";
  * List of tests the user is taking part in
  */
 class TestsLead extends PureComponent {
-
   state = {
-    loading: true
-  }
+    loading: true,
+  };
 
   componentDidUpdate = () => {
     if (this.props.tests.loading !== this.state.loading) {
-      this.setState({ loading: this.props.tests.loading })
+      this.setState({ loading: this.props.tests.loading });
     }
-  }
+  };
 
   componentDidMount = () => {
     this.props.fetchTests();
-  }
+  };
 
   render = () => {
-
     const { loading } = this.state;
     const { tests } = this.props;
 
     return (
       <div>
-        <PageHeader 
-          header={<Trans i18nKey="myTests.header" /> } 
-          description={<Trans i18nKey="myTests.description" /> } 
+        <PageHeader
+          header={<Trans i18nKey="myTests.header" />}
+          description={<Trans i18nKey="myTests.description" />}
         />
-        {
-          loading ? 
-            <Loader />
-          : tests.error ?  
-            <Illustration variant="fetchError" />
-          : <List tests={tests.data} />
-        }
+        {loading ? (
+          <Loader />
+        ) : tests.error ? (
+          <Illustration variant="fetchError" />
+        ) : (
+          <List tests={tests.data} />
+        )}
       </div>
-    )
-
-  }
-
+    );
+  };
 }
 
 const READ = state => ({
-  tests: state.tests.list
-})
+  tests: state.tests.list,
+});
 
 const EMIT = dispatch => ({
-  fetchTests: () => dispatch(fetchMyTests())
-})
+  fetchTests: () => dispatch(fetchMyTests()),
+});
 
-export default connect(READ, EMIT)(withTranslation()(TestsLead));
+export default connect(
+  READ,
+  EMIT
+)(withTranslation()(TestsLead));

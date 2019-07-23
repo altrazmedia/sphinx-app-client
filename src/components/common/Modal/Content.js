@@ -7,11 +7,11 @@ const ModalContent = props => {
     <div className={`modal__content ${className || ""}`} {...rest}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 ModalContent.defaultProps = {
-  className: ""
-}
+  className: "",
+};
 
 export default ModalContent;

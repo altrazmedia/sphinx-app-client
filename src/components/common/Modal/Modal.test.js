@@ -11,12 +11,12 @@ describe("Modal component", () => {
       wrapper = shallow(<Modal {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -26,16 +26,27 @@ describe("Modal component", () => {
   });
 
   it("renders the Portal component", () => {
-    expect(modal().first().type()).toBe(Portal);
+    expect(
+      modal()
+        .first()
+        .type()
+    ).toBe(Portal);
   });
 
   it("renders a wrapper div inside the Portal", () => {
-    expect(modal().children().first().type()).toBe("div");
+    expect(
+      modal()
+        .children()
+        .first()
+        .type()
+    ).toBe("div");
   });
 
   describe("the wrapper div", () => {
-
-    const wrapper = () => modal().children().first();
+    const wrapper = () =>
+      modal()
+        .children()
+        .first();
 
     it("has a suitable class name", () => {
       expect(wrapper().hasClass("modal")).toBe(true);
@@ -53,13 +64,19 @@ describe("Modal component", () => {
 
     it("renders another div", () => {
       expect(wrapper().children().length).toBe(1);
-      expect(wrapper().children().first().type()).toBe("div");
+      expect(
+        wrapper()
+          .children()
+          .first()
+          .type()
+      ).toBe("div");
     });
 
-
     describe("the rendered div", () => {
-
-      const div = () => wrapper().children().first();
+      const div = () =>
+        wrapper()
+          .children()
+          .first();
 
       it("has a suitable class name", () => {
         expect(div().hasClass("modal__box")).toBe(true);
@@ -68,8 +85,12 @@ describe("Modal component", () => {
       it("renders whats passed in the `children` prop", () => {
         props.children = <p>test</p>;
         expect(div().find("p").length).toBe(1);
-        expect(div().find("p").text()).toBe("test");
-      })
+        expect(
+          div()
+            .find("p")
+            .text()
+        ).toBe("test");
+      });
 
       it("renders a header element only if the `close` or `title` prop was passed", () => {
         expect(div().find("header").length).toBe(0);
@@ -99,8 +120,16 @@ describe("Modal component", () => {
 
           props.title = "Test title";
           expect(header().find("h2").length).toBe(1);
-          expect(header().find("h2").hasClass("modal__title")).toBe(true);
-          expect(header().find("h2").text()).toBe("Test title");
+          expect(
+            header()
+              .find("h2")
+              .hasClass("modal__title")
+          ).toBe(true);
+          expect(
+            header()
+              .find("h2")
+              .text()
+          ).toBe("Test title");
         });
 
         it("renders the Button component with proper props only if the `close` prop is passed", () => {
@@ -111,17 +140,28 @@ describe("Modal component", () => {
           const close = () => {};
           props.close = close;
           expect(header().find(Button).length).toBe(1);
-          expect(header().find(Button).prop("onClick")).toBe(close);
-          expect(header().find(Button).prop("variant")).toBe("icon");
-          expect(header().find(Button).prop("icon")).toBe("times");
-          expect(header().find(Button).prop("className")).toBe("modal__close-btn");
-
+          expect(
+            header()
+              .find(Button)
+              .prop("onClick")
+          ).toBe(close);
+          expect(
+            header()
+              .find(Button)
+              .prop("variant")
+          ).toBe("icon");
+          expect(
+            header()
+              .find(Button)
+              .prop("icon")
+          ).toBe("times");
+          expect(
+            header()
+              .find(Button)
+              .prop("className")
+          ).toBe("modal__close-btn");
         });
-
       });
-
     });
-
   });
-
 });

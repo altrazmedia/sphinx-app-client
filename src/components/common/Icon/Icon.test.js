@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import Icon from "./Icon"
+import Icon from "./Icon";
 
 describe("Icon component", () => {
   let wrapper, props;
@@ -11,13 +11,12 @@ describe("Icon component", () => {
       wrapper = shallow(<Icon {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
     props = { name: "abc" };
-  }
-
+  };
 
   beforeEach(resetWrapper);
 
@@ -26,7 +25,6 @@ describe("Icon component", () => {
   });
 
   describe("the `i` element", () => {
-
     it("has suitable a class name", () => {
       expect(icon().hasClass("icon")).toBe(true);
     });
@@ -46,13 +44,10 @@ describe("Icon component", () => {
       props.name = "testName";
       props.size = "big";
       props.color = "error";
-      
+
       expect(icon().hasClass("fa-testName")).toBe(true);
       expect(icon().hasClass("icon--size-big")).toBe(true);
       expect(icon().hasClass("icon--color-error")).toBe(true);
-    })
-
-  })
-
-
-})
+    });
+  });
+});

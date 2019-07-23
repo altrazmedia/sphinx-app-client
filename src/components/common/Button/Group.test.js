@@ -11,12 +11,12 @@ describe("ButtonGroup component", () => {
       wrapper = shallow(<Group {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -25,7 +25,6 @@ describe("ButtonGroup component", () => {
   });
 
   describe("the rendered div", () => {
-
     const div = () => group().first();
 
     it("has a suitable class name", () => {
@@ -46,9 +45,6 @@ describe("ButtonGroup component", () => {
 
       expect(div().prop("children")).toBe("test children");
       expect(div().prop("testProp")).toBe("abc");
-    })
-
+    });
   });
-
-
 });

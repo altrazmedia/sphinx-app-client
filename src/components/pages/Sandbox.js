@@ -1,10 +1,16 @@
 import React, { PureComponent } from "react";
 
-
-import { Button, Icon, Modal, Input, Select, Checkbox, ErrorMessage } from "components/common";
+import {
+  Button,
+  Icon,
+  Modal,
+  Input,
+  Select,
+  Checkbox,
+  ErrorMessage,
+} from "components/common";
 
 class Sandbox extends PureComponent {
-
   state = {
     modal1: false,
     select1: "",
@@ -12,19 +18,17 @@ class Sandbox extends PureComponent {
     checkbox: false,
     checkbox2: false,
     checkbox3: true,
-  }
+  };
 
-  openModal = (modal) => () => {
-    this.setState({ [modal]: true })
-  }
+  openModal = modal => () => {
+    this.setState({ [modal]: true });
+  };
 
-  closeModal = (modal) => () => {
-    this.setState({ [modal]: false })
-  }
-
+  closeModal = modal => () => {
+    this.setState({ [modal]: false });
+  };
 
   render = () => {
-
     return (
       <React.Fragment>
         <h1>H1 heading</h1>
@@ -42,12 +46,24 @@ class Sandbox extends PureComponent {
         </Button.Group>
 
         <Button.Group>
-          <Button variant="text" color="default">Primary</Button>
-          <Button variant="text" color="primary">Primary</Button>
-          <Button variant="text" color="secondary">Secondary</Button>
-          <Button variant="text" color="success">Success</Button>
-          <Button variant="text" color="error">Error</Button>
-          <Button variant="text" disabled>Disabled</Button>
+          <Button variant="text" color="default">
+            Primary
+          </Button>
+          <Button variant="text" color="primary">
+            Primary
+          </Button>
+          <Button variant="text" color="secondary">
+            Secondary
+          </Button>
+          <Button variant="text" color="success">
+            Success
+          </Button>
+          <Button variant="text" color="error">
+            Error
+          </Button>
+          <Button variant="text" disabled>
+            Disabled
+          </Button>
         </Button.Group>
 
         <Button.Group>
@@ -74,41 +90,63 @@ class Sandbox extends PureComponent {
           <Icon size="big" name="bowling-ball" color="primary" />
         </div>
 
-
         <h1>Modals</h1>
         <Button.Group>
           <Button onClick={this.openModal("modal1")}>Open modal</Button>
         </Button.Group>
-        <Modal isOpen={this.state.modal1} close={this.closeModal("modal1")} title="Example modal">
+        <Modal
+          isOpen={this.state.modal1}
+          close={this.closeModal("modal1")}
+          title="Example modal"
+        >
           <Modal.Content>
             <p>
-              Wymianę zdań przerywa pojawienie się wykwintnie ubranej i niezwykle urodziwej kobiety – jest to Telimena. Ona tymczasem przywitawszy się ze wszystkimi zajmuje miejsce obok Tadeusza. Młodzieńcowi zdawało się, że rozpoznaje w niej spotkaną rano mieszkankę jego dawnego pokoju. Patrzył więc z tym większym zainteresowaniem, a i ona nie pozostawała na te spojrzenia obojętną. W końcu zaczęła z nim rozmowę.
+              Wymianę zdań przerywa pojawienie się wykwintnie ubranej i
+              niezwykle urodziwej kobiety – jest to Telimena. Ona tymczasem
+              przywitawszy się ze wszystkimi zajmuje miejsce obok Tadeusza.
+              Młodzieńcowi zdawało się, że rozpoznaje w niej spotkaną rano
+              mieszkankę jego dawnego pokoju. Patrzył więc z tym większym
+              zainteresowaniem, a i ona nie pozostawała na te spojrzenia
+              obojętną. W końcu zaczęła z nim rozmowę.
               <br />
-              Tymczasem w drugim końcu stołu rozgorzał na dobre spór Asesora z Rejentem o to, czyj chart upolował zająca. Towarzystwo podzieliło się na stronników Sokoła (pies Asesora) i Kusego (pies Rejenta). Spór stara się załagodzić Podkomorzy, proponując urządzenie polowania na zająca pod wodzą Wojskiego. Ten jednak odmawia przewodnictwa, wykładając zgromadzonym, że zając nie jest zwierzęciem godnym organizowania takiej wyprawy. Tym samym wyśmiewa spór Asesora i Rejenta.
+              Tymczasem w drugim końcu stołu rozgorzał na dobre spór Asesora z
+              Rejentem o to, czyj chart upolował zająca. Towarzystwo podzieliło
+              się na stronników Sokoła (pies Asesora) i Kusego (pies Rejenta).
+              Spór stara się załagodzić Podkomorzy, proponując urządzenie
+              polowania na zająca pod wodzą Wojskiego. Ten jednak odmawia
+              przewodnictwa, wykładając zgromadzonym, że zając nie jest
+              zwierzęciem godnym organizowania takiej wyprawy. Tym samym
+              wyśmiewa spór Asesora i Rejenta.
               <br />
-              Wszyscy rozweseleni odchodzą od stołów. Tadeusz prowadzi Telimenę, o której już wie od Asesora, że jest jego ciotką. Wiadomość ta zasmuciła i rozdrażniła młodzieńca. Chciałby dowiedzieć się czegoś więcej, nie było jednak kogo zapytać, gdyż goście udali się na spoczynek.
-              <br />
-              W końcowej partii księgi przeciwstawia narrator śpiący, a więc spokojny dworek szlachecki niepewnemu losowi żołnierzy, walczących u boku Napoleona. Dowiadujemy się, że wielu z nich pozostawia domy rodzinne i przedziera się do Księstwa Warszawskiego, aby móc wstąpić do armii lub zostać emisariuszem. W Panu Tadeuszu takim emisariuszem jest ksiądz Robak. Istotnie pojawia się on teraz o tak późnej porze i budzi Sędziego, aby poinformować go o czymś. Narrator nie ujawnia jednak treści rozmowy.
+              Wszyscy rozweseleni odchodzą od stołów. Tadeusz prowadzi Telimenę,
+              o której już wie od Asesora, że jest jego ciotką. Wiadomość ta
+              zasmuciła i rozdrażniła młodzieńca. Chciałby dowiedzieć się czegoś
+              więcej, nie było jednak kogo zapytać, gdyż goście udali się na
+              spoczynek.
+              <br />W końcowej partii księgi przeciwstawia narrator śpiący, a
+              więc spokojny dworek szlachecki niepewnemu losowi żołnierzy,
+              walczących u boku Napoleona. Dowiadujemy się, że wielu z nich
+              pozostawia domy rodzinne i przedziera się do Księstwa
+              Warszawskiego, aby móc wstąpić do armii lub zostać emisariuszem. W
+              Panu Tadeuszu takim emisariuszem jest ksiądz Robak. Istotnie
+              pojawia się on teraz o tak późnej porze i budzi Sędziego, aby
+              poinformować go o czymś. Narrator nie ujawnia jednak treści
+              rozmowy.
             </p>
           </Modal.Content>
           <Modal.Buttons>
-            <Button variant="text" onClick={this.closeModal("modal1")}>Close</Button>
-            <Button onClick={this.closeModal("modal1")} >OK!</Button>
+            <Button variant="text" onClick={this.closeModal("modal1")}>
+              Close
+            </Button>
+            <Button onClick={this.closeModal("modal1")}>OK!</Button>
           </Modal.Buttons>
         </Modal>
 
         <div>
           <h1>Inputs</h1>
-          <Input
-            icon="envelope"
-            type="email"
-          />
+          <Input icon="envelope" type="email" />
 
-          <Input
-            icon="user-nurse"
-            type="text"
-            error="Contact a doctor"
-          />
+          <Input icon="user-nurse" type="text" error="Contact a doctor" />
 
           <Input
             icon="stop-circle"
@@ -117,22 +155,13 @@ class Sandbox extends PureComponent {
             disabled
           />
 
-          <Input
-            icon="broom"
-            type="text"
-            fullWidth
-            placeholder="Brooooom"
-          />
+          <Input icon="broom" type="text" fullWidth placeholder="Brooooom" />
 
-          <Input
-            type="password"
-            fullWidth
-          />
-
+          <Input type="password" fullWidth />
         </div>
 
         <h1>Select</h1>
-        <Select 
+        <Select
           placeholder="Select"
           value={this.state.select1}
           options={[
@@ -142,7 +171,7 @@ class Sandbox extends PureComponent {
           ]}
           onChange={value => this.setState({ select1: value })}
         />
-        <Select 
+        <Select
           fullWidth
           placeholder="Fullwidth Select"
           value={this.state.select2}
@@ -155,18 +184,18 @@ class Sandbox extends PureComponent {
         />
 
         <h1>Checkbox</h1>
-        <Checkbox 
+        <Checkbox
           checked={this.state.checkbox}
           onChange={e => this.setState({ checkbox: e.target.checked })}
         />
         <br />
-        <Checkbox 
+        <Checkbox
           label="Label"
           checked={this.state.checkbox2}
           onChange={e => this.setState({ checkbox2: e.target.checked })}
         />
         <br />
-        <Checkbox 
+        <Checkbox
           label="Disabled"
           disabled
           checked={this.state.checkbox3}
@@ -175,17 +204,16 @@ class Sandbox extends PureComponent {
 
         <h1>Error Message</h1>
         <ErrorMessage content="You can't do that!" fullWidth />
-        <ErrorMessage content="This HTML file is a template.
+        <ErrorMessage
+          content="This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag." />
-
+      The build step will place the bundled scripts into the <body> tag."
+        />
       </React.Fragment>
-    )
-
-  }
-
+    );
+  };
 }
 
 export default Sandbox;

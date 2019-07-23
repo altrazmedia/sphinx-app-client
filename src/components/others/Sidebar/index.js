@@ -9,16 +9,15 @@ import { logout } from "actions/currentUserActions";
 import i18n from "utils/i18n";
 
 import logo from "images/logo-inv.png";
-import poland from "images/poland.png"
-import uk from "images/uk.png"
+import poland from "images/poland.png";
+import uk from "images/uk.png";
 
 class Sidebar extends PureComponent {
-
   state = {
     open: false,
-    lang: i18n.language
-  }
-  
+    lang: i18n.language,
+  };
+
   /**
    * Creates navigation items based on current user's role
    * @returns {Array}
@@ -31,39 +30,59 @@ class Sidebar extends PureComponent {
         return [
           { name: t("page.users"), path: "/users", icon: "users" },
           { name: t("page.groups"), path: "/groups", icon: "user-graduate" },
-          { name: t("page.courses"), path: "/courses", icon: "chalkboard-teacher" },
-          { name: t("page.subjects"), path: "/subjects", icon: "atlas" }
+          {
+            name: t("page.courses"),
+            path: "/courses",
+            icon: "chalkboard-teacher",
+          },
+          { name: t("page.subjects"), path: "/subjects", icon: "atlas" },
         ];
       }
       case "student": {
         return [
-          { name: t("page.courses"), path: "/my-courses", icon: "chalkboard-teacher" },
+          {
+            name: t("page.courses"),
+            path: "/my-courses",
+            icon: "chalkboard-teacher",
+          },
           { name: t("page.tests"), path: "/my-tests", icon: "file-signature" },
-          { name: t("page.users"), path: "/users", icon: "users" }
+          { name: t("page.users"), path: "/users", icon: "users" },
         ];
       }
       case "teacher": {
         return [
-          { name: t("page.courses"), path: "/courses-lead", icon: "chalkboard-teacher" },
-          { name: t("page.tests"), path: "/tests-lead", icon: "file-signature" },
-          { name: t("page.testsSchemas"), path: "/tests-schemas", icon: "file-alt" },
-          { name: t("page.users"), path: "/users", icon: "users" }
+          {
+            name: t("page.courses"),
+            path: "/courses-lead",
+            icon: "chalkboard-teacher",
+          },
+          {
+            name: t("page.tests"),
+            path: "/tests-lead",
+            icon: "file-signature",
+          },
+          {
+            name: t("page.testsSchemas"),
+            path: "/tests-schemas",
+            icon: "file-alt",
+          },
+          { name: t("page.users"), path: "/users", icon: "users" },
         ];
       }
       default: {
         return [];
       }
     }
-  }
+  };
 
   /**
    * Opens/closes the sidebar
    */
   toggleOpen = () => {
     this.setState(state => ({
-      open: !state.open
-    }))
-  }
+      open: !state.open,
+    }));
+  };
 
   /** One of link has been clicked */
   handleLinkClick = () => {
@@ -71,13 +90,13 @@ class Sidebar extends PureComponent {
       // Closing sidebar after clicking on small viewports
       this.toggleOpen();
     }
-  }
+  };
 
   handleLanguageChange = lang => {
     i18n.changeLanguage(lang);
     this.setState({ lang });
     localStorage.setItem("lang", lang);
-  }
+  };
 
   /**
    * Logging out the user
@@ -85,11 +104,9 @@ class Sidebar extends PureComponent {
   logout = () => {
     this.props.history.push("/"); // redirecting to the main page
     this.props.logout();
-  }
-
+  };
 
   render = () => {
-
     const navItems = this.getNavigationItems();
 
     const { open, lang } = this.state;
@@ -100,62 +117,81 @@ class Sidebar extends PureComponent {
         <div className="sidebar__upper">
           <div className="sidebar__header">
             <Link to="/">
-              <img alt="Sphinx App" src={logo} className="sidebar__logo" /> 
+              <img alt="Sphinx App" src={logo} className="sidebar__logo" />
             </Link>
-            <Button className="sidebar__btn" variant="icon" size="small" icon="bars" onClick={this.toggleOpen} />
+            <Button
+              className="sidebar__btn"
+              variant="icon"
+              size="small"
+              icon="bars"
+              onClick={this.toggleOpen}
+            />
           </div>
           <div className="sidebar__langs">
-            <img 
-              alt="pl" 
-              src={poland} 
-              className={`sidebar__lang ${lang === "pl" ? "sidebar__lang--active" : ""}`}
-              onClick={() => this.handleLanguageChange("pl")} 
+            <img
+              alt="pl"
+              src={poland}
+              className={`sidebar__lang ${
+                lang === "pl" ? "sidebar__lang--active" : ""
+              }`}
+              onClick={() => this.handleLanguageChange("pl")}
             />
-            <img 
-              alt="en" 
-              src={uk} 
-              className={`sidebar__lang ${lang === "en" ? "sidebar__lang--active" : ""}`}
-              onClick={() => this.handleLanguageChange("en")} 
+            <img
+              alt="en"
+              src={uk}
+              className={`sidebar__lang ${
+                lang === "en" ? "sidebar__lang--active" : ""
+              }`}
+              onClick={() => this.handleLanguageChange("en")}
             />
           </div>
         </div>
 
         <nav className="sidebar__nav">
           <ul>
-            {
-              navItems.map(item => {
-
-                return (
-                  <Link to={item.path} key={item.path} className={`sidebar__item`} onClick={this.handleLinkClick}>
-                    <div className="sidebar__icon-wrapper">
-                      <Icon  name={item.icon} className="sidebar__icon" />
-                    </div>
-                    <span className="sidebar__name">{item.name}</span>
-                  </Link>
-                )
-              })
-            }
+            {navItems.map(item => {
+              return (
+                <Link
+                  to={item.path}
+                  key={item.path}
+                  className={`sidebar__item`}
+                  onClick={this.handleLinkClick}
+                >
+                  <div className="sidebar__icon-wrapper">
+                    <Icon name={item.icon} className="sidebar__icon" />
+                  </div>
+                  <span className="sidebar__name">{item.name}</span>
+                </Link>
+              );
+            })}
           </ul>
-
         </nav>
-        <div role="button" className="sidebar__item sidebar__item--logout" onClick={this.logout}>
+        <div
+          role="button"
+          className="sidebar__item sidebar__item--logout"
+          onClick={this.logout}
+        >
           <div className="sidebar__icon-wrapper">
             <Icon name="power-off" className="sidebar__icon" />
           </div>
           <span className="sidebar__name">{t("logout")}</span>
         </div>
       </aside>
-    )
-  }
-  
+    );
+  };
 }
 
 const READ = state => ({
-  currentUser: state.currentUser
-})
+  currentUser: state.currentUser,
+});
 
 const EMIT = dispatch => ({
-  logout: () => dispatch(logout())
-})
+  logout: () => dispatch(logout()),
+});
 
-export default withRouter(connect(READ, EMIT)(withTranslation()(Sidebar)));
+export default withRouter(
+  connect(
+    READ,
+    EMIT
+  )(withTranslation()(Sidebar))
+);

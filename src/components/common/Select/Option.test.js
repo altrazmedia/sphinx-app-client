@@ -11,12 +11,12 @@ describe("Option component", () => {
       wrapper = shallow(<Option {...props} />);
     }
     return wrapper;
-  }
+  };
 
   const resetWrapper = () => {
     wrapper = undefined;
-    props = { };
-  }
+    props = {};
+  };
 
   beforeEach(resetWrapper);
 
@@ -25,7 +25,6 @@ describe("Option component", () => {
   });
 
   describe("the rendered div", () => {
-
     const div = () => option().first();
 
     it("has a suitable class name", () => {
@@ -36,7 +35,7 @@ describe("Option component", () => {
       props.isSelected = false;
       expect(div().hasClass("select__option--selected")).toBe(false);
       resetWrapper();
-      
+
       props.isSelected = true;
       expect(div().hasClass("select__option--selected")).toBe(true);
     });
@@ -55,7 +54,5 @@ describe("Option component", () => {
       props.text = "Test text";
       expect(div().text()).toBe("Test text");
     });
-
   });
-
 });

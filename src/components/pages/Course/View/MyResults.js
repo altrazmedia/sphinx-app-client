@@ -7,25 +7,28 @@ import { Illustration, Button } from "components/common";
 
 // Displaying the results of tests completed by logged user
 const MyResults = props => {
-
   const { tests } = props;
 
   if (tests.length === 0) {
-    return <Illustration variant="empty" description={<Trans i18nKey="course.myResults.empty" />} />
+    return (
+      <Illustration
+        variant="empty"
+        description={<Trans i18nKey="course.myResults.empty" />}
+      />
+    );
   }
 
   const getScoreAverage = () => {
     let scoreSum = 0;
     tests.forEach(test => {
       scoreSum += test.attempt.score;
-    })
+    });
 
     if (scoreSum === 0) {
-      return 0
+      return 0;
     }
-    return Math.floor(100 * scoreSum / tests.length) / 100;
-  }
-
+    return Math.floor((100 * scoreSum) / tests.length) / 100;
+  };
 
   return (
     <div className="segment">
@@ -42,27 +45,35 @@ const MyResults = props => {
           </tr>
         </thead>
         <tbody>
-          {
-            tests.map(test => (
-              <tr key={test._id}>
-                <td>{test.testSchema.name}</td>
-                <td>{moment.utc(test.end).local().format("DD.MM.YYYY HH:mm")}</td>
-                <td>{test.attempt.score}%</td>
-                <td>
-                  <Button variant="icon" size="small" icon="arrow-right" color="primary" to={`/test/${test._id}`} />
-                </td>
-              </tr>
-            ))
-          }
+          {tests.map(test => (
+            <tr key={test._id}>
+              <td>{test.testSchema.name}</td>
+              <td>
+                {moment
+                  .utc(test.end)
+                  .local()
+                  .format("DD.MM.YYYY HH:mm")}
+              </td>
+              <td>{test.attempt.score}%</td>
+              <td>
+                <Button
+                  variant="icon"
+                  size="small"
+                  icon="arrow-right"
+                  color="primary"
+                  to={`/test/${test._id}`}
+                />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
-  )
-
-}
+  );
+};
 
 MyResults.propTypes = {
-  tetst: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+  tetst: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MyResults;

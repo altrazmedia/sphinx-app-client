@@ -1,23 +1,21 @@
-import * as types from "actions/types"
+import * as types from "actions/types";
 
 const initialState = {
   isUserLoggedIn: false,
   sessionExpired: false,
-  loading: false, 
+  loading: false,
   error: null,
-  data: {}
+  data: {},
 };
 
 export default (state = initialState, action) => {
-
-  switch(action.type) {
-
+  switch (action.type) {
     case types.LOGIN: {
       return {
         ...state,
         isUserLoggedIn: true,
-        sessionExpired: false
-      }
+        sessionExpired: false,
+      };
     }
 
     case types.LOGOUT: {
@@ -25,15 +23,15 @@ export default (state = initialState, action) => {
         ...state,
         isUserLoggedIn: false,
         sessionExpired: Boolean(action.payload),
-        data: {}
-      }
+        data: {},
+      };
     }
 
     case types.CURRENT_USER_LOADING: {
       return {
         ...state,
-        loading: action.payload
-      }
+        loading: action.payload,
+      };
     }
 
     case types.CURRENT_USER_SUCCESS: {
@@ -41,8 +39,8 @@ export default (state = initialState, action) => {
         ...state,
         data: action.payload,
         error: null,
-        loading: false
-      }
+        loading: false,
+      };
     }
 
     case types.CURRENT_USER_ERROR: {
@@ -50,14 +48,12 @@ export default (state = initialState, action) => {
         ...state,
         data: {},
         error: action.payload,
-        loading: false
-      }
+        loading: false,
+      };
     }
 
     default: {
       return state;
     }
-    
   }
-
-}
+};
