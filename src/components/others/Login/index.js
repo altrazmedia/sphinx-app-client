@@ -49,7 +49,7 @@ class Login extends PureComponent {
           </div>
           <div className="login__form-wrapper">
             <form onSubmit={this.handleSubmit} className="login__form">
-              <img src={logo} className="login__logo" />
+              <img src={logo} alt="SphinxApp" className="login__logo" />
               {sessionExpired && (
                 <p className="login__session-expired">
                   <Icon name="exclamation-circle" size="small" color="error" />
