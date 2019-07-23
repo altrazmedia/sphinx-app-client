@@ -1,14 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import {
-  Loader,
-  PageHeader,
-  Illustration,
-  Button,
-  Menu,
-  FAB,
-} from "components/common";
+import { Loader, PageHeader, Illustration, Menu, FAB } from "components/common";
 
 import List from "./List";
 import Add from "./Add";

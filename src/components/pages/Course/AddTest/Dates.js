@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Trans, withTranslation } from "react-i18next";
+import { withTranslation } from "react-i18next";
 import { Input, Checkbox, Button } from "components/common";
 
 import moment from "moment";
