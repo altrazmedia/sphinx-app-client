@@ -11,7 +11,7 @@ export const fetchUsersList = () => dispatch => {
   });
 
   axios
-    .get("users")
+    .get("users/list")
     .then(response => {
       dispatch({
         type: types.USERS_LIST_SUCCESS,

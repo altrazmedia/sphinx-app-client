@@ -13,7 +13,7 @@ export const fetchTestsSchemasList = payload => dispatch => {
   });
 
   const { subject } = payload;
-  let path = "testsSchemas";
+  let path = "testsSchemas/list";
 
   if (subject) {
     path += `?subject=${subject}`;
@@ -49,7 +49,7 @@ export const fetchTestSchema = payload => dispatch => {
   const { testSchema } = payload;
 
   axios
-    .get(`testsSchemas/${testSchema}`)
+    .get(`testsSchemas/single/${testSchema}`)
     .then(response => {
       dispatch({
         type: types.TEST_SCHEMA_SUCCESS,

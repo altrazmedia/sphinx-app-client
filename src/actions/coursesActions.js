@@ -92,7 +92,7 @@ export const fetchCoursesList = () => dispatch => {
   });
 
   axios
-    .get("courses")
+    .get("courses/list")
     .then(response => {
       dispatch({
         type: types.COURSES_LIST_SUCCESS,

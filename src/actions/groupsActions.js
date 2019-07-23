@@ -11,7 +11,7 @@ export const fetchGroupsList = () => dispatch => {
   });
 
   axios
-    .get("groups")
+    .get("groups/list")
     .then(response => {
       dispatch({
         type: types.GROUPS_LIST_SUCCESS,
@@ -40,7 +40,7 @@ export const fetchSingleGroup = payload => dispatch => {
   });
 
   axios
-    .get(`groups/${code}`)
+    .get(`groups/single/${code}`)
     .then(response => {
       dispatch({
         type: types.GROUP_SUCCESS,

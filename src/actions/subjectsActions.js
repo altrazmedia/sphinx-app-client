@@ -11,7 +11,7 @@ export const fetchSubjects = () => dispatch => {
   });
 
   axios
-    .get("subjects")
+    .get("subjects/list")
     .then(response => {
       dispatch({
         type: types.SUBJECTS_SUCCESS,
