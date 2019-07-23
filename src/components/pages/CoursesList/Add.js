@@ -187,6 +187,11 @@ class AddCourse extends PureComponent {
   };
 }
 
+AddCourse.propTypes = {
+  close: PropTypes.func.isRequired,
+  // closing the window
+};
+
 const EMIT = dispatch => ({
   fetchUsers: () => dispatch(fetchUsersList()),
   fetchSubjects: () => dispatch(fetchSubjects()),

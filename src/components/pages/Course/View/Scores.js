@@ -89,4 +89,9 @@ const Scores = props => {
   );
 };
 
+Scores.propTypes = {
+  students: PropTypes.arrayOf(PropTypes.object),
+  tests: PropTypes.arrayOf(PropTypes.object),
+};
+
 export default Scores;
