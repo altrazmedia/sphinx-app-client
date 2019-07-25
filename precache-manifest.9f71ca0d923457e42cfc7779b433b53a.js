@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed62fa4501662637f3fa579bb9a41a0b",
+    "revision": "e61481d0d30a5b28b3f257d12ff937dd",
     "url": "/sphinx-app-client/index.html"
   },
   {
-    "revision": "4238dc02fd88fdbe657d",
+    "revision": "569f0dba08aa2a2f7510",
     "url": "/sphinx-app-client/static/css/main.cef17ba1.chunk.css"
   },
   {
-    "revision": "ab02e072c850167507a2",
-    "url": "/sphinx-app-client/static/js/2.ea79708b.chunk.js"
+    "revision": "7fbd9293a7be2896812a",
+    "url": "/sphinx-app-client/static/js/2.4175e537.chunk.js"
   },
   {
-    "revision": "4238dc02fd88fdbe657d",
-    "url": "/sphinx-app-client/static/js/main.c0c3eab0.chunk.js"
+    "revision": "569f0dba08aa2a2f7510",
+    "url": "/sphinx-app-client/static/js/main.b3745725.chunk.js"
   },
   {
     "revision": "6b021893c1b2bc7eb54e",

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sphinx-app-client/precache-manifest.a9e8f067990e50c2bc1ebbecb34f2458.js"
+  "/sphinx-app-client/precache-manifest.9f71ca0d923457e42cfc7779b433b53a.js"
 );
 
 self.addEventListener('message', (event) => {
