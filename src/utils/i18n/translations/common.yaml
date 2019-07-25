@@ -56,5 +56,14 @@ makeSureUrl:
   en: Make sure you typed the URL address correctly
   pl: Upewnij się, że adres URL został wpisany poprawnie
 sessionExpired:
-  en: Your session has expired. You have to log in again. 
+  en: Your session has expired. You have to log in again.
   pl: Twoja sesja wygasła. Zaloguj się ponownie.
+404.header:
+  en: It looks like you're lost...
+  pl: Wygląda na to, że się zgubiłeś...
+404.description:
+  en: We couldn't find the page you're looking for.
+  pl: Nie znaleźliśmy szukanej przez Ciebie strony.
+404.goBack:
+  en: Go back to the main page.
+  pl: Powróć do strony głównej.
