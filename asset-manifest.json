@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sphinx-app-client/static/css/main.cef17ba1.chunk.css",
+    "main.js": "/sphinx-app-client/static/js/main.c0c3eab0.chunk.js",
+    "main.js.map": "/sphinx-app-client/static/js/main.c0c3eab0.chunk.js.map",
+    "runtime~main.js": "/sphinx-app-client/static/js/runtime~main.236a1395.js",
+    "runtime~main.js.map": "/sphinx-app-client/static/js/runtime~main.236a1395.js.map",
+    "static/js/2.ea79708b.chunk.js": "/sphinx-app-client/static/js/2.ea79708b.chunk.js",
+    "static/js/2.ea79708b.chunk.js.map": "/sphinx-app-client/static/js/2.ea79708b.chunk.js.map",
+    "index.html": "/sphinx-app-client/index.html",
+    "precache-manifest.a9e8f067990e50c2bc1ebbecb34f2458.js": "/sphinx-app-client/precache-manifest.a9e8f067990e50c2bc1ebbecb34f2458.js",
+    "service-worker.js": "/sphinx-app-client/service-worker.js",
+    "static/css/main.cef17ba1.chunk.css.map": "/sphinx-app-client/static/css/main.cef17ba1.chunk.css.map",
+    "static/media/404.7e78c4ae.svg": "/sphinx-app-client/static/media/404.7e78c4ae.svg",
+    "static/media/choice.18868771.svg": "/sphinx-app-client/static/media/choice.18868771.svg",
+    "static/media/empty.ffba73e6.svg": "/sphinx-app-client/static/media/empty.ffba73e6.svg",
+    "static/media/hello.0ea5dce0.svg": "/sphinx-app-client/static/media/hello.0ea5dce0.svg",
+    "static/media/interface.350c12da.svg": "/sphinx-app-client/static/media/interface.350c12da.svg",
+    "static/media/logo-inv.png": "/sphinx-app-client/static/media/logo-inv.9667b4c8.png",
+    "static/media/logo.png": "/sphinx-app-client/static/media/logo.a7e13867.png",
+    "static/media/search.deae67e1.svg": "/sphinx-app-client/static/media/search.deae67e1.svg",
+    "static/media/uk.png": "/sphinx-app-client/static/media/uk.a7fc19d7.png",
+    "static/media/warning.98e9cdea.svg": "/sphinx-app-client/static/media/warning.98e9cdea.svg"
+  }
+}
