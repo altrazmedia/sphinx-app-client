@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.0.1",
     "i18next": "^15.1.3",
     "lodash.uniqueid": "^4.0.1",
     "moment": "^2.24.0",
@@ -23,11 +24,14 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
+  "homepage": "https://altrazmedia.github.io/sphinx-app-client",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
