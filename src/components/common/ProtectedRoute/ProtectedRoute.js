@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
 /** Returning the react-router-dom Route if user has a required role  */
@@ -15,7 +15,7 @@ export const ProtectedRoute = props => {
     return <Route {...rest} />;
   }
 
-  return null;
+  return <Redirect to="/" />;
 };
 
 ProtectedRoute.propTypes = {

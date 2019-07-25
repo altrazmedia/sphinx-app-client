@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -21,22 +21,32 @@ describe("ProtectedRoute component", () => {
 
   beforeEach(resetWrapper);
 
-  it("doesn't render anything if there's no logged in user", () => {
+  it("renders the Redirect component if there's no logged in user", () => {
     props.currentUser = {
       isUserLoggedIn: false,
     };
 
-    expect(protectedRoute().type()).toBeFalsy();
+    expect(protectedRoute().type()).toBe(Redirect);
+    expect(
+      protectedRoute()
+        .find(Redirect)
+        .prop("to")
+    ).toBe("/");
   });
 
-  it("doesn't render anything if the user's role is not inlcuded in `roles` prop array", () => {
+  it("renders the Redirect component if the user's role is not inlcuded in `roles` prop array", () => {
     props.currentUser = {
       isUserLoggedIn: true,
       data: { role: "student" },
     };
     props.roles = ["admin"];
 
-    expect(protectedRoute().type()).toBeFalsy();
+    expect(protectedRoute().type()).toBe(Redirect);
+    expect(
+      protectedRoute()
+        .find(Redirect)
+        .prop("to")
+    ).toBe("/");
   });
 
   it("if there is a logged in user with a proper role  - renders the Route component and passes all the other props to it", () => {
