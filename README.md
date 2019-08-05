@@ -4,7 +4,7 @@
 
 Client application was made with React (CRA) and Redux. 
 
-Live: http://altrazmedia.com/sphinx/
+Live: http://altrazmedia.com/sphinx/. Login as a teacher (email: "geograf@test.pl", password: "abcde") or as a student (email: "ilona@wp.pl", password: "ilona").
 
 API: https://github.com/altrazmedia/sphinx-app-server
 
